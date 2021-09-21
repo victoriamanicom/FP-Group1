@@ -1,6 +1,7 @@
 import Navbar from "react-bootstrap/NavBar";
 import "material-icons/iconfont/material-icons.css";
 import "./App.css";
+import SearchBar from "./components/searchBar/SearchBar";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           National Investigation Unit
         </Navbar.Brand>
       </Navbar>
+      <SearchBar />
     </div>
   );
 }
