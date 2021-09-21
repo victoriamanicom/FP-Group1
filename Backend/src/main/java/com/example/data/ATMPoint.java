@@ -1,24 +1,12 @@
 package com.example.data;
 
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 public class ATMPoint {
-
-	private Long atmId;
-	private String operator;
-	private String streetName;
-	private String postcode;
-	private Double latitude;
-	private Double longitude;
-
-	public ATMPoint(String operator, String streetName, String postcode, Double latitude, Double longitude) {
-
-		super();
-		this.operator = operator;
-		this.streetName = streetName;
-		this.postcode = postcode;
-		this.latitude = latitude;
-		this.longitude = longitude;
-
-	}
 
 	public ATMPoint(Long atmId, String operator, String streetName, String postcode, Double latitude,
 			Double longitude) {
@@ -33,9 +21,42 @@ public class ATMPoint {
 
 	}
 
+	public ATMPoint(String operator, String streetName, String postcode, Double latitude, Double longitude) {
+
+		super();
+		this.operator = operator;
+		this.streetName = streetName;
+		this.postcode = postcode;
+		this.latitude = latitude;
+		this.longitude = longitude;
+
+	}
+
 	public ATMPoint() {
 		super();
 	}
+
+	@OneToMany(mappedBy = "atmId")
+	private Set<ATMTransaction> ATMTransactions;
+
+	@Id
+	@Column(name = "atmId")
+	private Long atmId;
+
+	@Column(name = "operator")
+	private String operator;
+
+	@Column(name = "streetName")
+	private String streetName;
+
+	@Column(name = "postcode")
+	private String postcode;
+
+	@Column(name = "latitude")
+	private Double latitude;
+
+	@Column(name = "longitude")
+	private Double longitude;
 
 	public Long getAtmId() {
 		return atmId;
@@ -83,6 +104,14 @@ public class ATMPoint {
 
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+
+	public Set<ATMTransaction> getATMTransactions() {
+		return ATMTransactions;
+	}
+
+	public void setAtmTransactions(Set<ATMTransaction> ATMTransactions) {
+		this.ATMTransactions = ATMTransactions;
 	}
 
 }
