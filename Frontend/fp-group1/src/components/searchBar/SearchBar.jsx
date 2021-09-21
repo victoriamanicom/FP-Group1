@@ -1,4 +1,7 @@
 import Col from 'react-bootstrap/Col';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import './SearchBar.css';
 
 const SearchBar = ({handleSearch, handleReset}) => {
 
@@ -24,23 +27,6 @@ const SearchBar = ({handleSearch, handleReset}) => {
                         </Form.Select>
                     </FloatingLabel>
                 </Col>
-                            <label>Surname</label>
-                            <label class="container">Female
-                                <input type="checkbox"/>
-                                <span class="checkmark"></span>
-                            </label>
-                            <button type="submit">Search</button>
-                        
-                        <div class="col">
-                            <input type="text" name="searchForenames"/>
-                            <input type="text" name="searchSurname"/>
-                            <label class="container">Male
-                                <input type="checkbox"/>
-                                <span class="checkmark"></span>
-                            </label>
-                            <button onClick={handleReset}>Reset</button>
-                        </div>
-                    </div>
                 
             </form>
         </>
