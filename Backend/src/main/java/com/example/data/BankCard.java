@@ -110,4 +110,20 @@ public class BankCard {
 		this.bank = bank;
 	}
 
+	public Set<ATMTransaction> getATMTransactions() {
+		return atmTransactions;
+	}
+
+	public void setAtmTransactions(Set<ATMTransaction> atmTransactions) {
+		this.atmTransactions = atmTransactions;
+	}
+
+	public Set<EPOSTransactions> getEPOSTransactions() {
+		return eposTransactions;
+	}
+
+	public void setEPOSTransactions(Set<EPOSTransactions> eposTransactions) {
+		this.eposTransactions = eposTransactions;
+	}
+
 }
