@@ -10,19 +10,19 @@ const CitizenReturn = () => {
         lastName: "Last Name",
         dob: "DD/MM/YYYY",
         sex: "Male",
-        Address: "Street Name"
+        Address: "5 Street Name"
     },{
         firstName: "First Name",
         lastName: "Last Name",
         dob: "DD/MM/YYYY",
         sex: "Male",
-        Address: "Street Name"
+        Address: "6 Street Name"
     },{
         firstName: "First Name",
         lastName: "Last Name",
         dob: "DD/MM/YYYY",
         sex: "Male",
-        Address: "Street Name"
+        Address: "7 Street Name"
     }
 ]
 
