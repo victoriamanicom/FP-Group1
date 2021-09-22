@@ -2,18 +2,10 @@ package com.example.data;
 
 import java.math.BigInteger;
 
-public class Passports {
+import javax.persistence.Column;
+import javax.persistence.Id;
 
-	private BigInteger passportNumber;
-	private String surname;
-	private String givenName;
-	private String nationality;
-	private String dob;
-	private String sex;
-	private String placeOfBirth;
-	private String issuingCountry;
-	private String dateOfIssue;
-	private String dateOfExpiry;
+public class Passports {
 
 	public Passports(BigInteger passportNumber, String surname, String givenName, String nationality, String dob,
 			String sex, String placeOfBirth, String issuingCountry, String dateOfIssue, String dateOfExpiry) {
@@ -51,6 +43,37 @@ public class Passports {
 	public Passports() {
 		super();
 	}
+
+	@Id
+	@Column(name = "passport_number")
+	private BigInteger passportNumber;
+
+	@Column(name = "surname")
+	private String surname;
+
+	@Column(name = "given_name")
+	private String givenName;
+
+	@Column(name = "nationality")
+	private String nationality;
+
+	@Column(name = "dob")
+	private String dob;
+
+	@Column(name = "sex")
+	private String sex;
+
+	@Column(name = "place_of_birth")
+	private String placeOfBirth;
+
+	@Column(name = "issuing_country")
+	private String issuingCountry;
+
+	@Column(name = "date_of_issue")
+	private String dateOfIssue;
+
+	@Column(name = "date_of_expiry")
+	private String dateOfExpiry;
 
 	public BigInteger getPassportNumber() {
 		return passportNumber;
