@@ -1,13 +1,12 @@
 package com.example.data;
 
-public class EPOS {
+import java.util.Set;
 
-	private Long id;
-	private String vendor;
-	private String streetName;
-	private String postcode;
-	private Double latitude;
-	private Double longitude;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+public class EPOS {
 
 	public EPOS(Long id, String vendor, String streetName, String postcode, Double latitude, Double longitude) {
 
@@ -35,6 +34,28 @@ public class EPOS {
 	public EPOS() {
 		super();
 	}
+
+	@OneToMany(mappedBy = "id")
+	private Set<EPOSTransactions> EPOSTransactions;
+
+	@Id
+	@Column(name = "id")
+	private Long id;
+
+	@Column(name = "vendor")
+	private String vendor;
+
+	@Column(name = "street_name")
+	private String streetName;
+
+	@Column(name = "postcode")
+	private String postcode;
+
+	@Column(name = "latitude")
+	private Double latitude;
+
+	@Column(name = "longitude")
+	private Double longitude;
 
 	public Long getId() {
 		return id;
@@ -82,6 +103,14 @@ public class EPOS {
 
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+
+	public Set<EPOSTransactions> getEPOSTransactions() {
+		return EPOSTransactions;
+	}
+
+	public void setEposTransactions(Set<EPOSTransactions> EPOSTransactions) {
+		this.EPOSTransactions = EPOSTransactions;
 	}
 
 }
