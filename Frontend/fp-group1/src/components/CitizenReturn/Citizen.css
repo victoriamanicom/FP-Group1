@@ -1,0 +1,12 @@
+.h5 {
+  font-size: 17px;
+  padding: 5px;
+}
+
+p {
+  font-size: 13px;
+}
+
+#root > div > div > div > div > div > div {
+  padding: 5px;
+}

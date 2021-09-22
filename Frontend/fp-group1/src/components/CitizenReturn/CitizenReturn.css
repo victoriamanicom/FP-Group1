@@ -1,0 +1,16 @@
+.citizenList {
+  margin: 2px;
+  padding: 10px;
+  background-color: #364b69;
+  border-radius: 4px;
+}
+
+#root > div > div > div > div {
+  margin: 5px;
+  text-align: left;
+  padding: 2px;
+}
+
+#root > div > div > div > div > div > div > p > div {
+  align-items: flex-start;
+}

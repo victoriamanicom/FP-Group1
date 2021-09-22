@@ -4,6 +4,8 @@ import "material-icons/iconfont/material-icons.css";
 import SearchBar from "./components/searchBar/SearchBar";
 import { useState } from 'react';
 import axios from 'axios';
+import CitizenReturn from "./components/CitizenReturn/CitizenReturn";
+
 
 function App() {
 
@@ -31,8 +33,8 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar className="navbarHeader" fixed="sticky" variant="dark">
-        <Navbar.Brand href="">
+      <Navbar className="navbarHeader" sticky="top">
+        <Navbar.Brand className="navbarTitle" href="">
           <span className="material-icons">privacy_tip</span>
           National Investigation Unit
         </Navbar.Brand>
@@ -41,6 +43,7 @@ function App() {
       suspectForenames={suspectForenames} setSuspectForenames={setSuspectForenames}
       suspectSurname={suspectSurname} setSuspectSurname={setSuspectSurname}
       suspectGender={suspectGender} setSuspectGender={setSuspectGender}/>
+      <CitizenReturn />
     </div>
   );
 }
