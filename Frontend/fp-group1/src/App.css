@@ -16,14 +16,10 @@ div.App {
   justify-content: center;
   text-align: left;
   font-size: 19px;
-<<<<<<< Updated upstream
-  color: white;
-=======
 }
 
 #root > div > nav > span {
   color: whitesmoke;
->>>>>>> Stashed changes
 }
 
 /* @keyframes App-logo-spin {
