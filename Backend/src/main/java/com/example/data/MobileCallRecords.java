@@ -1,12 +1,9 @@
 package com.example.data;
 
-public class MobileCallRecords {
+import javax.persistence.Column;
+import javax.persistence.Id;
 
-	private String timestamp;
-	private String callerMSISDN;
-	private Long callCellTowerId;
-	private String receiverMSISDN;
-	private Long receiverTowerId;
+public class MobileCallRecords {
 
 	public MobileCallRecords(String timestamp, String callerMSISDN, Long callCellTowerId, String receiverMSISDN,
 			Long receiverTowerId) {
@@ -27,6 +24,22 @@ public class MobileCallRecords {
 	public MobileCallRecords() {
 		super();
 	}
+
+	@Id
+	@Column(name = "timestamp")
+	private String timestamp;
+
+	@Column(name = "caller_MSISDN")
+	private String callerMSISDN;
+
+	@Column(name = "call_cell_tower_id")
+	private Long callCellTowerId;
+
+	@Column(name = "receiver_MSISDN")
+	private String receiverMSISDN;
+
+	@Column(name = "receiver_tower_id")
+	private Long receiverTowerId;
 
 	public String getTimestamp() {
 		return timestamp;
