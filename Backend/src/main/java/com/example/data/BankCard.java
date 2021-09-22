@@ -16,7 +16,6 @@ public class BankCard {
 		this.cardNumber = cardNumber;
 		this.sortCode = sortCode;
 		this.bankAccountId = bankAccountId;
-		this.accountNumber = accountNumber;
 		this.bank = bank;
 
 	}
@@ -95,11 +94,11 @@ public class BankCard {
 		this.bankAccountId = bankAccountId;
 	}
 
-	public Long getAccountNumber() {
+	public PeopleBankAccount getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(Long accountNumber) {
+	public void setAccountNumber(PeopleBankAccount accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 

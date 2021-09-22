@@ -1,14 +1,12 @@
 package com.example.data;
 
-public class PeopleBankAccount {
+import java.util.Set;
 
-	private Long bankAccountId;
-	private Long accountNumber;
-	private String bank;
-	private String forenames;
-	private String surname;
-	private String dateOfBirth;
-	private String homeAddress;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+public class PeopleBankAccount {
 
 	public PeopleBankAccount(Long bankAccountId, Long accountNumber, String bank, String forenames, String surname,
 			String dateOfBirth, String homeAddress) {
@@ -36,6 +34,31 @@ public class PeopleBankAccount {
 	public PeopleBankAccount() {
 		super();
 	}
+
+	@Column(name = "bank_account_id")
+	private Long bankAccountId;
+
+	@Id
+	@Column(name = "account_number")
+	private Long accountNumber;
+
+	@Column(name = "bank")
+	private String bank;
+
+	@Column(name = "forenames")
+	private String forenames;
+
+	@Column(name = "surname")
+	private String surname;
+
+	@Column(name = "date_of_birth")
+	private String dateOfBirth;
+
+	@Column(name = "home_address")
+	private String homeAddress;
+
+	@OneToMany(mappedBy = "accountNumber")
+	private Set<BankCard> bankCards;
 
 	public Long getBankAccountId() {
 		return bankAccountId;
@@ -91,6 +114,14 @@ public class PeopleBankAccount {
 
 	public void setHomeAddress(String homeAddress) {
 		this.homeAddress = homeAddress;
+	}
+
+	public Set<BankCard> getBankCards() {
+		return bankCards;
+	}
+
+	public void setBankCards(Set<BankCard> bankCards) {
+		this.bankCards = bankCards;
 	}
 
 }
