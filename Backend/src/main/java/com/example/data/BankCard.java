@@ -1,13 +1,14 @@
 package com.example.data;
 
-public class BankCard {
+import java.util.Set;
 
-	private Long bankCardId;
-	private Long cardNumber;
-	private String sortCode;
-	private Long bankAccountId;
-	private Long accountNumber;
-	private String bank;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+public class BankCard {
 
 	public BankCard(Long cardNumber, String sortCode, Long bankAccountId, Long accountNumber, String bank) {
 
@@ -35,6 +36,32 @@ public class BankCard {
 	public BankCard() {
 		super();
 	}
+
+	@Column(name = "bank_card_id")
+	private Long bankCardId;
+
+	@Id
+	@Column(name = "card_number")
+	private Long cardNumber;
+
+	@Column(name = "sort_code")
+	private String sortCode;
+
+	@Column(name = "bank_account_id")
+	private Long bankAccountId;
+
+	@OneToMany(mappedBy = "bankCardNumber")
+	private Set<ATMTransaction> atmTransactions;
+
+	@OneToMany(mappedBy = "bankCardNumber")
+	private Set<EPOSTransactions> eposTransactions;
+
+	@ManyToOne
+	@JoinColumn(name = "account_number", nullable = false)
+	private PeopleBankAccount accountNumber;
+
+	@Column(name = "bank")
+	private String bank;
 
 	public Long getBankCardId() {
 		return bankCardId;
