@@ -10,8 +10,8 @@ const Citizen = ({firstName, lastName, dob, sex, Address}) => {
                             <Card.Body>
                                 <Card.Title><a href="">{firstName} {lastName}</a></Card.Title>
                                 <Card.Text>
-                                    <Row>
-                                        <Col>
+                                    <Row >
+                                        <Col xs={4}>
                                         <p>D.O.B: {dob}</p>
                                         <p>Gender: {sex}</p>
                                         </Col>

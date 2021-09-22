@@ -5,20 +5,32 @@ import Container from 'react-bootstrap/Container';
 
 const CitizenReturn = () => {
 
-    const citizen = {
-        firstName: "Andrew",
-        lastName: "Roy Slater",
+    const citizens = [{
+        firstName: "First Name",
+        lastName: "Last Name",
+        dob: "DD/MM/YYYY",
+        sex: "Male",
+        Address: "Street Name"
+    },{
+        firstName: "First Name",
+        lastName: "Last Name",
+        dob: "DD/MM/YYYY",
+        sex: "Male",
+        Address: "Street Name"
+    },{
+        firstName: "First Name",
+        lastName: "Last Name",
         dob: "DD/MM/YYYY",
         sex: "Male",
         Address: "Street Name"
     }
+]
 
     return (
         
             <div className="citizenList">
                 <Container>
-                    <Citizen {...citizen}/>
-                    <Citizen />
+                    {citizens.map(citizen => <Citizen {...citizen} />)}
                     
                 </Container>
             </div>

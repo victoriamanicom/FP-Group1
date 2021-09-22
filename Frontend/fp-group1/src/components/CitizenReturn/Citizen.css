@@ -11,7 +11,9 @@ p {
 
 #root > div > div > div > div > div > div {
   padding: 5px;
+  min-height: 133px;
 }
+
 #root > div > div > div > div > div > div > p > div > div {
   align-items: center;
   margin: 2px;
