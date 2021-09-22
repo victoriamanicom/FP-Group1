@@ -11,12 +11,12 @@ const SearchBar = ({handleSearch, handleReset}) => {
         <>
             <Form id="searchBarForm" onSubmit={handleSearch}>
                 <Row>
-                    <Col xs={4}>
+                    <Col >
                         <FloatingLabel controlId="floatingForenames" label="Forenames">
                             <Form.Control type="text" name="searchForenames" placeholder="Forename"/>
                         </FloatingLabel>
                     </Col>
-                    <Col xs={4}>
+                    <Col >
                         <FloatingLabel controlId="floatingSurname" label="Surname">
                             <Form.Control type="text" name="searchSurname" placeholder="Surname"/>
                         </FloatingLabel>
@@ -30,12 +30,12 @@ const SearchBar = ({handleSearch, handleReset}) => {
                             </Form.Select>
                         </FloatingLabel>
                     </Col>
-                    <Col>
-                        <Button id="searchButton" variant="primary" size="lg">Search</Button>
+                    <Col xs={2} id="buttonColumn">
+                        <Button id="searchButton" >Search</Button>
+                        <br />
+                        <Button id="resetButton" >Reset</Button>
                     </Col>
-                    <Col>
-                        <Button id="resetButton" variant="primary" size="lg">Reset</Button>
-                    </Col>
+                    
                 </Row>
                 
             </Form>
