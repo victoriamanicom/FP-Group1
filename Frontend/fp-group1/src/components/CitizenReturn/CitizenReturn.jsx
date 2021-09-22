@@ -3,28 +3,28 @@ import Citizen from "./Citizen";
 import Container from 'react-bootstrap/Container';
 
 
-const CitizenReturn = () => {
+const CitizenReturn = ({citizens}) => {
 
-    const citizens = [{
-        firstName: "First Name",
-        lastName: "Last Name",
-        dob: "DD/MM/YYYY",
-        sex: "Male",
-        Address: "5 Street Name"
-    },{
-        firstName: "First Name",
-        lastName: "Last Name",
-        dob: "DD/MM/YYYY",
-        sex: "Male",
-        Address: "6 Street Name"
-    },{
-        firstName: "First Name",
-        lastName: "Last Name",
-        dob: "DD/MM/YYYY",
-        sex: "Male",
-        Address: "7 Street Name"
-    }
-]
+//    const citizens = [{
+//        firstName: "First Name",
+//        lastName: "Last Name",
+//        dob: "DD/MM/YYYY",
+//        sex: "Male",
+//        Address: "5 Street Name"
+//    },{
+//        firstName: "First Name",
+//       lastName: "Last Name",
+//        dob: "DD/MM/YYYY",
+//        sex: "Male",
+//        Address: "6 Street Name"
+//    },{
+//        firstName: "First Name",
+//        lastName: "Last Name",
+//        dob: "DD/MM/YYYY",
+//        sex: "Male",
+//        Address: "7 Street Name"
+//    }
+//]
 
     return (
         

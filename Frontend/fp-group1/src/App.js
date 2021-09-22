@@ -43,7 +43,7 @@ function App() {
       suspectForenames={suspectForenames} setSuspectForenames={setSuspectForenames}
       suspectSurname={suspectSurname} setSuspectSurname={setSuspectSurname}
       suspectGender={suspectGender} setSuspectGender={setSuspectGender}/>
-      <CitizenReturn />
+      <CitizenReturn citizens={citizens}/>
     </div>
   );
 }
