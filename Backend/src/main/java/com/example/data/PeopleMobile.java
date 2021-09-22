@@ -1,7 +1,10 @@
 package com.example.data;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 public class PeopleMobile {
 
@@ -43,6 +46,9 @@ public class PeopleMobile {
 
 	@Column(name = "phone_number")
 	private String phoneNumber;
+
+	@OneToMany(mappedBy = "callerMSISDN")
+	private Set<MobileCallRecords> mobileCallRecords;
 
 	@Column(name = "network")
 	private String network;
@@ -109,6 +115,14 @@ public class PeopleMobile {
 
 	public void setNetwork(String network) {
 		this.network = network;
+	}
+
+	public Set<MobileCallRecords> getMobileCallRecords() {
+		return mobileCallRecords;
+	}
+
+	public void setMoblieCallRecords(Set<MobileCallRecords> mobileCallRecords) {
+		this.mobileCallRecords = mobileCallRecords;
 	}
 
 	@Override
