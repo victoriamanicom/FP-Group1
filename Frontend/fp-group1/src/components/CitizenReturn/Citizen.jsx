@@ -3,23 +3,21 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-const Citizen = () => {
+const Citizen = (citizen) => {
     return(
         <Row>
                         <Card>
                             <Card.Body>
-                                <Card.Title>First Name, Last Name</Card.Title>
+                                <Card.Title><a href="">{citizen.firstName} {citizen.lastName} </a></Card.Title>
                                 <Card.Text>
                                     <Row>
                                         <Col>
-                                        <p>D.O.B: DD/MM/YYYY</p>
-                                        <p>Gender: </p>
+                                        <p>D.O.B: {citizen.dob} </p>
+                                        <p>Gender: {citizen.sex} </p>
                                         </Col>
                                         <Col>
                                         <p>
-                                            Address: <br />7 Street Name <br/>
-                                            Town <br />
-                                            Postcode
+                                            Address: {citizen.Address}
                                         </p>
                                         </Col>
                                     </Row>

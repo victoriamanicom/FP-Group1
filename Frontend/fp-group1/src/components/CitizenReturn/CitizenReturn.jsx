@@ -4,11 +4,20 @@ import Container from 'react-bootstrap/Container';
 
 
 const CitizenReturn = () => {
+
+    const citizen = {
+        firstName: "Andrew",
+        lastName: "Roy Slater",
+        dob: "DD/MM/YYYY",
+        sex: "Male",
+        Address: "Street Name"
+    }
+
     return (
         
             <div className="citizenList">
                 <Container>
-                    <Citizen />
+                    <Citizen {...citizen}/>
                     <Citizen />
                     
                 </Container>

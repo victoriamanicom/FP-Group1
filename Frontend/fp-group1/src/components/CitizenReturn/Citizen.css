@@ -1,6 +1,8 @@
 .h5 {
-  font-size: 17px;
-  padding: 5px;
+  font-size: 20px;
+  padding: 7px 10px 10px;
+  position: relative;
+  transform: translate(0px, 1vh);
 }
 
 p {
@@ -9,4 +11,10 @@ p {
 
 #root > div > div > div > div > div > div {
   padding: 5px;
+}
+#root > div > div > div > div > div > div > p > div > div {
+  align-items: center;
+  margin: 2px;
+  position: relative;
+  transform: translate(2.5vh);
 }
