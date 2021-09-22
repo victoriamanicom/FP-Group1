@@ -1,12 +1,9 @@
 package com.example.data;
 
-public class PeopleBusinessAddress {
+import javax.persistence.Column;
+import javax.persistence.Id;
 
-	private String personName;
-	private String homeAddress;
-	private String dateOfBirth;
-	private String businessName;
-	private String businessAddress;
+public class PeopleBusinessAddress {
 
 	public PeopleBusinessAddress(String personName, String homeAddress, String dateOfBirth, String businessName,
 			String businessAddress) {
@@ -21,6 +18,22 @@ public class PeopleBusinessAddress {
 	public PeopleBusinessAddress() {
 		super();
 	}
+
+	@Id
+	@Column(name = "person_name")
+	private String personName;
+
+	@Column(name = "home_address")
+	private String homeAddress;
+
+	@Column(name = "date_of_birth")
+	private String dateOfBirth;
+
+	@Column(name = "business_name")
+	private String businessName;
+
+	@Column(name = "business_address")
+	private String businessAddress;
 
 	public String getPersonName() {
 		return personName;
