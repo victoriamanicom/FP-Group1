@@ -12,20 +12,20 @@ const SearchBar = ({handleSearch, handleReset}) => {
                 <Row>
                     <Col md>
                         <FloatingLabel controlId="floatingForenames" label="Forenames">
-                            <Form.Control type="text" name="searchForenames"/>
+                            <Form.Control type="text" name="searchForenames" placeholder="Forename"/>
                         </FloatingLabel>
                     </Col>
                     <Col md>
                         <FloatingLabel controlId="floatingSurname" label="Surname">
-                            <Form.Control type="text" name="searchSurname"/>
+                            <Form.Control type="text" name="searchSurname" placeholder="Surname"/>
                         </FloatingLabel>
                     </Col>
                     <Col md>
                         <FloatingLabel controlId="floatingGender" label="Gender">
                             <Form.Select>
-                                <option value="Female"></option>
-                                <option value="Male"></option>
                                 <option value="Unknown"></option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
                             </Form.Select>
                         </FloatingLabel>
                     </Col>
