@@ -50,14 +50,6 @@ public class Citizen {
 	@Column(name = "sex")
 	private String sex;
 
-	public Long getCitizenID() {
-		return citizenID;
-	}
-
-	public void setCitizenID(Long citizenID) {
-		this.citizenID = citizenID;
-	}
-
 	public String getForenames() {
 		return forenames;
 	}

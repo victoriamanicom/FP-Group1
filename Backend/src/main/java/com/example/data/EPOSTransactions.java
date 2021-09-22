@@ -1,11 +1,11 @@
 package com.example.data;
 
-public class EPOSTransactions {
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-	private Long eposId;
-	private String timestamp;
-	private Long payeeAccount;
-	private Double amount;
+public class EPOSTransactions {
 
 	public EPOSTransactions(Long eposId, String timestamp, Long payeeAccount, Double amount) {
 		super();
@@ -24,13 +24,23 @@ public class EPOSTransactions {
 		super();
 	}
 
-	public Long getEposId() {
-		return eposId;
-	}
+	@Id
+	@Column(name = "timestamp")
+	private String timestamp;
 
-	public void setEposId(Long eposId) {
-		this.eposId = eposId;
-	}
+	@ManyToOne
+	@JoinColumn(name = "epos_id", nullable = false)
+	private EPOS id;
+
+	@ManyToOne
+	@JoinColumn(name = "bank_card_number", nullable = false)
+	private BankCard bankCardNumber;
+
+	@Column(name = "payee_account")
+	private Long payeeAccount;
+
+	@Column(name = "amount")
+	private Double amount;
 
 	public String getTimestamp() {
 		return timestamp;
@@ -54,6 +64,22 @@ public class EPOSTransactions {
 
 	public void setAmount(Double amount) {
 		this.amount = amount;
+	}
+
+	public EPOS getId() {
+		return id;
+	}
+
+	public void setId(EPOS id) {
+		this.id = id;
+	}
+
+	public BankCard getBankCardNumber() {
+		return bankCardNumber;
+	}
+
+	public void setBankCardNumber(BankCard bankCardNumber) {
+		this.bankCardNumber = bankCardNumber;
 	}
 
 }
