@@ -1,0 +1,33 @@
+#searchBarForm {
+  margin: 10px 7px;
+  padding: 15px 25px;
+  background-color: #43608a;
+  color: #364b69;
+  border-radius: 4px;
+  align-content: center;
+}
+
+#searchButton,
+#resetButton {
+  padding: 5px;
+  margin: 5px;
+  width: 90px;
+  color: #364b69;
+  background-color: whitesmoke;
+  border-color: whitesmoke;
+  font-size: 15px;
+}
+
+#searchButton:hover {
+  background-color: #c2d3eb;
+  transition: ease-in-out 350ms;
+}
+
+#resetButton:hover {
+  background-color: #c2d3eb;
+  transition: ease-in-out 350ms;
+}
+
+.row {
+  align-items: center;
+}

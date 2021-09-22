@@ -7,18 +7,19 @@ div.App {
     animation: App-logo-spin infinite 20s linear;
   }
 } */
-
-.navbarHeader {
+#root > div > nav.navbarHeader {
   background-color: #364b69;
   height: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left;
+  align-items: flex-start;
   font-size: 19px;
+
 }
 
 #root > div > nav > span {
+
   color: whitesmoke;
 }
 

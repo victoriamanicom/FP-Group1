@@ -1,7 +1,9 @@
+import "./App.css";
 import Navbar from "react-bootstrap/NavBar";
 import "material-icons/iconfont/material-icons.css";
 import SearchBar from "./components/searchBar/SearchBar";
 import CitizenReturn from "./components/CitizenReturn/CitizenReturn";
+
 
 function App() {
   return (

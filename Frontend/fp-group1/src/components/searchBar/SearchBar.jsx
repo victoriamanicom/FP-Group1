@@ -1,38 +1,44 @@
+import './SearchBar.css';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-
-const SearchBar = ({handleSearch}) => {
-
-    const handleReset = e => {
-        e.preventDefault();
-        e.target.reset();
-    }
+const SearchBar = ({handleSearch, handleReset}) => {
 
     return (
         <>
-            <form id="searchBarForm" onSubmit={handleSearch}>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <label>Forenames</label>
-                            <label>Surname</label>
-                            <label class="container">Female
-                                <input type="checkbox"/>
-                                <span class="checkmark"></span>
-                            </label>
-                            <button type="submit">Search</button>
-                        </div>
-                        <div class="col">
-                            <input type="text" name="searchForenames"/>
-                            <input type="text" name="searchSurname"/>
-                            <label class="container">Male
-                                <input type="checkbox"/>
-                                <span class="checkmark"></span>
-                            </label>
-                            <button onClick={handleReset}>Reset</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+            <Form id="searchBarForm" onSubmit={handleSearch}>
+                <Row>
+                    <Col >
+                        <FloatingLabel controlId="floatingForenames" label="Forenames">
+                            <Form.Control type="text" name="searchForenames" placeholder="Forename"/>
+                        </FloatingLabel>
+                    </Col>
+                    <Col >
+                        <FloatingLabel controlId="floatingSurname" label="Surname">
+                            <Form.Control type="text" name="searchSurname" placeholder="Surname"/>
+                        </FloatingLabel>
+                    </Col>
+                    <Col>
+                        <FloatingLabel controlId="floatingGender" label="Gender">
+                            <Form.Select>
+                                <option value="Unknown"></option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </Form.Select>
+                        </FloatingLabel>
+                    </Col>
+                    <Col xs={2} id="buttonColumn">
+                        <Button id="searchButton" >Search</Button>
+                        <br />
+                        <Button id="resetButton" >Reset</Button>
+                    </Col>
+                    
+                </Row>
+                
+            </Form>
         </>
     )
 
