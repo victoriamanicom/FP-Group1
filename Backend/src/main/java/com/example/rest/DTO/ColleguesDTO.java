@@ -1,5 +1,7 @@
 package com.example.rest.DTO;
 
+//taken from PeopleBusinessAddress linked by BusinessAddress
+
 public class ColleguesDTO {
 
 	public ColleguesDTO(String personName, String dateOfBirth) {
