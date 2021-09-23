@@ -1,8 +1,10 @@
 package com.example.data;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class PeopleBusinessAddress {
 
 	public PeopleBusinessAddress(String personName, String homeAddress, String dateOfBirth, String businessName,

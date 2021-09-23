@@ -3,9 +3,11 @@ package com.example.data;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class PeopleMobile {
 
 	public PeopleMobile(String forenames, String surname, String dateOfBirth, String address, String town,

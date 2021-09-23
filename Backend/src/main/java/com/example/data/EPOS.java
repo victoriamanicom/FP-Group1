@@ -3,9 +3,11 @@ package com.example.data;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class EPOS {
 
 	public EPOS(Long id, String vendor, String streetName, String postcode, Double latitude, Double longitude) {

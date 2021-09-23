@@ -1,8 +1,10 @@
 package com.example.data;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class VehicleRegistration {
 
 	public VehicleRegistration(Long registrationId, String registrationDate, String vehicleRegistrationNo, String make,
