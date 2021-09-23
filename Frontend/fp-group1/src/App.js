@@ -6,6 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import CitizenReturn from "./components/CitizenReturn/CitizenReturn";
 import MobileReturn from "./components/MobileReturn/MobileReturn";
+import FinanceReturn from "./components/FinanceReturn/FinanceReturn";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
       suspectSurname={suspectSurname} setSuspectSurname={setSuspectSurname}
       suspectGender={suspectGender} setSuspectGender={setSuspectGender}/>
       <CitizenReturn citizens={citizens}/>
+      <FinanceReturn/>
     </div>
   );
 }
