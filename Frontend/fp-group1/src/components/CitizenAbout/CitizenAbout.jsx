@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import FinanceReturn from "./FinanceReturn/FinanceReturn";
 import MobileReturn from "./MobileReturn/MobileReturn";
+import VehicleReturn from "./VehicleReturn/VehicleReturn";
 
 const CitizenAbout = ({ citizens }) => {
     const { lastName } = useParams();
@@ -35,7 +36,7 @@ const CitizenAbout = ({ citizens }) => {
                             <MobileReturn />
                         </Route>
                         <Route path="/:lastName/vehicle">
-                            {/* <VehicleReturn /> */}
+                            <VehicleReturn />
                         </Route>
                         <Route path="/:lastName/associates">
                             {/* <AssociatesReturn /> */}
