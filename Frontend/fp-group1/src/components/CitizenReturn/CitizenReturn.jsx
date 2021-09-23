@@ -7,9 +7,8 @@ const CitizenReturn = ({ citizens }) => {
     const { push } = useHistory();
 
     const selectCitizen = (lastName) => {
-        push(`/about/${lastName}`);
+        push(`/${lastName}/about`);
     };
-
 
     return (
         <div className="citizenList">
