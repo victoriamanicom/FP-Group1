@@ -2,19 +2,27 @@
   font-size: 20px;
   padding: 7px 10px 10px;
   position: relative;
-  transform: translate(0px, 1vh);
+  transform: translate(2vh, 1vh);
+  width: fit-content;
+}
+
+.h5:hover {
+  transition: ease-out 100ms;
+  color: #43608a;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 p {
   font-size: 13px;
 }
 
-#root > div > div > div > div > div > div {
+#root > div > div > div > div > div {
   padding: 5px;
   min-height: 133px;
 }
 
-#root > div > div > div > div > div > div > p > div > div {
+#root > div > div > div > div > div > p > div {
   align-items: center;
   margin: 2px;
   position: relative;
