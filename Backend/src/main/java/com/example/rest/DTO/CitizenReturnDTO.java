@@ -1,8 +1,13 @@
 package com.example.rest.DTO;
 
-public class CitizenDTO {
+public class CitizenReturnDTO {
 
-	public CitizenDTO(String forenames, String surname, String homeAddress, String dateOfBirth) {
+	private String forenames;
+	private String surname;
+	private String homeAddress;
+	private String dateOfBirth;
+
+	public CitizenReturnDTO(String forenames, String surname, String homeAddress, String dateOfBirth) {
 		super();
 		this.forenames = forenames;
 		this.surname = surname;
@@ -10,17 +15,9 @@ public class CitizenDTO {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public CitizenDTO() {
+	public CitizenReturnDTO() {
 		super();
 	}
-
-	private String forenames;
-
-	private String surname;
-
-	private String homeAddress;
-
-	private String dateOfBirth;
 
 	public String getForenames() {
 		return forenames;
@@ -73,7 +70,7 @@ public class CitizenDTO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CitizenDTO other = (CitizenDTO) obj;
+		CitizenReturnDTO other = (CitizenReturnDTO) obj;
 		if (dateOfBirth == null) {
 			if (other.dateOfBirth != null)
 				return false;
