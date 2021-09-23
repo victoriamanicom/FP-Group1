@@ -3,11 +3,13 @@ package com.example.data;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+@Entity
 public class BankCard {
 
 	public BankCard(Long cardNumber, String sortCode, Long bankAccountId, Long accountNumber, String bank) {
