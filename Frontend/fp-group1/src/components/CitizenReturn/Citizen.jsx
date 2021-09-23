@@ -13,7 +13,7 @@ const Citizen = ({firstName, lastName, dob, sex, Address, selectCitizen}) => {
         <Row>
                         <Card>
                             <Card.Body>
-                                <Card.Title><h5 onClick={selectCitizen}>{firstName} {lastName}</h5></Card.Title>
+                                <Card.Title><h5 onClick={() => selectCitizen(lastName)}>{firstName} {lastName}</h5></Card.Title>
                                 <Card.Text>
                                     <Row >
                                         <Col xs={4}>

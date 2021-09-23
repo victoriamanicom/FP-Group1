@@ -9,57 +9,39 @@ const CitizenReturn = () => {
 
     const citizens = [{
         firstName: "First Name",
-        lastName: "Last Name",
+        lastName: "Last Name 1 ",
         dob: "DD/MM/YYYY",
         sex: "Male",
         Address: "5 Street Name"
     },{
         firstName: "First Name",
-        lastName: "Last Name",
+        lastName: "Last Name 2 ",
         dob: "DD/MM/YYYY",
         sex: "Male",
         Address: "6 Street Name"
     },{
         firstName: "First Name",
-        lastName: "Last Name",
+        lastName: "Last Name 3 ",
         dob: "DD/MM/YYYY",
         sex: "Male",
         Address: "7 Street Name"
     },{
         firstName: "First Name",
-        lastName: "Last Name",
+        lastName: "Last Name 4 ",
         dob: "DD/MM/YYYY",
         sex: "Male",
         Address: "7 Street Name"
     },{
         firstName: "First Name",
-        lastName: "Last Name",
-        dob: "DD/MM/YYYY",
-        sex: "Male",
-        Address: "7 Street Name"
-    },{
-        firstName: "First Name",
-        lastName: "Last Name",
-        dob: "DD/MM/YYYY",
-        sex: "Male",
-        Address: "7 Street Name"
-    },{
-        firstName: "First Name",
-        lastName: "Last Name",
-        dob: "DD/MM/YYYY",
-        sex: "Male",
-        Address: "7 Street Name"
-    },{
-        firstName: "First Name",
-        lastName: "Last Name",
+        lastName: "Last Name 5",
         dob: "DD/MM/YYYY",
         sex: "Male",
         Address: "7 Street Name"
     }
 ]
 
-const selectCitizen = () => {
-    push("/about");
+const selectCitizen = (lastName) => {
+    push(`/about/${lastName}`);
 }
 
     return (

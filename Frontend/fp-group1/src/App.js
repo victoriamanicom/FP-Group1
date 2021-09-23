@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/">
           <CitizenReturn />
         </Route>
-        <Route path="/about">
+        <Route path="/about/:lastName">
           <CitizenAbout />
         </Route>
       </Switch>
