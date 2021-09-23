@@ -1,10 +1,12 @@
 package com.example.data;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class EPOSTransactions {
 
 	public EPOSTransactions(Long eposId, String timestamp, Long payeeAccount, Double amount) {

@@ -10,6 +10,7 @@ const CitizenReturn = ({ citizens }) => {
         push(`/about/${lastName}`);
     };
 
+
     return (
         <div className="citizenList">
             <Container>

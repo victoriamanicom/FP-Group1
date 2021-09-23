@@ -3,7 +3,11 @@ import Navbar from "react-bootstrap/NavBar";
 import Nav from "react-bootstrap/Nav";
 import "material-icons/iconfont/material-icons.css";
 import SearchBar from "./components/searchBar/SearchBar";
+import { useState } from 'react';
+import axios from 'axios';
 import CitizenReturn from "./components/CitizenReturn/CitizenReturn";
+import MobileReturn from "./components/MobileReturn/MobileReturn";
+import FinanceReturn from "./components/FinanceReturn/FinanceReturn";
 import CitizenAbout from "./components/CitizenAbout/CitizenAbout";
 import CitizenFinancial from "./components/CitizenAbout/CitizenFinancial/CitizenFinancial";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -46,6 +50,27 @@ function App() {
             Address: "7 Street Name",
         },
     ];
+  const [suspectForenames, setSuspectForenames] = useState("");
+  const [suspectSurname, setSuspectSurname] = useState("");
+  const [suspectGender, setSuspectGender] = useState("");
+  const [citizens, setCitizens] = useState([]);
+
+  const handleReset = e => {
+    setSuspectForenames("");
+    setSuspectSurname("");
+    setSuspectGender("");
+
+  }
+
+  const handleSearch = e => {
+    e.preventDefault();
+    axios
+    .get()
+    .then((result) => {
+      setCitizens(result.data);
+    })
+    .catch(err => console.log(err));
+  }
     return (
         <Router className="App">
             <Navbar className="navbarHeader" sticky="top">
@@ -54,7 +79,10 @@ function App() {
                     National Investigation Unit
                 </Navbar.Brand>
             </Navbar>
-            <SearchBar />
+            <SearchBar handleReset={handleReset} handleSearch={handleSearch}
+      suspectForenames={suspectForenames} setSuspectForenames={setSuspectForenames}
+      suspectSurname={suspectSurname} setSuspectSurname={setSuspectSurname}
+      suspectGender={suspectGender} setSuspectGender={setSuspectGender}/>
 
             <Switch>
                 <Route exact path="/">

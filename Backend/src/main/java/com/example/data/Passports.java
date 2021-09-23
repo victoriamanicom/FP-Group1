@@ -3,8 +3,10 @@ package com.example.data;
 import java.math.BigInteger;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class Passports {
 
 	public Passports(BigInteger passportNumber, String surname, String givenName, String nationality, String dob,
