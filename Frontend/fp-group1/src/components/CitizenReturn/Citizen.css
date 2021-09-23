@@ -3,6 +3,7 @@
   padding: 7px 10px 10px;
   position: relative;
   transform: translate(2vh, 1vh);
+  width: fit-content;
 }
 
 .h5:hover {
