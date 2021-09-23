@@ -13,7 +13,7 @@ const CallRecordsReturn = ({callRecords}) => {
             </tr>
         )
     }
-    console.log(callRecords);
+    
     return (
         <Table className="callReturnTable">
             <thead>
