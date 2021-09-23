@@ -1,7 +1,5 @@
 package com.example.rest.DTO;
 
-import java.util.Objects;
-
 public class AboutDTO {
 
 	private String vehicleRegistrationNo;
@@ -75,9 +73,27 @@ public class AboutDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		AboutDTO other = (AboutDTO) obj;
-		return Objects.equals(businessAddress, other.businessAddress)
-				&& Objects.equals(businessName, other.businessName) && Objects.equals(phoneNumber, other.phoneNumber)
-				&& Objects.equals(vehicleRegistrationNo, other.vehicleRegistrationNo);
+		if (vehicleRegistrationNo == null) {
+			if (other.vehicleRegistrationNo != null)
+				return false;
+		} else if (!vehicleRegistrationNo.equals(other.vehicleRegistrationNo))
+			return false;
+		if (phoneNumber == null) {
+			if (other.phoneNumber != null)
+				return false;
+		} else if (!phoneNumber.equals(other.phoneNumber))
+			return false;
+		if (businessName == null) {
+			if (other.businessName != null)
+				return false;
+		} else if (!businessName.equals(other.businessName))
+			return false;
+		if (businessAddress == null) {
+			if (other.businessAddress != null)
+				return false;
+		} else if (!businessAddress.equals(other.businessAddress))
+			return false;
+		return true;
 	}
 
 	@Override
