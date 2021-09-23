@@ -3,6 +3,8 @@
   padding: 10px;
   background-color: #364b69;
   border-radius: 4px;
+  max-height: 65vh;
+  overflow-y: auto;
 }
 
 #root > div > div > div > div {
