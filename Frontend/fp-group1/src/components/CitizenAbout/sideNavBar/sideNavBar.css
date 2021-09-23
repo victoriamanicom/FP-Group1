@@ -1,0 +1,22 @@
+.nav {
+    width: max-content;
+    background-color: #43608a;
+    color: whitesmoke;
+    border-radius: 4px;
+    align-items: center;
+}
+
+#root > div > div.col-2 > div > a {
+    transform: translate(-5px, 0px);
+    color: whitesmoke;
+    border: none;
+}
+
+#root > div > div.col-2 > div > a:hover {
+    border: none;
+    background-color: #364b69;
+}
+
+#root > div > div.col-2 > div > a.nav-link.disabled {
+    background-color: #364b69;
+}
