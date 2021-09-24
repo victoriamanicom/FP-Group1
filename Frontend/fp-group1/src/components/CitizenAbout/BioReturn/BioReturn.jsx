@@ -16,11 +16,21 @@ const BioReturn = () => {
         businessAddress: "67 Work Road, Worksfod, WO5 FO8",
     };
 
-    const DisplayBio = ({ citizenBio }) => {
+    const addressString = citizenBio.homeAddress;
+    const newAddress = addressString.split(",");
+    const addressObject = {
+        streetName: newAddress[0],
+        town: newAddress[1],
+        postcode: newAddress[2],
+    };
+
+    console.log(addressObject);
+
+    const DisplayBio = ({ citizenBio, streetName, town, postcode }) => {
         return (
             <>
                 <Row className="citizenInformation">
-                    <Col className="citizenBasicInformation">
+                    <Col className="citizenBasicInformation" xs={4}>
                         <p>Forename: {citizenBio.forename}</p>
                         <p>Surname: {citizenBio.surname}</p>
                         <p>Sex: {citizenBio.sex}</p>
@@ -35,7 +45,12 @@ const BioReturn = () => {
                     <Col>
                         <Row className="contactInformation">
                             <h4>Contact Information:</h4>
-                            <p>Home Address: {citizenBio.homeAddress}</p>
+                            <p>
+                                Home Address: {addressObject.streetName},
+                                {addressObject.town}
+                            </p>
+
+                            <p>Postcode: {addressObject.postcode}</p>
                             <p>Mobile Number: {citizenBio.phoneNo}</p>
                         </Row>
                         <Row className="employmentInformation">
@@ -64,6 +79,7 @@ const BioReturn = () => {
                     <DisplayBio
                         className="bioReturnBasic"
                         citizenBio={citizenBio}
+                        address={addressObject}
                     />
                 </Card.Text>
             </Card.Body>
