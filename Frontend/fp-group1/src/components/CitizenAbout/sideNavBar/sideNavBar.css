@@ -7,9 +7,9 @@
 }
 
 #root > div > div.col-2 > div > a {
-    transform: translate(-5px, 0px);
     color: whitesmoke;
     border: none;
+    border-radius: 4px;
 }
 
 #root > div > div.col-2 > div > a:hover {

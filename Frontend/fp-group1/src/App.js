@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "react-bootstrap/NavBar";
 import Nav from "react-bootstrap/Nav";
+import { Container } from "react-bootstrap";
 import "material-icons/iconfont/material-icons.css";
 import SearchBar from "./components/searchBar/SearchBar";
 import { useState } from "react";
@@ -70,15 +71,17 @@ function App() {
     return (
         <Router className="App">
             <Navbar className="navbarHeader" sticky="top">
-                <Navbar.Brand className="navbarTitle" href="">
-                    <span class="material-icons">privacy_tip</span>
-                    National Investigation Unit
-                </Navbar.Brand>
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Container>
+                    <Navbar.Brand className="navbarTitle" href="">
+                        <span className="material-icons">privacy_tip</span>
+                        National Investigation Unit
+                    </Navbar.Brand>
                     <Nav>
-                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/">
+                            <span className="material-icons-round">home</span>
+                        </Nav.Link>
                     </Nav>
-                </Navbar.Collapse>
+                </Container>
             </Navbar>
             <SearchBar
                 handleReset={handleReset}
@@ -104,7 +107,6 @@ function App() {
             </Switch>
         </Router>
     );
-
 }
 
 export default App;

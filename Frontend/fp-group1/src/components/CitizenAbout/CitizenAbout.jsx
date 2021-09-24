@@ -1,4 +1,5 @@
 import { Switch, Route, useParams, useHistory } from "react-router-dom";
+import "./CitizenAbout.css";
 import SideNavBar from "./sideNavBar/SideNavBar";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -19,14 +20,14 @@ const CitizenAbout = ({ citizens }) => {
 
     return (
         <>
-            <Row>
+            <Row className="citizenInfoReturn">
                 <Col xs={2}>
                     <SideNavBar
                         citizen={citizens[0]}
                         handleSelect={handleSelect}
                     />
                 </Col>
-                <Col>
+                <Col className="citizenInfoComponents">
                     <Switch>
                         <Route exact path="/:lastName/about">
                             <BioReturn />
