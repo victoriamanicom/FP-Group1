@@ -74,6 +74,11 @@ function App() {
                     <span class="material-icons">privacy_tip</span>
                     National Investigation Unit
                 </Navbar.Brand>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav>
+                        <Nav.Link href="/">Home</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
             </Navbar>
             <SearchBar
                 handleReset={handleReset}
