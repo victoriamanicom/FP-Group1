@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {
@@ -8,17 +8,21 @@
   }
 } */
 #root > nav.navbarHeader {
-  background-color: #364b69;
-  max-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  font-size: 19px;
+    background-color: #364b69;
+    max-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 19px;
 }
 
-#root > nav > span {
-  color: whitesmoke;
+#root > nav > div > span {
+    color: whitesmoke;
+}
+
+#root > nav > div > div > a {
+    color: whitesmoke;
 }
 
 /* @keyframes App-logo-spin {
@@ -31,8 +35,13 @@
 } */
 
 span.material-icons {
-  padding-left: 10px;
-  padding-right: 10px;
-  position: relative;
-  top: 4px;
+    padding: 0px 10px;
+    position: relative;
+    top: 4px;
+}
+
+span.material-icons-round {
+    padding: 0px 10px;
+    position: relative;
+    top: 4px;
 }

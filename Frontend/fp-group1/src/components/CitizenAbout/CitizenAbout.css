@@ -2,7 +2,7 @@
     padding-right: 0px;
 }
 
-#root > div {
+#root > div.citizenInfoReturn {
     width: fit-content;
 }
 
