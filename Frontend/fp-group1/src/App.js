@@ -11,47 +11,13 @@ import CitizenAbout from "./components/CitizenAbout/CitizenAbout";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-    const citizens = [
-        {
-            firstName: "First Name",
-            lastName: "Last Name 1",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "5 Street Name",
-        },
-        {
-            firstName: "First Name",
-            lastName: "Last Name 2",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "6 Street Name",
-        },
-        {
-            firstName: "First Name",
-            lastName: "Last Name 3",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "7 Street Name",
-        },
-        {
-            firstName: "First Name",
-            lastName: "Last Name 4",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "7 Street Name",
-        },
-        {
-            firstName: "First Name",
-            lastName: "Last Name 5",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "7 Street Name",
-        },
-    ];
+    
     const [suspectForenames, setSuspectForenames] = useState("");
     const [suspectSurname, setSuspectSurname] = useState("");
     const [suspectGender, setSuspectGender] = useState("");
-    // const [citizens, setCitizens] = useState([]);
+    const [citizens, setCitizens] = useState([]);
+    //const [suspectID, setSuspectID] = useState("");
+    
 
     const handleReset = (e) => {
         setSuspectForenames("");
@@ -61,13 +27,57 @@ function App() {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        axios
-            .get()
-            .then((result) => {
-                // setCitizens(result.data);
-            })
-            .catch((err) => console.log(err));
+        // axios
+        // .get()
+        // .then(({ data }) => setCitizens(data))
+        // .catch((err) => console.log(err));
+        
+        setCitizens([
+        {
+            citizenID: "9834753987L",
+            firstName: "First Name",
+            lastName: "Last Name 1",
+            dob: "DD/MM/YYYY",
+            sex: "Male",
+            Address: "5 Street Name",
+        },
+        {
+            citizenID: "9834753987L",
+            firstName: "First Name",
+            lastName: "Last Name 2",
+            dob: "DD/MM/YYYY",
+            sex: "Male",
+            Address: "6 Street Name",
+        },
+        {
+            citizenID: "9834753987L",
+            firstName: "First Name",
+            lastName: "Last Name 3",
+            dob: "DD/MM/YYYY",
+            sex: "Male",
+            Address: "7 Street Name",
+        },
+        {
+            citizenID: "9834753987L",
+            firstName: "First Name",
+            lastName: "Last Name 4",
+            dob: "DD/MM/YYYY",
+            sex: "Male",
+            Address: "7 Street Name",
+        },
+        {
+            citizenID: "9834753987L",
+            firstName: "First Name",
+            lastName: "Last Name 5",
+            dob: "DD/MM/YYYY",
+            sex: "Male",
+            Address: "7 Street Name",
+        },
+        ]);
     };
+
+
+
     return (
         <Router className="App">
             <Navbar className="navbarHeader" sticky="top">
@@ -96,7 +106,7 @@ function App() {
 
             <Switch>
                 <Route exact path="/">
-                    <CitizenReturn citizens={citizens} />
+                    <CitizenReturn citizens={citizens}/>
                 </Route>
                 <Route path="/:lastName">
                     <CitizenAbout citizens={citizens} />

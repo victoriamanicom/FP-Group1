@@ -1,20 +1,20 @@
 import { Card, Row, Col } from "react-bootstrap";
 import "./BioReturn.css";
 
-const BioReturn = () => {
-    const citizenBio = {
-        forename: "Hary",
-        surname: "Hill",
-        sex: "Male",
-        dob: "12/13/14",
-        homeAddress: "12 Hill Hill, Hillsfod, HI12 6HA",
-        drivingLicenceNo: "98973965",
-        phoneNo: "98563964",
-        passportNo: "3457304957",
-        nationality: "Doiche",
-        businessName: "Comedian Store",
-        businessAddress: "67 Work Road, Worksfod, WO5 FO8",
-    };
+const BioReturn = ({ citizenBio }) => {
+    // const citizenBio = {
+    //     forename: "Hary",
+    //     surname: "Hill",
+    //     sex: "Male",
+    //     dob: "12/13/14",
+    //     homeAddress: "12 Hill Hill, Hillsfod, HI12 6HA",
+    //     drivingLicenceNo: "98973965",
+    //     phoneNo: "98563964",
+    //     passportNo: "3457304957",
+    //     nationality: "Doiche",
+    //     businessName: "Comedian Store",
+    //     businessAddress: "67 Work Road, Worksfod, WO5 FO8",
+    // };
 
     const addressString = citizenBio.homeAddress;
     const newAddress = addressString.split(",");
@@ -24,9 +24,7 @@ const BioReturn = () => {
         postcode: newAddress[2],
     };
 
-    console.log(addressObject);
-
-    const DisplayBio = ({ citizenBio, streetName, town, postcode }) => {
+    const DisplayBio = ({ citizenBio, streetName, town, postcode}) => {
         return (
             <>
                 <Row className="citizenInformation">
