@@ -37,10 +37,10 @@ public class PeopleBankAccount {
 		super();
 	}
 
+	@Id
 	@Column(name = "bank_account_id")
 	private Long bankAccountId;
 
-	@Id
 	@Column(name = "account_number")
 	private Long accountNumber;
 
