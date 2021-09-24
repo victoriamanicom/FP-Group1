@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.data.Citizen;
 import com.example.rest.DTO.CitizenReturnDTO;
+import com.example.rest.DTO.MainDTO;
 import com.example.service.CitizenService;
 
 
@@ -32,9 +33,20 @@ public class CitizenController {
 			this.service = service;
 		}
 		
-		@GetMapping("/findCitizen/forenames={forenames}/surname={surnames}/sex={sex}")
-		public ResponseEntity<List<CitizenReturnDTO>> findCitizen(@PathVariable String forenames, @PathVariable String surname, @PathVariable String sex, @RequestBody Citizen citizen) {
-			return ResponseEntity.ok(this.service.findCitizen(citizen));
+		@GetMapping("/findCitizens")
+		public ResponseEntity<List<CitizenReturnDTO>> findCitizens(@RequestBody Citizen citizen) {
+			
+			List<CitizenReturnDTO> body = this.service.findCitizens(citizen);
+			
+			return new ResponseEntity<List<CitizenReturnDTO>>(body, HttpStatus.OK);
+		}
+		
+		@GetMapping("/getSuspectInfo/{citizenID}")
+		public ResponseEntity<MainDTO> getSuspectInfo(@PathVariable String citizenID) {
+			
+			MainDTO body = this.service.getSuspectInfo(citizenID);
+			
+			return new ResponseEntity<MainDTO>(body, HttpStatus.OK);
 		}
 		
 		

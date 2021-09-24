@@ -4,8 +4,9 @@ import java.util.stream.Collectors;
 import com.example.data.Citizen;
 import com.example.data.VehicleRegistration;
 import com.example.repo.CitizenRepo;
-import com.example.repo.VehicleRepo;
+
 import com.example.rest.DTO.CitizenReturnDTO;
+import com.example.rest.DTO.MainDTO;
 import com.example.rest.DTO.PeopleBankAccountDTO;
 import com.example.rest.DTO.VehicleDTO;
 
@@ -31,7 +32,7 @@ public class CitizenService {
 	
 	
 	@Autowired
-	public Scenario1Service(CitizenRepo citizenrepo, ModelMapper mapper) {
+	public CitizenService(CitizenRepo citizenrepo, ModelMapper mapper) {
 		this.citizenrepo = citizenrepo;
 		
 		this.mapper = mapper;
@@ -41,20 +42,21 @@ public class CitizenService {
 		return this.mapper.map(citizen, CitizenReturnDTO.class );
 	}
 	
-	public List<CitizenReturnDTO> findCitizen(Citizen citizen) {
+	public List<CitizenReturnDTO> findCitizens(Citizen citizen) {
 		return this.citizenrepo.findAll(Example.of(citizen)).stream().map(this::mapCitizenToDTO).collect(Collectors.toList());
 	}
 	
-	public Citizen getByCitizenID(String citizenID) {
+	public MainDTO getByCitizenID(String citizenID) {
 		return this.citizenrepo.findByCitizenID(citizenID);
 	}
 	
-	public PeopleBankAccountDTO getFinance(String citizenID) {
+	public MainDTO getSuspectInfo(String citizenID) {
+		MainDTO suspect = this.citizenrepo.findByCitizenID(citizenID);
 		
-		
-		
-		
+		return suspect;
 	}
+	
+	
 	
 	
 	

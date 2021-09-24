@@ -4,11 +4,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.example.data.Citizen;
+import com.example.rest.DTO.MainDTO;
 
 @Repository
 public interface CitizenRepo extends JpaRepository<Citizen, Integer>{
 	
-	Citizen findByCitizenID(String citizenID);
+	MainDTO findByCitizenID(String citizenID);
+	
+	
 	
 	
 	
