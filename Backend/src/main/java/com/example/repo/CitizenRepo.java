@@ -3,9 +3,14 @@ package com.example.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.rest.DTO.PeopleMobileDTO;
+import com.example.data.Citizen;
 
 @Repository
-public interface MobileRepo extends JpaRepository<PeopleMobileDTO, Long> {
+public interface CitizenRepo extends JpaRepository<Citizen, Integer>{
+	
+	Citizen findByCitizenID(String citizenID);
+	
+	
+	
 
 }
