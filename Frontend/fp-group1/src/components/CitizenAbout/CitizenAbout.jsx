@@ -5,6 +5,10 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import FinanceReturn from "./FinanceReturn/FinanceReturn";
 import MobileReturn from "./MobileReturn/MobileReturn";
+import VehicleReturn from "./VehicleReturn/VehicleReturn";
+import AssociatesReturn from "./AssociatesReturn/AssociatesReturn";
+import WhereaboutsReturn from "./WhereaboutsReturn/WhereaboutsReturn";
+import BioReturn from "./BioReturn/BioReturn";
 
 const CitizenAbout = ({ citizens }) => {
     const { lastName } = useParams();
@@ -26,8 +30,7 @@ const CitizenAbout = ({ citizens }) => {
                 <Col className="citizenInfoComponents">
                     <Switch>
                         <Route exact path="/:lastName/about">
-                            <h1>Citizen About</h1>
-                            <h2>{lastName}</h2>
+                            <BioReturn />
                         </Route>
                         <Route path="/:lastName/finance">
                             <FinanceReturn />
@@ -36,13 +39,13 @@ const CitizenAbout = ({ citizens }) => {
                             <MobileReturn />
                         </Route>
                         <Route path="/:lastName/vehicle">
-                            {/* <VehicleReturn /> */}
+                            <VehicleReturn />
                         </Route>
                         <Route path="/:lastName/associates">
-                            {/* <AssociatesReturn /> */}
+                            <AssociatesReturn />
                         </Route>
                         <Route path="/:lastName/whereabouts">
-                            {/* <WhereaboutsReturn /> */}
+                            <WhereaboutsReturn />
                         </Route>
                     </Switch>
                 </Col>
