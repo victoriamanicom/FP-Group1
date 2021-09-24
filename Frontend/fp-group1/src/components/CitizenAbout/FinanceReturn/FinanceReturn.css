@@ -1,0 +1,11 @@
+#root > div > div.col > div > div.financeReturnBody.card-body > p {
+    font-size: 15px;
+    margin: 10px 0px 20px 30px;
+}
+
+#root > div > div.col > div > div.financeReturnTitle.card-header > div {
+    margin: 5px;
+}
+
+#root > div > div.col > div.financeReturn {
+}

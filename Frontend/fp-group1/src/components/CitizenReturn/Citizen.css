@@ -1,30 +1,30 @@
-.h5 {
-  font-size: 20px;
-  padding: 7px 10px 10px;
-  position: relative;
-  transform: translate(2vh, 1vh);
-  width: fit-content;
+.citizenNameHeading {
+    font-size: 20px;
+    padding: 7px 10px 10px;
+    position: relative;
+    transform: translate(2vh, 1vh);
+    width: fit-content;
 }
 
-.h5:hover {
-  transition: ease-out 100ms;
-  color: #43608a;
-  text-decoration: underline;
-  cursor: pointer;
+.citizenNameHeading:hover {
+    transition: ease-out 100ms;
+    color: #43608a;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 p {
-  font-size: 13px;
+    font-size: 13px;
 }
 
-#root > div > div > div > div > div {
-  padding: 5px;
-  min-height: 133px;
+#root > div > div > div > div > div.citizenCardBody {
+    padding: 5px;
+    min-height: 133px;
 }
 
 #root > div > div > div > div > div > p > div {
-  align-items: center;
-  margin: 2px;
-  position: relative;
-  transform: translate(2.5vh);
+    align-items: center;
+    margin: 2px;
+    position: relative;
+    transform: translate(2.5vh);
 }

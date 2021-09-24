@@ -53,7 +53,9 @@ const FinanceReturn = ({ citizens }) => {
     return (
         <Card className="financeReturn">
             <Card.Header className="financeReturnTitle">
-                Financial Information
+                <Card.Title className="financeReturnTitle">
+                    Financial Information
+                </Card.Title>
             </Card.Header>
             <Card.Body className="financeReturnBody">
                 <Card.Text className="financeReturnText">
