@@ -6,13 +6,15 @@ public class CitizenReturnDTO {
 	private String surname;
 	private String homeAddress;
 	private String dateOfBirth;
+	private String sex;
 
-	public CitizenReturnDTO(String forenames, String surname, String homeAddress, String dateOfBirth) {
+	public CitizenReturnDTO(String forenames, String surname, String homeAddress, String dateOfBirth, String sex) {
 		super();
 		this.forenames = forenames;
 		this.surname = surname;
 		this.homeAddress = homeAddress;
 		this.dateOfBirth = dateOfBirth;
+		this.sex = sex;
 	}
 
 	public CitizenReturnDTO() {
@@ -51,6 +53,14 @@ public class CitizenReturnDTO {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -59,6 +69,7 @@ public class CitizenReturnDTO {
 		result = prime * result + ((forenames == null) ? 0 : forenames.hashCode());
 		result = prime * result + ((homeAddress == null) ? 0 : homeAddress.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		result = prime * result + ((sex == null) ? 0 : sex.hashCode());
 		return result;
 	}
 
@@ -91,13 +102,18 @@ public class CitizenReturnDTO {
 				return false;
 		} else if (!surname.equals(other.surname))
 			return false;
+		if (sex == null) {
+			if (other.sex != null)
+				return false;
+		} else if (!sex.equals(other.sex))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "CitizenDTO [forenames=" + forenames + ", surname=" + surname + ", homeAddress=" + homeAddress
-				+ ", dateOfBirth=" + dateOfBirth + "]";
+		return "CitizenReturnDTO [forenames=" + forenames + ", surname=" + surname + ", homeAddress=" + homeAddress
+				+ ", dateOfBirth=" + dateOfBirth + ", sex=" + sex + "]";
 	}
 
 }

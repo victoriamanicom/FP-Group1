@@ -4,6 +4,12 @@ import java.util.Set;
 
 public class PeopleBankAccountDTO {
 
+	private Set<BankCardDTO> bankCardDTOs;
+	private String bank;
+	private Long accountNumber;
+	private String forenames;
+	private String surname;
+
 	public PeopleBankAccountDTO(Set<BankCardDTO> bankcardDTOs, String bank, Long accountNumber, String forenames,
 			String surname) {
 		super();
@@ -25,16 +31,6 @@ public class PeopleBankAccountDTO {
 	public PeopleBankAccountDTO() {
 		super();
 	}
-
-	private Set<BankCardDTO> bankCardDTOs;
-
-	private String bank;
-
-	private Long accountNumber;
-
-	private String forenames;
-
-	private String surname;
 
 	public String getBank() {
 		return bank;
