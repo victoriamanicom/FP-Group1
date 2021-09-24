@@ -19,12 +19,12 @@
 }
 
 #searchButton:hover {
-    background-color: #c2d3eb;
+    background-color: #becfe9;
     transition: ease-in-out 350ms;
 }
 
 #resetButton:hover {
-    background-color: #c2d3eb;
+    background-color: #becfe9;
     transition: ease-in-out 350ms;
 }
 

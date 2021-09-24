@@ -9,19 +9,18 @@
 } */
 #root > nav.navbarHeader {
     background-color: #364b69;
-    max-height: 10vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    max-height: 10vh;
     font-size: 19px;
 }
 
 #root > nav > div > span {
+    justify-content: flex-start;
     color: whitesmoke;
 }
 
 #root > nav > div > div > a {
+    justify-content: flex-end;
     color: whitesmoke;
 }
 
