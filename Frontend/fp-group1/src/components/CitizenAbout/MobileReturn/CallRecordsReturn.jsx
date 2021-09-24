@@ -3,11 +3,12 @@ import "./CallRecordsReturn.css";
 
 const CallRecordsReturn = ({callRecords}) => {
 
-    const ListCalls = ({timestamp, callRecieve, assForenames, assSurname}) => {
+    const ListCalls = ({timestamp, callRecieve,assPhoneNumber, assForenames, assSurname}) => {
         return(
             <tr>
                 <td>{timestamp}</td>
                 <td>{callRecieve}</td>
+                <td>{assPhoneNumber}</td>
                 <td>{assForenames}</td>
                 <td>{assSurname}</td>
             </tr>
@@ -20,6 +21,7 @@ const CallRecordsReturn = ({callRecords}) => {
                 <tr>
                     <th>Timestamp</th>
                     <th>Call / Recieve</th>
+                    <th>PhoneNumber</th>
                     <th>Forenames</th>
                     <th>Surname</th>
                 </tr>
