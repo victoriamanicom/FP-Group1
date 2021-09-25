@@ -34,7 +34,25 @@ const CitizenAbout = ({suspectID}) => {
             associatesData: {},
             whereaboutsData: {},
             vehicleData: {},
-            mobileData: {},
+            mobileData: {
+                phoneNum: "08428 768234",
+                network: "Norange",
+                callData: [
+                    {
+                        timestamp: "21/09/2021:23:21:44",
+                        callRecieve: "Call",
+                        phoneNum: "07323 578123",
+                        forename: "Sam",
+                        surname: "Smith"
+                    },{
+                        timestamp: "22/09/2021:10:03:54",
+                        callRecieve: "Recieve",
+                        phoneNum: "07323 578123",
+                        forename: "Sam",
+                        surname: "Smith"
+                    }
+                ]
+            },
             citizenBio: {
                 forename: "Hary",
                 surname: "Hill",
@@ -48,16 +66,41 @@ const CitizenAbout = ({suspectID}) => {
                 businessName: "Comedian Store",
                 businessAddress: "67 Work Road, Worksfod, WO5 FO8"
             },
-            financialData: {}
+            financialData: {
+                bank: "HSBC",
+                accountNum: "2938723",
+                eposData: [
+                    {
+                        timestamp: "21/09/2021:13:28:59",
+                        amount: "£3.99",
+                        vendor: "Tesco",
+                        streetName: "Barton Avenue"
+                    },{
+                        timestamp: "21/09/2021:15:01:31",
+                        amount: "£99.00",
+                        vendor: "John Lewis",
+                        streetName: "Barton Avenue"
+                    }
+                ],
+                atmData: [
+                    {
+                        timestamp:"10/09/2021:10:54:26",
+                        amount: "£100",
+                        streetName: "Highgate Lane"
+                    },{
+                        timestamp:"19/09/2021:21:41:53",
+                        amount: "£25",
+                        streetName: "Town Center"
+                    }
+                ]
+            }
         })
     }
 
     if (suspectData == 1) {
         handleGetSusepct(suspectID);
-    } else if (suspectData.citizenID !== suspectID) {
-        handleGetSusepct(suspectID);
     }
-    
+
     console.log(`the data:`);
     console.log(suspectData);
     return (
@@ -75,10 +118,10 @@ const CitizenAbout = ({suspectID}) => {
                             <BioReturn citizenBio={suspectData.citizenBio} />
                         </Route>
                         <Route path="/:lastName/finance">
-                            <FinanceReturn />
+                            <FinanceReturn financialData={suspectData.financialData} />
                         </Route>
                         <Route path="/:lastName/mobile">
-                            <MobileReturn />
+                            <MobileReturn mobileData={suspectData.mobileData}/>
                         </Route>
                         <Route path="/:lastName/vehicle">
                             <VehicleReturn />

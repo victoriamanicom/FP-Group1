@@ -1,16 +1,16 @@
 import Table from 'react-bootstrap/Table';
 import "./CallRecordsReturn.css";
 
-const CallRecordsReturn = ({callRecords}) => {
+const CallRecordsReturn = ({callData}) => {
 
-    const ListCalls = ({timestamp, callRecieve,assPhoneNumber, assForenames, assSurname}) => {
+    const ListCalls = ({timestamp, callRecieve, phoneNum, forename, surname}) => {
         return(
             <tr>
                 <td>{timestamp}</td>
                 <td>{callRecieve}</td>
-                <td>{assPhoneNumber}</td>
-                <td>{assForenames}</td>
-                <td>{assSurname}</td>
+                <td>{phoneNum}</td>
+                <td>{forename}</td>
+                <td>{surname}</td>
             </tr>
         )
     }
@@ -27,7 +27,7 @@ const CallRecordsReturn = ({callRecords}) => {
                 </tr>
             </thead>
             <tbody>
-                {callRecords.map(callRecord =>
+                {callData.map(callRecord =>
                 <ListCalls key={callRecord.timestamp} {...callRecord} />
                 )}
             </tbody>
