@@ -12,9 +12,9 @@ import BioReturn from "./BioReturn/BioReturn";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const CitizenAbout = ({ citizens }) => {
+const CitizenAbout = ({suspectID}) => {
 
-    const [suspectData, setSuspectData] = useState([]);
+    const [suspectData, setSuspectData] = useState([1]);
 
     const { lastName } = useParams();
     const { push } = useHistory();
@@ -23,13 +23,18 @@ const CitizenAbout = ({ citizens }) => {
         push(`/${lastName}${eventKey}`);
     };
 
-    useEffect(() => {
+    const handleGetSusepct = (suspectID) => {
         // axios
         // .get()
         // .then (({ data }) => setSuspectData(data))
         // .catch((err) => console.log(err));
 
         setSuspectData({
+            citizenID: "001L",
+            associatesData: {},
+            whereaboutsData: {},
+            vehicleData: {},
+            mobileData: {},
             citizenBio: {
                 forename: "Hary",
                 surname: "Hill",
@@ -42,16 +47,25 @@ const CitizenAbout = ({ citizens }) => {
                 nationality: "Doiche",
                 businessName: "Comedian Store",
                 businessAddress: "67 Work Road, Worksfod, WO5 FO8"
-            }
+            },
+            financialData: {}
         })
-    }, []);
+    }
 
+    if (suspectData == 1) {
+        handleGetSusepct(suspectID);
+    } else if (suspectData.citizenID !== suspectID) {
+        handleGetSusepct(suspectID);
+    }
+    
+    console.log(`the data:`);
+    console.log(suspectData);
     return (
         <>
             <Row className="citizenInfoReturn">
                 <Col xs={2}>
                     <SideNavBar
-                        citizen={citizens[0]}
+                        citizenBio={suspectData.citizenBio}
                         handleSelect={handleSelect}
                     />
                 </Col>

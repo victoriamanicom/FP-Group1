@@ -16,13 +16,15 @@ function App() {
     const [suspectSurname, setSuspectSurname] = useState("");
     const [suspectGender, setSuspectGender] = useState("");
     const [citizens, setCitizens] = useState([]);
-    //const [suspectID, setSuspectID] = useState("");
+    const [suspectID, setSuspectID] = useState("");
     
 
     const handleReset = (e) => {
         setSuspectForenames("");
         setSuspectSurname("");
         setSuspectGender("");
+        setSuspectID("");
+        setCitizens([]);
     };
 
     const handleSearch = (e) => {
@@ -34,7 +36,7 @@ function App() {
         
         setCitizens([
         {
-            citizenID: "9834753987L",
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 1",
             dob: "DD/MM/YYYY",
@@ -42,7 +44,7 @@ function App() {
             Address: "5 Street Name",
         },
         {
-            citizenID: "9834753987L",
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 2",
             dob: "DD/MM/YYYY",
@@ -50,7 +52,7 @@ function App() {
             Address: "6 Street Name",
         },
         {
-            citizenID: "9834753987L",
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 3",
             dob: "DD/MM/YYYY",
@@ -58,7 +60,7 @@ function App() {
             Address: "7 Street Name",
         },
         {
-            citizenID: "9834753987L",
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 4",
             dob: "DD/MM/YYYY",
@@ -66,7 +68,7 @@ function App() {
             Address: "7 Street Name",
         },
         {
-            citizenID: "9834753987L",
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 5",
             dob: "DD/MM/YYYY",
@@ -106,10 +108,12 @@ function App() {
 
             <Switch>
                 <Route exact path="/">
-                    <CitizenReturn citizens={citizens}/>
+                    <CitizenReturn citizens={citizens}
+                    setSuspectID={setSuspectID}/>
                 </Route>
                 <Route path="/:lastName">
-                    <CitizenAbout citizens={citizens} />
+                    <CitizenAbout citizens={citizens} 
+                    suspectID={suspectID}/>
                 </Route>
                 {/* <Route path="/finance/:lastName">
                     <FinanceReturn citizens={citizens} />
