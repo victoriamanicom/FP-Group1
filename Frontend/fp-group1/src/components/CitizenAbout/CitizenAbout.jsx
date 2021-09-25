@@ -33,7 +33,21 @@ const CitizenAbout = ({suspectID}) => {
             citizenID: "001L",
             associatesData: {},
             whereaboutsData: {},
-            vehicleData: {},
+            vehicleData: [
+                {
+                    make: "Ford",
+                    model: "T",
+                    colour: "yello",
+                    licencePlate: "YO5 QT33",
+                    regestrationDate: "19/03/1956"
+                },{
+                    make: "Tesla",
+                    model: "S",
+                    colour: "silver",
+                    licencePlate: "UH45 J32",
+                    regestrationDate: "21/07/2019"
+                }
+            ],
             mobileData: {
                 phoneNum: "08428 768234",
                 network: "Norange",
@@ -124,7 +138,7 @@ const CitizenAbout = ({suspectID}) => {
                             <MobileReturn mobileData={suspectData.mobileData}/>
                         </Route>
                         <Route path="/:lastName/vehicle">
-                            <VehicleReturn />
+                            <VehicleReturn vehicleData={suspectData.vehicleData} />
                         </Route>
                         <Route path="/:lastName/associates">
                             <AssociatesReturn />
