@@ -31,8 +31,8 @@ const CitizenAbout = ({suspectID}) => {
 
         setSuspectData({
             citizenID: "001L",
-            associatesData: {},
-            whereaboutsData: {},
+            associatesData: {data: "null"},
+            whereaboutsData: {data: "null"},
             vehicleData: [
                 {
                     make: "Ford",
@@ -141,10 +141,10 @@ const CitizenAbout = ({suspectID}) => {
                             <VehicleReturn vehicleData={suspectData.vehicleData} />
                         </Route>
                         <Route path="/:lastName/associates">
-                            <AssociatesReturn />
+                            <AssociatesReturn associatesData={suspectData.associatesData}/>
                         </Route>
                         <Route path="/:lastName/whereabouts">
-                            <WhereaboutsReturn />
+                            <WhereaboutsReturn whereaboutsData={suspectData.whereaboutsData}/>
                         </Route>
                     </Switch>
                 </Col>
