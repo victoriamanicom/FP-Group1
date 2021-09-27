@@ -2,14 +2,14 @@ import "./sideNavBar.css";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
-const SideNavBar = ({ citizenBio, handleSelect }) => {
+const SideNavBar = ({ citizen, handleSelect }) => {
     return (
         <Nav
             className="flex-column"
             onSelect={(eventKey) => handleSelect(eventKey)}
         >
             <Nav.Link disabled>
-                {citizenBio.forename} {citizenBio.surname}
+                {citizen.forename} {citizen.surname}
             </Nav.Link>
             <Nav.Link eventKey="/about">About</Nav.Link>
             <Nav.Link eventKey="/finance">Financial</Nav.Link>
