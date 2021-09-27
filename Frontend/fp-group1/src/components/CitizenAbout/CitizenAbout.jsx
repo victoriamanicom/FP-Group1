@@ -126,7 +126,7 @@ const CitizenAbout = ({ citizenID }) => {
             <Row className="citizenInfoReturn">
                 <Col xs={2}>
                     <SideNavBar
-                        citizen={citizenData.citizenBio}
+                        citizenBio={citizenData.citizenBio}
                         handleSelect={handleSelect}
                     />
                 </Col>
