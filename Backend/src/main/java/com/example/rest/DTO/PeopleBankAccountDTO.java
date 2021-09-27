@@ -1,16 +1,17 @@
 package com.example.rest.DTO;
 
+import java.util.List;
 import java.util.Set;
 
 public class PeopleBankAccountDTO {
 
-	private Set<BankCardDTO> bankCardDTOs;
+	private List<BankCardDTO> bankCardDTOs;
 	private String bank;
 	private Long accountNumber;
 	private String forenames;
 	private String surname;
 
-	public PeopleBankAccountDTO(Set<BankCardDTO> bankcardDTOs, String bank, Long accountNumber, String forenames,
+	public PeopleBankAccountDTO(List<BankCardDTO> bankcardDTOs, String bank, Long accountNumber, String forenames,
 			String surname) {
 		super();
 		this.bankCardDTOs = bankcardDTOs;
@@ -64,11 +65,11 @@ public class PeopleBankAccountDTO {
 		this.surname = surname;
 	}
 
-	public Set<BankCardDTO> getBankCardDTOs() {
+	public List<BankCardDTO> getBankCardDTOs() {
 		return bankCardDTOs;
 	}
 
-	public void setBankcardDTOs(Set<BankCardDTO> bankCardDTOs) {
+	public void setBankcardDTOs(List<BankCardDTO> bankCardDTOs) {
 		this.bankCardDTOs = bankCardDTOs;
 	}
 
