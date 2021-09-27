@@ -120,6 +120,7 @@ const CitizenAbout = ({ citizenID }) => {
 
     console.log(`the data:`);
     console.log(citizenData);
+    console.log(citizenData.citizenBio);
     return (
         <>
             <Row className="citizenInfoReturn">
@@ -132,7 +133,7 @@ const CitizenAbout = ({ citizenID }) => {
                 <Col className="citizenInfoComponents">
                     <Switch>
                         <Route exact path="/:lastName/about">
-                            <BioReturn citizenBio={suspectData.citizenBio} />
+                            <BioReturn citizenBio={citizenData.citizenBio} />
                         </Route>
                         <Route path="/:lastName/finance">
                             <FinanceReturn
