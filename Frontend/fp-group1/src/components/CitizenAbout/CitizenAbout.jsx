@@ -125,14 +125,14 @@ const CitizenAbout = ({ citizenID }) => {
             <Row className="citizenInfoReturn">
                 <Col xs={2}>
                     <SideNavBar
-                        citizen={citizenData.citizenBio}
+                        citizenBio={citizenData.citizenBio}
                         handleSelect={handleSelect}
                     />
                 </Col>
                 <Col className="citizenInfoComponents">
                     <Switch>
                         <Route exact path="/:lastName/about">
-                            <BioReturn citizenBio={suspectData.citizenBio} />
+                            <BioReturn citizenBio={citizenData.citizenBio} />
                         </Route>
                         <Route path="/:lastName/finance">
                             <FinanceReturn
