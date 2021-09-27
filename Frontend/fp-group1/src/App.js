@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 import "material-icons/iconfont/material-icons.css";
 import SearchBar from "./components/searchBar/SearchBar";
 import { useState } from "react";
+
 import axios from "axios";
 import CitizenReturn from "./components/CitizenReturn/CitizenReturn";
 import CitizenAbout from "./components/CitizenAbout/CitizenAbout";
@@ -27,6 +28,7 @@ function App() {
 
     const handleSearch = (e) => {
         e.preventDefault();
+
         // axios
         // .get()
         // .then(({ data }) => setCitizens(data))
