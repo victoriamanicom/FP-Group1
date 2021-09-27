@@ -1,0 +1,11 @@
+#root
+    > div
+    > div.citizenInfoComponents.col
+    > div
+    > div.financeReturnBody.card-body
+    > div
+    > div
+    > div
+    > div.card-body {
+    font-size: 13px;
+}

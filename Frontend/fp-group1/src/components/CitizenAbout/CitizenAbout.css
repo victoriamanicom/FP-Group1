@@ -3,11 +3,11 @@
 }
 
 #root > div.citizenInfoReturn {
-    width: fit-content;
+    width: max-content;
 }
 
 #root > div > div.citizenInfoComponents.col > div {
-    width: 1000px;
+    width: 950px;
     margin-left: 5px;
 }
 
