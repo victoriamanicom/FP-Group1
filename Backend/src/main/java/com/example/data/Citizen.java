@@ -17,7 +17,7 @@ public class Citizen {
 		this.sex = sex;
 	}
 
-	public Citizen(Long citizenID, String forenames, String surname, String homeAddress, String dateOfBirth,
+	public Citizen(String citizenID, String forenames, String surname, String homeAddress, String dateOfBirth,
 			String placeOfBirth, String sex) {
 
 		super();
@@ -32,7 +32,7 @@ public class Citizen {
 	}
 
 	@Column(name = "citizen_id")
-	private Long citizenID;
+	private String citizenID;
 
 	@Column(name = "forenames")
 	private String forenames;
@@ -98,6 +98,16 @@ public class Citizen {
 
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+	
+	
+
+	public String getCitizenID() {
+		return citizenID;
+	}
+
+	public void setCitizenID(String citizenID) {
+		this.citizenID = citizenID;
 	}
 
 	@Override

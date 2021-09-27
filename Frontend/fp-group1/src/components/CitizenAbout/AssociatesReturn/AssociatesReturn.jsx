@@ -1,12 +1,7 @@
 import "./AssociatesReturn.css";
 import { Card, Accordion } from "react-bootstrap";
 
-const AssociatesReturn = () => {
-    const associatesData = [
-        {
-            data: "unknown",
-        },
-    ];
+const AssociatesReturn = ({associatesData}) => {
 
     return (
         <Card className="assReturn">

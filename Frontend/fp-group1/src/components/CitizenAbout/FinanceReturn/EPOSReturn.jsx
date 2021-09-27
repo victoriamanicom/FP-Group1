@@ -1,7 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import "./EPOSReturn.css";
 
-const EPOSReturn = ({eposRecords}) => {
+const EPOSReturn = ({eposData}) => {
 
     const ListEPOS = ({timestamp, amount, vendor, streetName}) => {
         return (
@@ -24,7 +24,7 @@ const EPOSReturn = ({eposRecords}) => {
                 </tr>
             </thead>
             <tbody>
-                {eposRecords.map(eposRecord =>
+                {eposData.map(eposRecord =>
                 <ListEPOS key={eposRecord.timestamp} {...eposRecord} />
                 )}
             </tbody>

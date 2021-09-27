@@ -132,7 +132,7 @@ const CitizenAbout = ({ citizenID }) => {
                 <Col className="citizenInfoComponents">
                     <Switch>
                         <Route exact path="/:lastName/about">
-                            <BioReturn />
+                            <BioReturn citizenBio={suspectData.citizenBio} />
                         </Route>
                         <Route path="/:lastName/finance">
                             <FinanceReturn

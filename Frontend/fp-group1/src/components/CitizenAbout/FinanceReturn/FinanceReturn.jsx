@@ -5,46 +5,14 @@ import Col from "react-bootstrap/Col";
 import EPOSReturn from "./EPOSReturn";
 import ATMReturn from "./ATMReturn";
 
-const FinanceReturn = ({ citizens }) => {
-    const financeData = {
-        bank: "HSBC",
-        accountNumber: "8967860876",
-    };
+const FinanceReturn = ({financialData}) => {
 
-    const eposRecords = [
-        {
-            timestamp: "1",
-            amount: "£3.99",
-            vendor: "Tesco",
-            streetName: "Barton Avenue",
-        },
-        {
-            timestamp: "2",
-            amount: "£99.59",
-            vendor: "John Lewis",
-            streetName: "Barton Avenue",
-        },
-    ];
-
-    const atmRecords = [
-        {
-            timestamp: "1",
-            amount: "£100",
-            streetName: "Highgate Lane",
-        },
-        {
-            timestamp: "5",
-            amount: "£25",
-            streetName: "Town Center",
-        },
-    ];
-
-    const DisplayBasicFinance = ({ financeData }) => {
+    const DisplayBasicFinance = (financialData) => {
         return (
             <>
-                Bank: {financeData.bank}
+                Bank: {financialData.bank}
                 <br />
-                Account Number: {financeData.accountNumber}
+                Account Number: {financialData.accountNum}
                 <br />
             </>
         );
@@ -59,7 +27,7 @@ const FinanceReturn = ({ citizens }) => {
                 <Card.Text className="financeReturnText">
                     <DisplayBasicFinance
                         className="financeReturnBasic"
-                        financeData={financeData}
+                        financialData={financialData}
                     />
                 </Card.Text>
 
@@ -70,7 +38,7 @@ const FinanceReturn = ({ citizens }) => {
                                 EPOS Records
                             </Card.Header>
                             <Card.Body className="eposBody">
-                                <EPOSReturn eposRecords={eposRecords} />
+                                <EPOSReturn eposData={financialData.eposData} />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -80,7 +48,7 @@ const FinanceReturn = ({ citizens }) => {
                                 ATM Records
                             </Card.Header>
                             <Card.Body className="atmBody">
-                                <ATMReturn atmRecords={atmRecords} />
+                                <ATMReturn atmData={financialData.atmData} />
                             </Card.Body>
                         </Card>
                     </Col>
