@@ -9,7 +9,7 @@ const SideNavBar = ({ citizen, handleSelect }) => {
             onSelect={(eventKey) => handleSelect(eventKey)}
         >
             <Nav.Link disabled>
-                {citizen.firstName} {citizen.lastName}
+                {citizen.forename} {citizen.surname}
             </Nav.Link>
             <Nav.Link eventKey="/about">About</Nav.Link>
             <Nav.Link eventKey="/finance">Financial</Nav.Link>
