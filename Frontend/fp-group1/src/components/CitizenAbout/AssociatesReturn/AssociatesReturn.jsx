@@ -1,5 +1,5 @@
 import "./AssociatesReturn.css";
-import { Card } from "react-bootstrap";
+import { Card, Accordion } from "react-bootstrap";
 
 const AssociatesReturn = () => {
     const associatesData = [
@@ -13,7 +13,26 @@ const AssociatesReturn = () => {
             <Card.Header className="assReturnTitle">Associates</Card.Header>
             <Card.Body className="assReturnBody">
                 <Card.Text className="assReturnText">
-                    <p>Unknown Data: {associatesData.data}</p>
+                    <Accordion>
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>Living With</Accordion.Header>
+                            <Accordion.Body>
+                                People this citizen lives with
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="1">
+                            <Accordion.Header>Works with</Accordion.Header>
+                            <Accordion.Body>
+                                People this citizen works with
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2">
+                            <Accordion.Header>Calls?</Accordion.Header>
+                            <Accordion.Body>
+                                People this citizen has called{" "}
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
                 </Card.Text>
             </Card.Body>
         </Card>
