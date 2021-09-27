@@ -70,7 +70,33 @@ public class FinanceService {
 						
 						BankCardDTO bankCardDTO = new BankCardDTO();
 						bankCardDTO.setSortCode(bc.getSortCode());
+						
 						ArrayList<ATMTransactionDTO> atmTrans = new ArrayList<>();
+						for (ATMTransaction ATMT : bc.getATMTransactions()) {
+							ATMTransactionDTO ATMtransDTO = new ATMTransactionDTO();
+							ATMtransDTO.setTimestamp(ATMT.getTimestamp());
+							ATMtransDTO.setType(ATMT.getType());
+							ATMtransDTO.setAmount(ATMT.getAmount());
+							ATMtransDTO.setStreetName(ATMT.getAtmId().getStreetName());
+							ATMtransDTO.setPostcode(ATMT.getAtmId().getPostcode());
+							ATMtransDTO.setOperator(ATMT.getAtmId().getOperator());
+							
+							atmTrans.add(ATMtransDTO);
+						}
+						bankCardDTO.setATMTransaction(atmTrans);
+						
+						ArrayList<EPOSTransactionsDTO> eposTrans = new ArrayList<>();
+						for (EPOSTransactions EPOST : bc.getEPOSTransactions()) {
+							EPOSTransactionsDTO EPOStransDTO = new EPOSTransactionsDTO();
+							EPOStransDTO.setTimestamp(EPOST.getTimestamp());
+							EPOStransDTO.setAmount(EPOST.getAmount());
+							EPOStransDTO.setStreetName(EPOST.getId().getStreetName());
+							EPOStransDTO.setPostcode(EPOST.getId().getPostcode());
+							EPOStransDTO.setVendor(EPOST.getId().getVendor());
+							
+							eposTrans.add(EPOStransDTO);
+						}
+						bankCardDTO.setEPOSTransactions(eposTrans);
 						
 						bankCards.add(bankCardDTO);
 					}
@@ -85,8 +111,6 @@ public class FinanceService {
 			
 		}
 		
-		
-	
 		return suspectFinances;
 	
 	}

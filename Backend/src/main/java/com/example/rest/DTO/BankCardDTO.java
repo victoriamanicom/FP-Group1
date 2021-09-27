@@ -1,11 +1,12 @@
 package com.example.rest.DTO;
 
+import java.util.List;
 import java.util.Set;
 
 public class BankCardDTO {
 
-	public BankCardDTO(String sortCode, Set<ATMTransactionDTO> atmTransactions,
-			Set<EPOSTransactionsDTO> eposTransactions) {
+	public BankCardDTO(String sortCode, List<ATMTransactionDTO> atmTransactions,
+			List<EPOSTransactionsDTO> eposTransactions) {
 		super();
 		this.sortCode = sortCode;
 		ATMTransaction = atmTransactions;
@@ -23,9 +24,9 @@ public class BankCardDTO {
 
 	private String sortCode;
 
-	private Set<ATMTransactionDTO> ATMTransaction;
+	private List<ATMTransactionDTO> ATMTransaction;
 
-	private Set<EPOSTransactionsDTO> EPOSTransactions;
+	private List<EPOSTransactionsDTO> EPOSTransactions;
 
 	public String getSortCode() {
 		return sortCode;
@@ -35,19 +36,19 @@ public class BankCardDTO {
 		this.sortCode = sortCode;
 	}
 
-	public Set<ATMTransactionDTO> getATMTransaction() {
+	public List<ATMTransactionDTO> getATMTransaction() {
 		return ATMTransaction;
 	}
 
-	public void setATMTransaction(Set<ATMTransactionDTO> atmTransactions) {
+	public void setATMTransaction(List<ATMTransactionDTO> atmTransactions) {
 		ATMTransaction = atmTransactions;
 	}
 
-	public Set<EPOSTransactionsDTO> getEPOSTransactions() {
+	public List<EPOSTransactionsDTO> getEPOSTransactions() {
 		return EPOSTransactions;
 	}
 
-	public void setEPOSTransactions(Set<EPOSTransactionsDTO> eposTransactions) {
+	public void setEPOSTransactions(List<EPOSTransactionsDTO> eposTransactions) {
 		EPOSTransactions = eposTransactions;
 	}
 
