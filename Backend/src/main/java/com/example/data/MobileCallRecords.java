@@ -3,6 +3,8 @@ package com.example.data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class MobileCallRecords {
@@ -31,17 +33,21 @@ public class MobileCallRecords {
 	@Column(name = "timestamp")
 	private String timestamp;
 
-	@Column(name = "caller_MSISDN")
-	private String callerMSISDN;
+	@ManyToOne
+	@JoinColumn(name = "caller_MSISDN", nullable = false)
+	private PeopleMobile phone_number;
+	
 
 	@Column(name = "call_cell_tower_id")
 	private Long callCellTowerId;
-
+	
 	@Column(name = "receiver_MSISDN")
 	private String receiverMSISDN;
 
 	@Column(name = "receiver_tower_id")
 	private Long receiverTowerId;
+	
+	
 
 	public String getTimestamp() {
 		return timestamp;
