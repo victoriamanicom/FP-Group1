@@ -26,9 +26,6 @@ public class CitizenService {
 	
 	private CitizenRepo citizenrepo;
 	private PeopleBankAccountRepo pbaRepo;
-	
-	
-	
 	private ModelMapper mapper;
 
 	
@@ -58,6 +55,8 @@ public class CitizenService {
 		
 		return null;
 	}
+	
+	
 	
 	
 	
