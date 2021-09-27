@@ -120,6 +120,7 @@ const CitizenAbout = ({ citizenID }) => {
 
     console.log(`the data:`);
     console.log(citizenData);
+    console.log(citizenData.citizenBio);
     return (
         <>
             <Row className="citizenInfoReturn">
