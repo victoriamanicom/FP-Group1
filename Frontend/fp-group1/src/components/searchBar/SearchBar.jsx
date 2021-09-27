@@ -4,17 +4,19 @@ import Row from "react-bootstrap/Row";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 
 const SearchBar = ({
     handleSearch,
     handleReset,
-    suspectForenames,
-    setSuspectForenames,
-    suspectSurname,
-    setSuspectSurname,
-    suspectGender,
-    setSuspectGender,
+    citizenForenames,
+    setCitizenForenames,
+    citizenSurname,
+    setCitizenSurname,
+    citizenGender,
+    setCitizenGender,
 }) => {
+    const { push } = useHistory();
     return (
         <>
             <Form id="searchBarForm" onSubmit={(e) => handleSearch(e)}>
@@ -28,9 +30,9 @@ const SearchBar = ({
                                 type="text"
                                 name="searchForenames"
                                 placeholder="Forenames"
-                                value={suspectForenames}
+                                value={citizenForenames}
                                 onChange={(e) =>
-                                    setSuspectForenames(e.target.value)
+                                    setCitizenForenames(e.target.value)
                                 }
                             />
                         </FloatingLabel>
@@ -44,9 +46,9 @@ const SearchBar = ({
                                 type="text"
                                 name="searchSurname"
                                 placeholder="Surname"
-                                value={suspectSurname}
+                                value={citizenSurname}
                                 onChange={(e) =>
-                                    setSuspectSurname(e.target.value)
+                                    setCitizenSurname(e.target.value)
                                 }
                             />
                         </FloatingLabel>
@@ -58,9 +60,9 @@ const SearchBar = ({
                         >
                             <Form.Select
                                 name="searchGender"
-                                value={suspectGender}
+                                value={citizenGender}
                                 onChange={(e) =>
-                                    setSuspectGender(e.target.value)
+                                    setCitizenGender(e.target.value)
                                 }
                             >
                                 <option value=""></option>
@@ -70,7 +72,11 @@ const SearchBar = ({
                         </FloatingLabel>
                     </Col>
                     <Col xs={2} id="buttonColumn">
-                        <Button id="searchButton" type="submit">
+                        <Button
+                            id="searchButton"
+                            type="submit"
+                            onClick={push(`/`)}
+                        >
                             Search
                         </Button>
                         <br />
