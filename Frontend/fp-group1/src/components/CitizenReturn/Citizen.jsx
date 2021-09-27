@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
-const Citizen = ({ firstName, lastName, dob, sex, Address, selectCitizen }) => {
+const Citizen = ({ citizenID, firstName, lastName, dob, sex, Address, selectCitizen }) => {
     return (
         <Row>
             <Card className="citizenCard">
@@ -11,7 +11,7 @@ const Citizen = ({ firstName, lastName, dob, sex, Address, selectCitizen }) => {
                     <Card.Title className="citizenTitle">
                         <h5
                             className="citizenNameHeading"
-                            onClick={() => selectCitizen(lastName)}
+                            onClick={() => selectCitizen(lastName, citizenID)}
                         >
                             {firstName} {lastName}
                         </h5>

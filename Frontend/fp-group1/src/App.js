@@ -11,8 +11,32 @@ import CitizenAbout from "./components/CitizenAbout/CitizenAbout";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-    const citizens = [
+    
+    const [suspectForenames, setSuspectForenames] = useState("");
+    const [suspectSurname, setSuspectSurname] = useState("");
+    const [suspectGender, setSuspectGender] = useState("");
+    const [citizens, setCitizens] = useState([]);
+    const [suspectID, setSuspectID] = useState("");
+    
+
+    const handleReset = (e) => {
+        setSuspectForenames("");
+        setSuspectSurname("");
+        setSuspectGender("");
+        setSuspectID("");
+        setCitizens([]);
+    };
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        // axios
+        // .get()
+        // .then(({ data }) => setCitizens(data))
+        // .catch((err) => console.log(err));
+        
+        setCitizens([
         {
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 1",
             dob: "DD/MM/YYYY",
@@ -20,6 +44,7 @@ function App() {
             Address: "5 Street Name",
         },
         {
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 2",
             dob: "DD/MM/YYYY",
@@ -27,6 +52,7 @@ function App() {
             Address: "6 Street Name",
         },
         {
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 3",
             dob: "DD/MM/YYYY",
@@ -34,6 +60,7 @@ function App() {
             Address: "7 Street Name",
         },
         {
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 4",
             dob: "DD/MM/YYYY",
@@ -41,33 +68,18 @@ function App() {
             Address: "7 Street Name",
         },
         {
+            citizenID: "001L",
             firstName: "First Name",
             lastName: "Last Name 5",
             dob: "DD/MM/YYYY",
             sex: "Male",
             Address: "7 Street Name",
         },
-    ];
-    const [suspectForenames, setSuspectForenames] = useState("");
-    const [suspectSurname, setSuspectSurname] = useState("");
-    const [suspectGender, setSuspectGender] = useState("");
-    // const [citizens, setCitizens] = useState([]);
-
-    const handleReset = (e) => {
-        setSuspectForenames("");
-        setSuspectSurname("");
-        setSuspectGender("");
+        ]);
     };
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        axios
-            .get()
-            .then((result) => {
-                // setCitizens(result.data);
-            })
-            .catch((err) => console.log(err));
-    };
+
+
     return (
         <Router className="App">
             <Navbar className="navbarHeader" sticky="top">
@@ -96,10 +108,12 @@ function App() {
 
             <Switch>
                 <Route exact path="/">
-                    <CitizenReturn citizens={citizens} />
+                    <CitizenReturn citizens={citizens}
+                    setSuspectID={setSuspectID}/>
                 </Route>
                 <Route path="/:lastName">
-                    <CitizenAbout citizens={citizens} />
+                    <CitizenAbout citizens={citizens} 
+                    suspectID={suspectID}/>
                 </Route>
                 {/* <Route path="/finance/:lastName">
                     <FinanceReturn citizens={citizens} />
