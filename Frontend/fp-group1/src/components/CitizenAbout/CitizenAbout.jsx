@@ -12,9 +12,8 @@ import BioReturn from "./BioReturn/BioReturn";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const CitizenAbout = ({suspectID}) => {
-
-    const [suspectData, setSuspectData] = useState([1]);
+const CitizenAbout = ({ citizenID }) => {
+    const [citizenData, setCitizenData] = useState([1]);
 
     const { lastName } = useParams();
     const { push } = useHistory();
@@ -23,30 +22,31 @@ const CitizenAbout = ({suspectID}) => {
         push(`/${lastName}${eventKey}`);
     };
 
-    const handleGetSusepct = (suspectID) => {
+    const handleGetCitizen = (citizenID) => {
         // axios
         // .get()
-        // .then (({ data }) => setSuspectData(data))
+        // .then (({ data }) => setCitizenData(data))
         // .catch((err) => console.log(err));
 
-        setSuspectData({
+        setCitizenData({
             citizenID: "001L",
-            associatesData: {data: "null"},
-            whereaboutsData: {data: "null"},
+            associatesData: { data: "null" },
+            whereaboutsData: { data: "null" },
             vehicleData: [
                 {
                     make: "Ford",
                     model: "T",
                     colour: "yello",
                     licencePlate: "YO5 QT33",
-                    regestrationDate: "19/03/1956"
-                },{
+                    registrationDate: "19/03/1956",
+                },
+                {
                     make: "Tesla",
                     model: "S",
                     colour: "silver",
                     licencePlate: "UH45 J32",
-                    regestrationDate: "21/07/2019"
-                }
+                    registrationDate: "21/07/2019",
+                },
             ],
             mobileData: {
                 phoneNum: "08428 768234",
@@ -54,18 +54,19 @@ const CitizenAbout = ({suspectID}) => {
                 callData: [
                     {
                         timestamp: "21/09/2021:23:21:44",
-                        callRecieve: "Call",
+                        callReceive: "Call",
                         phoneNum: "07323 578123",
                         forename: "Sam",
-                        surname: "Smith"
-                    },{
+                        surname: "Smith",
+                    },
+                    {
                         timestamp: "22/09/2021:10:03:54",
-                        callRecieve: "Recieve",
+                        callReceive: "Receive",
                         phoneNum: "07323 578123",
                         forename: "Sam",
-                        surname: "Smith"
-                    }
-                ]
+                        surname: "Smith",
+                    },
+                ],
             },
             citizenBio: {
                 forename: "Hary",
@@ -78,7 +79,7 @@ const CitizenAbout = ({suspectID}) => {
                 passportNo: "3457304957",
                 nationality: "Doiche",
                 businessName: "Comedian Store",
-                businessAddress: "67 Work Road, Worksfod, WO5 FO8"
+                businessAddress: "67 Work Road, Worksfod, WO5 FO8",
             },
             financialData: {
                 bank: "HSBC",
@@ -88,41 +89,43 @@ const CitizenAbout = ({suspectID}) => {
                         timestamp: "21/09/2021:13:28:59",
                         amount: "£3.99",
                         vendor: "Tesco",
-                        streetName: "Barton Avenue"
-                    },{
+                        streetName: "Barton Avenue",
+                    },
+                    {
                         timestamp: "21/09/2021:15:01:31",
                         amount: "£99.00",
                         vendor: "John Lewis",
-                        streetName: "Barton Avenue"
-                    }
+                        streetName: "Barton Avenue",
+                    },
                 ],
                 atmData: [
                     {
-                        timestamp:"10/09/2021:10:54:26",
+                        timestamp: "10/09/2021:10:54:26",
                         amount: "£100",
-                        streetName: "Highgate Lane"
-                    },{
-                        timestamp:"19/09/2021:21:41:53",
+                        streetName: "Highgate Lane",
+                    },
+                    {
+                        timestamp: "19/09/2021:21:41:53",
                         amount: "£25",
-                        streetName: "Town Center"
-                    }
-                ]
-            }
-        })
-    }
+                        streetName: "Town Center",
+                    },
+                ],
+            },
+        });
+    };
 
-    if (suspectData == 1) {
-        handleGetSusepct(suspectID);
+    if (citizenData == 1) {
+        handleGetCitizen(citizenID);
     }
 
     console.log(`the data:`);
-    console.log(suspectData);
+    console.log(citizenData);
     return (
         <>
             <Row className="citizenInfoReturn">
                 <Col xs={2}>
                     <SideNavBar
-                        citizenBio={suspectData.citizenBio}
+                        citizen={citizenData.citizenBio}
                         handleSelect={handleSelect}
                     />
                 </Col>
@@ -132,19 +135,27 @@ const CitizenAbout = ({suspectID}) => {
                             <BioReturn citizenBio={suspectData.citizenBio} />
                         </Route>
                         <Route path="/:lastName/finance">
-                            <FinanceReturn financialData={suspectData.financialData} />
+                            <FinanceReturn
+                                financialData={citizenData.financialData}
+                            />
                         </Route>
                         <Route path="/:lastName/mobile">
-                            <MobileReturn mobileData={suspectData.mobileData}/>
+                            <MobileReturn mobileData={citizenData.mobileData} />
                         </Route>
                         <Route path="/:lastName/vehicle">
-                            <VehicleReturn vehicleData={suspectData.vehicleData} />
+                            <VehicleReturn
+                                vehicleData={citizenData.vehicleData}
+                            />
                         </Route>
                         <Route path="/:lastName/associates">
-                            <AssociatesReturn associatesData={suspectData.associatesData}/>
+                            <AssociatesReturn
+                                associatesData={citizenData.associatesData}
+                            />
                         </Route>
                         <Route path="/:lastName/whereabouts">
-                            <WhereaboutsReturn whereaboutsData={suspectData.whereaboutsData}/>
+                            <WhereaboutsReturn
+                                whereaboutsData={citizenData.whereaboutsData}
+                            />
                         </Route>
                     </Switch>
                 </Col>

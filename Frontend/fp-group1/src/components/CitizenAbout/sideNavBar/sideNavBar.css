@@ -19,4 +19,6 @@
 
 #root > div > div.col-2 > div > a.nav-link.disabled {
     background-color: #364b69;
+    width: 175px;
+    text-align: center;
 }

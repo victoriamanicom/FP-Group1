@@ -11,19 +11,17 @@ import CitizenAbout from "./components/CitizenAbout/CitizenAbout";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-    
-    const [suspectForenames, setSuspectForenames] = useState("");
-    const [suspectSurname, setSuspectSurname] = useState("");
-    const [suspectGender, setSuspectGender] = useState("");
+    const [citizenForenames, setCitizenForenames] = useState("");
+    const [citizenSurname, setCitizenSurname] = useState("");
+    const [citizenGender, setCitizenGender] = useState("");
     const [citizens, setCitizens] = useState([]);
-    const [suspectID, setSuspectID] = useState("");
-    
+    const [citizenID, setCitizenID] = useState("");
 
     const handleReset = (e) => {
-        setSuspectForenames("");
-        setSuspectSurname("");
-        setSuspectGender("");
-        setSuspectID("");
+        setCitizenForenames("");
+        setCitizenSurname("");
+        setCitizenGender("");
+        setCitizenID("");
         setCitizens([]);
     };
 
@@ -33,52 +31,50 @@ function App() {
         // .get()
         // .then(({ data }) => setCitizens(data))
         // .catch((err) => console.log(err));
-        
+
         setCitizens([
-        {
-            citizenID: "001L",
-            firstName: "First Name",
-            lastName: "Last Name 1",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "5 Street Name",
-        },
-        {
-            citizenID: "001L",
-            firstName: "First Name",
-            lastName: "Last Name 2",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "6 Street Name",
-        },
-        {
-            citizenID: "001L",
-            firstName: "First Name",
-            lastName: "Last Name 3",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "7 Street Name",
-        },
-        {
-            citizenID: "001L",
-            firstName: "First Name",
-            lastName: "Last Name 4",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "7 Street Name",
-        },
-        {
-            citizenID: "001L",
-            firstName: "First Name",
-            lastName: "Last Name 5",
-            dob: "DD/MM/YYYY",
-            sex: "Male",
-            Address: "7 Street Name",
-        },
+            {
+                citizenID: "001L",
+                firstName: "First Name",
+                lastName: "Last Name 1",
+                dob: "DD/MM/YYYY",
+                sex: "Male",
+                Address: "5 Street Name",
+            },
+            {
+                citizenID: "001L",
+                firstName: "First Name",
+                lastName: "Last Name 2",
+                dob: "DD/MM/YYYY",
+                sex: "Male",
+                Address: "6 Street Name",
+            },
+            {
+                citizenID: "001L",
+                firstName: "First Name",
+                lastName: "Last Name 3",
+                dob: "DD/MM/YYYY",
+                sex: "Male",
+                Address: "7 Street Name",
+            },
+            {
+                citizenID: "001L",
+                firstName: "First Name",
+                lastName: "Last Name 4",
+                dob: "DD/MM/YYYY",
+                sex: "Male",
+                Address: "7 Street Name",
+            },
+            {
+                citizenID: "001L",
+                firstName: "First Name",
+                lastName: "Last Name 5",
+                dob: "DD/MM/YYYY",
+                sex: "Male",
+                Address: "7 Street Name",
+            },
         ]);
     };
-
-
 
     return (
         <Router className="App">
@@ -98,26 +94,24 @@ function App() {
             <SearchBar
                 handleReset={handleReset}
                 handleSearch={handleSearch}
-                suspectForenames={suspectForenames}
-                setSuspectForenames={setSuspectForenames}
-                suspectSurname={suspectSurname}
-                setSuspectSurname={setSuspectSurname}
-                suspectGender={suspectGender}
-                setSuspectGender={setSuspectGender}
+                citizenForenames={citizenForenames}
+                setCitizenForenames={setCitizenForenames}
+                citizenSurname={citizenSurname}
+                setCitizenSurname={setCitizenSurname}
+                citizenGender={citizenGender}
+                setCitizenGender={setCitizenGender}
             />
 
             <Switch>
                 <Route exact path="/">
-                    <CitizenReturn citizens={citizens}
-                    setSuspectID={setSuspectID}/>
+                    <CitizenReturn
+                        citizens={citizens}
+                        setCitizenID={setCitizenID}
+                    />
                 </Route>
                 <Route path="/:lastName">
-                    <CitizenAbout citizens={citizens} 
-                    suspectID={suspectID}/>
+                    <CitizenAbout citizens={citizens} citizenID={citizenID} />
                 </Route>
-                {/* <Route path="/finance/:lastName">
-                    <FinanceReturn citizens={citizens} />
-                </Route> */}
             </Switch>
         </Router>
     );

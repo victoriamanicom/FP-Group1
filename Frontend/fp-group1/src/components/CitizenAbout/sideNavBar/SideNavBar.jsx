@@ -2,7 +2,7 @@ import "./sideNavBar.css";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
-const SideNavBar = ({citizenBio, handleSelect }) => {
+const SideNavBar = ({ citizenBio, handleSelect }) => {
     return (
         <Nav
             className="flex-column"
