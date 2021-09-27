@@ -2,32 +2,16 @@ import { Card } from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
 import "./VehicleReturn.css"
 
-const VehicleReturn = () => {
+const VehicleReturn = ({vehicleData}) => {
 
-    const vehicleData = [
-        {
-            make: "Ford",
-            model: "T",
-            colour: "yellow",
-            vehicleRegistration: "YUS7",
-            dateRegistration: "9842574"
-        },{
-            make: "Tesla",
-            model: "S",
-            colour: "Silver",
-            vehicleRegistration: "H4H469",
-            dateRegistration: "976863"
-        }
-    ]
-
-    const ListVehicles = ({make, model, colour, vehicleRegistration, dateRegistration}) => {
+    const ListVehicles = ({make, model, colour, licencePlate, regestrationDate}) => {
         return (
             <tr>
                 <td>{make}</td>
                 <td>{model}</td>
                 <td>{colour}</td>
-                <td>{vehicleRegistration}</td>
-                <td>{dateRegistration}</td>
+                <td>{licencePlate}</td>
+                <td>{regestrationDate}</td>
             </tr>
         )
     }
@@ -48,7 +32,7 @@ const VehicleReturn = () => {
                     </thead>
                     <tbody>
                         {vehicleData.map(vehicle =>
-                        <ListVehicles key={vehicleData.vehicleRegistration} {...vehicle} />
+                        <ListVehicles key={vehicleData.licencePlate} {...vehicle} />
                         )}
                     </tbody>
                 </Table>

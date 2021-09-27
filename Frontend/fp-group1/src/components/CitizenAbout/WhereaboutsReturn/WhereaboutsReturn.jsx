@@ -1,12 +1,7 @@
 import "./WhereaboutsReturn.css";
 import { Card } from "react-bootstrap";
 
-const WhereaboutsReturn = () => {
-    const whereaboutsData = [
-        {
-            data: "unknown",
-        },
-    ];
+const WhereaboutsReturn = ({whereaboutsData}) => {
 
     return (
         <Card className="whereReturn">

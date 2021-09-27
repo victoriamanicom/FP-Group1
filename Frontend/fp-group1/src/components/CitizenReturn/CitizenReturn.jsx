@@ -3,11 +3,12 @@ import Citizen from "./Citizen";
 import Container from "react-bootstrap/Container";
 import { useHistory } from "react-router-dom";
 
-const CitizenReturn = ({ citizens }) => {
+const CitizenReturn = ({ citizens, setSuspectID }) => {
     const { push } = useHistory();
 
-    const selectCitizen = (lastName) => {
+    const selectCitizen = (lastName, citizenID) => {
         push(`/${lastName}/about`);
+        setSuspectID(citizenID);
     };
 
     return (
