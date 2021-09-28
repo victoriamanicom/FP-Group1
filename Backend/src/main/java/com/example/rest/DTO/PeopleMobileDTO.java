@@ -4,7 +4,8 @@ import java.util.List;
 
 public class PeopleMobileDTO {
 
-	public PeopleMobileDTO(String phoneNumber, String network, List<MobileCallRecordsDTO> mobileCallRecords, List<MobileReceiveRecordsDTO> mobileReceiveRecords) {
+	public PeopleMobileDTO(String phoneNumber, String network, List<MobileCallRecordsDTO> mobileCallRecords,
+			List<MobileCallRecordsDTO> mobileReceiveRecords) {
 		super();
 		this.phoneNumber = phoneNumber;
 		this.network = network;
@@ -12,11 +13,11 @@ public class PeopleMobileDTO {
 		this.mobileReceiveRecords = mobileReceiveRecords;
 	}
 
-	public List<MobileReceiveRecordsDTO> getMobileReceiveRecords() {
+	public List<MobileCallRecordsDTO> getMobileReceiveRecords() {
 		return mobileReceiveRecords;
 	}
 
-	public void setMobileReceiveRecords(List<MobileReceiveRecordsDTO> mobileReceiveRecords) {
+	public void setMobileReceiveRecords(List<MobileCallRecordsDTO> mobileReceiveRecords) {
 		this.mobileReceiveRecords = mobileReceiveRecords;
 	}
 
@@ -27,7 +28,7 @@ public class PeopleMobileDTO {
 	private String phoneNumber;
 
 	private String network;
-	private List<MobileReceiveRecordsDTO> mobileReceiveRecords;
+	private List<MobileCallRecordsDTO> mobileReceiveRecords;
 	private List<MobileCallRecordsDTO> mobileCallRecords;
 
 	public String getPhoneNumber() {

@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 public class PeopleMobile {
 
 	public PeopleMobile(String forenames, String surname, String dateOfBirth, String address, String town,
-			String postcode, String network) {
+			String postcode, String network, String phoneNumber) {
 		super();
 		this.forenames = forenames;
 		this.surname = surname;
@@ -117,6 +117,14 @@ public class PeopleMobile {
 
 	public void setNetwork(String network) {
 		this.network = network;
+	}
+
+	public Set<MobileCallRecords> getMobileCallRecords() {
+		return mobileCallRecords;
+	}
+
+	public void setMobileCallRecords(Set<MobileCallRecords> mobileCallRecords) {
+		this.mobileCallRecords = mobileCallRecords;
 	}
 
 	@Override

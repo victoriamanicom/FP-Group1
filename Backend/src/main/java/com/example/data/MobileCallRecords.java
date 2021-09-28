@@ -38,6 +38,8 @@ public class MobileCallRecords {
 	@JoinColumn(name = "caller_MSISDN", nullable = false)
 	private PeopleMobile phoneNumber;
 
+	@Column(name = "caller_MSISDN")
+	private String callerMSISDN;
 
 	@Column(name = "call_cell_tower_id")
 	private Long callCellTowerId;
@@ -86,6 +88,14 @@ public class MobileCallRecords {
 
 	public void setPhoneNumber(PeopleMobile phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getCallerMSISDN() {
+		return callerMSISDN;
+	}
+
+	public void setCallerMSISDN(String callerMSISDN) {
+		this.callerMSISDN = callerMSISDN;
 	}
 
 }
