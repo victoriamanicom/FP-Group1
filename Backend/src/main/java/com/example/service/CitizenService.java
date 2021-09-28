@@ -49,19 +49,7 @@ public class CitizenService {
 		return this.citizenrepo.findAll(Example.of(citizen)).stream().map(this::mapCitizenToDTO).collect(Collectors.toList());
 	}
 	
-	public MainDTO getByCitizenID(String citizenID) {
-		return this.citizenrepo.findByCitizenID(citizenID);
-	}
-	
-	public MainDTO getSuspectInfo(String citizenID) {
-		List<PeopleBankAccount> pbaList = pbaRepo.findAll();
-		ArrayList<PeopleMobileDTO> suspectMobile = new ArrayList<>();
-		for(PeopleMobile pm : peopleSus) {
-			
-		}
-		
-		return null;
-	}
+}
 	
 	
 	
