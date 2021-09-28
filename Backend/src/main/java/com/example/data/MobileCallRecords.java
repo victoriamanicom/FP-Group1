@@ -35,7 +35,7 @@ public class MobileCallRecords {
 
 	@ManyToOne
 	@JoinColumn(name = "caller_MSISDN", nullable = false)
-	private PeopleMobile phone_number;
+	private PeopleMobile phoneNumber;
 
 	@Column(name = "call_cell_tower_id")
 	private Long callCellTowerId;
@@ -78,12 +78,12 @@ public class MobileCallRecords {
 		this.receiverTowerId = receiverTowerId;
 	}
 
-	public PeopleMobile getPhone_number() {
-		return phone_number;
+	public PeopleMobile getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhone_number(PeopleMobile phone_number) {
-		this.phone_number = phone_number;
+	public void setPhoneNumber(PeopleMobile phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 }

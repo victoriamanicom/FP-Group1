@@ -19,6 +19,7 @@ public class PeopleMobile {
 		this.address = address;
 		this.town = town;
 		this.postcode = postcode;
+		this.phoneNumber = phoneNumber;
 		this.network = network;
 	}
 
@@ -44,12 +45,15 @@ public class PeopleMobile {
 	@Column(name = "postcode")
 	private String postcode;
 
-	@Column(name = "network")
-	private String network;
-
 	@Id
+	@Column(name = "phone_number")
+	private String phoneNumber;
+
 	@OneToMany(mappedBy = "phone_number")
 	private Set<MobileCallRecords> mobileCallRecords;
+
+	@Column(name = "network")
+	private String network;
 
 	public String getForenames() {
 		return forenames;
@@ -99,12 +103,12 @@ public class PeopleMobile {
 		this.postcode = postcode;
 	}
 
-	public Set<MobileCallRecords> getMobileCallRecords() {
-		return mobileCallRecords;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setMobileCallRecords(Set<MobileCallRecords> mobileCallRecords) {
-		this.mobileCallRecords = mobileCallRecords;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getNetwork() {
@@ -123,7 +127,7 @@ public class PeopleMobile {
 		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
 		result = prime * result + ((forenames == null) ? 0 : forenames.hashCode());
 		result = prime * result + ((network == null) ? 0 : network.hashCode());
-		result = prime * result + ((mobileCallRecords == null) ? 0 : mobileCallRecords.hashCode());
+		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
 		result = prime * result + ((postcode == null) ? 0 : postcode.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		result = prime * result + ((town == null) ? 0 : town.hashCode());
@@ -159,10 +163,10 @@ public class PeopleMobile {
 				return false;
 		} else if (!network.equals(other.network))
 			return false;
-		if (mobileCallRecords == null) {
-			if (other.mobileCallRecords != null)
+		if (phoneNumber == null) {
+			if (other.phoneNumber != null)
 				return false;
-		} else if (!mobileCallRecords.equals(other.mobileCallRecords))
+		} else if (!phoneNumber.equals(other.phoneNumber))
 			return false;
 		if (postcode == null) {
 			if (other.postcode != null)
@@ -185,7 +189,8 @@ public class PeopleMobile {
 	@Override
 	public String toString() {
 		return "PeopleMobile [forenames=" + forenames + ", surname=" + surname + ", dateOfBirth=" + dateOfBirth
-				+ ", address=" + address + ", town=" + town + ", postcode=" + postcode + ", network=" + network
-				+ ", mobileCallRecords=" + mobileCallRecords + "]";
+				+ ", address=" + address + ", town=" + town + ", postcode=" + postcode + ", phoneNumber=" + phoneNumber
+				+ ", network=" + network + "]";
 	}
+
 }
