@@ -37,6 +37,7 @@ public class Citizen {
 
 	}
 
+	@Id
 	@Column(name = "citizen_id")
 	private String citizenID;
 
