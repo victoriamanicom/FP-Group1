@@ -47,9 +47,10 @@ public class PeopleMobile {
 	@Column(name = "network")
 	private String network;
 
+	@Id
 	@OneToMany(mappedBy = "phone_number")
-	private Set<MobileCallRecords> mobileCallRecords; 
-	
+	private Set<MobileCallRecords> mobileCallRecords;
+
 	public String getForenames() {
 		return forenames;
 	}
@@ -122,7 +123,7 @@ public class PeopleMobile {
 		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
 		result = prime * result + ((forenames == null) ? 0 : forenames.hashCode());
 		result = prime * result + ((network == null) ? 0 : network.hashCode());
-		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
+		result = prime * result + ((mobileCallRecords == null) ? 0 : mobileCallRecords.hashCode());
 		result = prime * result + ((postcode == null) ? 0 : postcode.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		result = prime * result + ((town == null) ? 0 : town.hashCode());
@@ -158,10 +159,10 @@ public class PeopleMobile {
 				return false;
 		} else if (!network.equals(other.network))
 			return false;
-		if (phoneNumber == null) {
-			if (other.phoneNumber != null)
+		if (mobileCallRecords == null) {
+			if (other.mobileCallRecords != null)
 				return false;
-		} else if (!phoneNumber.equals(other.phoneNumber))
+		} else if (!mobileCallRecords.equals(other.mobileCallRecords))
 			return false;
 		if (postcode == null) {
 			if (other.postcode != null)
@@ -184,7 +185,7 @@ public class PeopleMobile {
 	@Override
 	public String toString() {
 		return "PeopleMobile [forenames=" + forenames + ", surname=" + surname + ", dateOfBirth=" + dateOfBirth
-				+ ", address=" + address + ", town=" + town + ", postcode=" + postcode + ", phoneNumber=" + phoneNumber
-				+ ", network=" + network + "]";
+				+ ", address=" + address + ", town=" + town + ", postcode=" + postcode + ", network=" + network
+				+ ", mobileCallRecords=" + mobileCallRecords + "]";
 	}
 }

@@ -1,14 +1,17 @@
 package com.example.service;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.example.data.Citizen;
 import com.example.data.PeopleBankAccount;
+import com.example.data.PeopleMobile;
 import com.example.data.VehicleRegistration;
 import com.example.repo.CitizenRepo;
 import com.example.repo.PeopleBankAccountRepo;
 import com.example.rest.DTO.CitizenReturnDTO;
 import com.example.rest.DTO.MainDTO;
 import com.example.rest.DTO.PeopleBankAccountDTO;
+import com.example.rest.DTO.PeopleMobileDTO;
 import com.example.rest.DTO.VehicleDTO;
 
 import org.modelmapper.ModelMapper;
@@ -52,6 +55,10 @@ public class CitizenService {
 	
 	public MainDTO getSuspectInfo(String citizenID) {
 		List<PeopleBankAccount> pbaList = pbaRepo.findAll();
+		ArrayList<PeopleMobileDTO> suspectMobile = new ArrayList<>();
+		for(PeopleMobile pm : peopleSus) {
+			
+		}
 		
 		return null;
 	}
