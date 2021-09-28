@@ -31,6 +31,12 @@ public class Citizen {
 
 	}
 
+	public Citizen() {
+
+		super();
+
+	}
+
 	@Column(name = "citizen_id")
 	private String citizenID;
 
@@ -99,8 +105,6 @@ public class Citizen {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	
-	
 
 	public String getCitizenID() {
 		return citizenID;
