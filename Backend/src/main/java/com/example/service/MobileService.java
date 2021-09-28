@@ -42,18 +42,30 @@ public class MobileService {
 		List<PeopleMobile> peopleM = this.pmRepo.findAll(Example.of(citizenToMobile));
 		
 		ArrayList<PeopleMobileDTO> suspectMobile = new ArrayList<>();
+		
 		for(PeopleMobile pm : peopleM) {
 			
 			PeopleMobileDTO suspectMobileDTO = new PeopleMobileDTO();
-			suspectMobileDTO.setPhoneNumber(pm.getPhoneNumber());
+			suspectMobileDTO.setPhoneNumber(pm.getMobile);
 			suspectMobileDTO.setNetwork(pm.getNetwork());
 			
 			ArrayList<MobileCallRecordsDTO> suspectRecords = new ArrayList<>();
-			for( MobileCallRecords mcr : pm )
+			for( MobileCallRecords mcr : pm.getMobileCallRecords() ) {
+				
+				MobileCallRecordsDTO recordsDTO = new MobileCallRecordsDTO();
+				recordsDTO.setTimestamp(mcr.getTimestamp());
+				recordsDTO.setCallerMSISDN(mcr.getCallerMSISDN());
+				recordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
+				recordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
+				
+			}
+			
 			// need to do pm.setters 
 		} 
 		return suspectMobile;
 	}
+	
+	
 	
 	
 }
