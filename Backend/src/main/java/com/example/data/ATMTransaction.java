@@ -9,12 +9,13 @@ import javax.persistence.ManyToOne;
 @Entity
 public class ATMTransaction {
 
-	public ATMTransaction(String timestamp, String type, Double amount) {
+	public ATMTransaction(Long Id, String timestamp, String type, Double amount) {
 		super();
+		this.Id = Id;
 		this.timestamp = timestamp;
 		this.type = type;
 		this.amount = amount;
-		
+
 	}
 
 	public ATMTransaction() {
@@ -30,6 +31,8 @@ public class ATMTransaction {
 	private BankCard bankCardNumber;
 
 	@Id
+	private Long Id;
+
 	@Column(name = "timestamp")
 	private String timestamp;
 
@@ -38,6 +41,14 @@ public class ATMTransaction {
 
 	@Column(name = "amount")
 	private Double amount;
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
 
 	public String getTimestamp() {
 		return timestamp;

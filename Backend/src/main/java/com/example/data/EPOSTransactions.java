@@ -9,8 +9,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class EPOSTransactions {
 
-	public EPOSTransactions(Long eposId, String timestamp, Long payeeAccount, Double amount) {
+	public EPOSTransactions(Long Id, Long eposId, String timestamp, Long payeeAccount, Double amount) {
 		super();
+		this.Id = Id;
 		this.payeeAccount = payeeAccount;
 		this.amount = amount;
 	}
@@ -27,6 +28,8 @@ public class EPOSTransactions {
 	}
 
 	@Id
+	private Long Id;
+
 	@Column(name = "timestamp")
 	private String timestamp;
 
@@ -43,6 +46,10 @@ public class EPOSTransactions {
 
 	@Column(name = "amount")
 	private Double amount;
+
+	public void setId(Long id) {
+		Id = id;
+	}
 
 	public String getTimestamp() {
 		return timestamp;

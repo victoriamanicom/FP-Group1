@@ -7,9 +7,10 @@ import javax.persistence.Id;
 @Entity
 public class PeopleBusinessAddress {
 
-	public PeopleBusinessAddress(String personName, String homeAddress, String dateOfBirth, String businessName,
-			String businessAddress) {
+	public PeopleBusinessAddress(Long id, String personName, String homeAddress, String dateOfBirth,
+			String businessName, String businessAddress) {
 		super();
+		this.id = id;
 		this.personName = personName;
 		this.homeAddress = homeAddress;
 		this.dateOfBirth = dateOfBirth;
@@ -22,6 +23,8 @@ public class PeopleBusinessAddress {
 	}
 
 	@Id
+	private Long id;
+
 	@Column(name = "person_name")
 	private String personName;
 
@@ -36,6 +39,14 @@ public class PeopleBusinessAddress {
 
 	@Column(name = "business_address")
 	private String businessAddress;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getPersonName() {
 		return personName;

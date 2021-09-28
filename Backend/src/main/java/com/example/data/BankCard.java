@@ -38,10 +38,10 @@ public class BankCard {
 		super();
 	}
 
+	@Id
 	@Column(name = "bank_card_id")
 	private Long bankCardId;
 
-	@Id
 	@Column(name = "card_number")
 	private Long cardNumber;
 
