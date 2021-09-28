@@ -15,7 +15,7 @@ public class WhereService {
 	private PeopleBankAccountRepo pbaRepo;
 	
 		
-	public List<PeopleBankAccount> findBA(Citizen citizen) {
+	public List<PeopleBankAccount> findWhere(Citizen citizen) {
 			
 			
 			PeopleBankAccount citizenToBankAccount = new PeopleBankAccount();

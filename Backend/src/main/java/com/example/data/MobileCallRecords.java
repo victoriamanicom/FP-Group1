@@ -14,6 +14,7 @@ public class MobileCallRecords {
 		super();
 		this.timestamp = timestamp;
 		this.callCellTowerId = callCellTowerId;
+		this.callerMSISDN = callerMSISDN;
 		this.receiverMSISDN = receiverMSISDN;
 		this.receiverTowerId = receiverTowerId;
 	}
@@ -36,6 +37,7 @@ public class MobileCallRecords {
 	@ManyToOne
 	@JoinColumn(name = "caller_MSISDN", nullable = false)
 	private PeopleMobile phoneNumber;
+
 
 	@Column(name = "call_cell_tower_id")
 	private Long callCellTowerId;

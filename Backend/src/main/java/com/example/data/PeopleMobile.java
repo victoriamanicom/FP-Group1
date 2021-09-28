@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 public class PeopleMobile {
 
 	public PeopleMobile(String forenames, String surname, String dateOfBirth, String address, String town,
-			String postcode, String phoneNumber, String network) {
+			String postcode, String network) {
 		super();
 		this.forenames = forenames;
 		this.surname = surname;
