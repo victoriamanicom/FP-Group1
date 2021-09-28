@@ -29,7 +29,7 @@ public class MainDTO {
 
 	public MainDTO() {
 
-		this.super();
+		super();
 
 	}
 
