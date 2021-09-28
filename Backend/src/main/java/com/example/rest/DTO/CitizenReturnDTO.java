@@ -2,18 +2,23 @@ package com.example.rest.DTO;
 
 public class CitizenReturnDTO {
 
+	private String citizenID;
 	private String forenames;
 	private String surname;
 	private String homeAddress;
 	private String dateOfBirth;
+	private String placeOfBirth;
 	private String sex;
 
-	public CitizenReturnDTO(String forenames, String surname, String homeAddress, String dateOfBirth, String sex) {
+	public CitizenReturnDTO(String citizenID, String forenames, String surname, String homeAddress, String dateOfBirth,
+			String placeOfBirth, String sex) {
 		super();
+		this.citizenID = citizenID;
 		this.forenames = forenames;
 		this.surname = surname;
 		this.homeAddress = homeAddress;
 		this.dateOfBirth = dateOfBirth;
+		this.placeOfBirth = placeOfBirth;
 		this.sex = sex;
 	}
 
@@ -61,6 +66,22 @@ public class CitizenReturnDTO {
 		this.sex = sex;
 	}
 
+	public String getCitizenID() {
+		return citizenID;
+	}
+
+	public void setCitizenID(String citizenID) {
+		this.citizenID = citizenID;
+	}
+
+	public String getPlaceOfBirth() {
+		return placeOfBirth;
+	}
+
+	public void setPlaceOfBirth(String placeOfBirth) {
+		this.placeOfBirth = placeOfBirth;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -70,6 +91,8 @@ public class CitizenReturnDTO {
 		result = prime * result + ((homeAddress == null) ? 0 : homeAddress.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		result = prime * result + ((sex == null) ? 0 : sex.hashCode());
+		result = prime * result + ((citizenID == null) ? 0 : citizenID.hashCode());
+		result = prime * result + ((placeOfBirth == null) ? 0 : placeOfBirth.hashCode());
 		return result;
 	}
 
@@ -107,13 +130,24 @@ public class CitizenReturnDTO {
 				return false;
 		} else if (!sex.equals(other.sex))
 			return false;
+		if (citizenID == null) {
+			if (other.citizenID != null)
+				return false;
+		} else if (!citizenID.equals(other.citizenID))
+			return false;
+		if (placeOfBirth == null) {
+			if (other.placeOfBirth != null)
+				return false;
+		} else if (!placeOfBirth.equals(other.placeOfBirth))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "CitizenReturnDTO [forenames=" + forenames + ", surname=" + surname + ", homeAddress=" + homeAddress
-				+ ", dateOfBirth=" + dateOfBirth + ", sex=" + sex + "]";
+		return "CitizenReturnDTO [citizenID=" + citizenID + ", forenames=" + forenames + ", surname=" + surname
+				+ ", homeAddress=" + homeAddress + ", dateOfBirth=" + dateOfBirth + ", placeOfBirth=" + placeOfBirth
+				+ ", sex=" + sex + "]";
 	}
 
 }
