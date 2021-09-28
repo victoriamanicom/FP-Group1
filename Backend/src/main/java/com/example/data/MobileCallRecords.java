@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class MobileCallRecords {
 
-	public MobileCallRecords(String timestamp, String callerMSISN, Long callCellTowerId, String receiverMSISDN,
+	public MobileCallRecords(String timestamp, String callerMSISDN, Long callCellTowerId, String receiverMSISDN,
 			Long receiverTowerId) {
 		super();
 		this.timestamp = timestamp;
@@ -36,18 +36,15 @@ public class MobileCallRecords {
 	@ManyToOne
 	@JoinColumn(name = "caller_MSISDN", nullable = false)
 	private PeopleMobile phone_number;
-	
 
 	@Column(name = "call_cell_tower_id")
 	private Long callCellTowerId;
-	
+
 	@Column(name = "receiver_MSISDN")
 	private String receiverMSISDN;
 
 	@Column(name = "receiver_tower_id")
 	private Long receiverTowerId;
-	
-	
 
 	public String getTimestamp() {
 		return timestamp;
@@ -81,11 +78,12 @@ public class MobileCallRecords {
 		this.receiverTowerId = receiverTowerId;
 	}
 
-	public String getCallerMSISDN() {
-		return callerMSISDN;
+	public PeopleMobile getPhone_number() {
+		return phone_number;
 	}
 
-	public void setCallerMSISDN(String callerMSISDN) {
-		this.callerMSISDN = callerMSISDN;
+	public void setPhone_number(PeopleMobile phone_number) {
+		this.phone_number = phone_number;
 	}
+
 }
