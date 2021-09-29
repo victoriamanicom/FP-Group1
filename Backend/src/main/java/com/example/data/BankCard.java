@@ -14,8 +14,7 @@ import javax.persistence.Table;
 @Table(name = "bank_card")
 public class BankCard {
 
-	public BankCard(java.math.BigInteger cardNumber, String sortCode, Integer bankAccountId, Integer accountNumber,
-			String bank) {
+	public BankCard(String cardNumber, String sortCode, Integer bankAccountId, Integer accountNumber, String bank) {
 
 		super();
 		this.cardNumber = cardNumber;
@@ -25,7 +24,7 @@ public class BankCard {
 
 	}
 
-	public BankCard(Integer bankCardId, java.math.BigInteger cardNumber, String sortCode, Integer bankAccountId,
+	public BankCard(Integer bankCardId, String cardNumber, String sortCode, Integer bankAccountId,
 			Integer accountNumber, String bank) {
 
 		super();
@@ -46,7 +45,7 @@ public class BankCard {
 	private Integer bankCardId;
 
 	@Column(name = "card_number")
-	private java.math.BigInteger cardNumber;
+	private String cardNumber;
 
 	@Column(name = "sort_code")
 	private String sortCode;
@@ -75,11 +74,11 @@ public class BankCard {
 		this.bankCardId = bankCardId;
 	}
 
-	public java.math.BigInteger getCardNumber() {
+	public String getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(java.math.BigInteger cardNumber) {
+	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
