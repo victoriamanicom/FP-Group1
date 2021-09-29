@@ -42,7 +42,9 @@ By using Jenkins pipeline we have access to plugins which facilitate continuous 
 
 #### AWS #### 
 
-The technologies we use from AWS are examples of Infrastructure as a Service (IaaS), where we have the most control and responsibility over the cloud services available to us. -- We are deploying 3 EC2 instances for Jenkins, our Docker Swarm Manager and Docker Swarm Worker nodes
+The technologies we use from AWS are examples of Infrastructure as a Service (IaaS), where we have the most control and responsibility over the cloud services available to us.
+
+- We are deploying 3 EC2 instances for Jenkins, our Docker Swarm Manager and Docker Swarm Worker nodes
 - Amazon RDS Database is being used to host our data for this project
 - The route tables indicate how our subnets are connected to the internet via an Internet Gateway and NAT Gateway
 - Our Database is within a private subnet
