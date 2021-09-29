@@ -1,5 +1,7 @@
 package com.example.data;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,14 +13,15 @@ import javax.persistence.Table;
 @Table(name = "epos_transactions")
 public class EPOSTransactions {
 
-	public EPOSTransactions(Long Id, Long eposId, String timestamp, Long payeeAccount, java.math.BigDecimal amount) {
+	public EPOSTransactions(Long Id, Long eposId, LocalDateTime timestamp, Long payeeAccount,
+			java.math.BigDecimal amount) {
 		super();
 		this.Id = Id;
 		this.payeeAccount = payeeAccount;
 		this.amount = amount;
 	}
 
-	public EPOSTransactions(String timestamp, Long payeeAccount, java.math.BigDecimal amount) {
+	public EPOSTransactions(LocalDateTime timestamp, Long payeeAccount, java.math.BigDecimal amount) {
 		super();
 		this.timestamp = timestamp;
 		this.payeeAccount = payeeAccount;
@@ -34,7 +37,7 @@ public class EPOSTransactions {
 	private Long Id;
 
 	@Column(name = "timestamp")
-	private String timestamp;
+	private LocalDateTime timestamp;
 
 	@ManyToOne
 	@JoinColumn(name = "epos_id", nullable = false)
@@ -54,11 +57,11 @@ public class EPOSTransactions {
 		Id = id;
 	}
 
-	public String getTimestamp() {
+	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(String timestamp) {
+	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
 	}
 

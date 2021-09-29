@@ -1,14 +1,16 @@
 package com.example.rest.DTO;
 
+import java.time.LocalDateTime;
+
 public class EPOSTransactionsDTO {
 
-	private String timestamp;
+	private LocalDateTime timestamp;
 	private java.math.BigDecimal amount;
 	private String vendor;
 	private String streetName;
 	private String postcode;
 
-	public EPOSTransactionsDTO(String timestamp, java.math.BigDecimal amount, String vendor, String streetName,
+	public EPOSTransactionsDTO(LocalDateTime timestamp, java.math.BigDecimal amount, String vendor, String streetName,
 			String postcode) {
 		super();
 		this.timestamp = timestamp;
@@ -22,11 +24,11 @@ public class EPOSTransactionsDTO {
 		super();
 	}
 
-	public String getTimestamp() {
+	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(String timestamp) {
+	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
 	}
 
