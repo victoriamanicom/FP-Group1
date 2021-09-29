@@ -3,14 +3,14 @@ package com.example.rest.DTO;
 public class ATMLocationDTO {
 
 	private String timestamp;
-	private String atmId;
+	private Integer atmId;
 	private String operator;
 	private String streetName;
 	private String postcode;
 	private java.math.BigDecimal latitude;
 	private java.math.BigDecimal longitude;
 
-	public ATMLocationDTO(String timestamp, String atmId, String operator, String streetName, String postcode,
+	public ATMLocationDTO(String timestamp, Integer atmId, String operator, String streetName, String postcode,
 			java.math.BigDecimal latitude, java.math.BigDecimal longitude) {
 
 		super();
@@ -36,11 +36,11 @@ public class ATMLocationDTO {
 		this.timestamp = timestamp;
 	}
 
-	public String getAtmId() {
+	public Integer getAtmId() {
 		return atmId;
 	}
 
-	public void setAtmId(String atmId) {
+	public void setAtmId(Integer atmId) {
 		this.atmId = atmId;
 	}
 
