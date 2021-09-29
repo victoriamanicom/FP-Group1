@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.data.Citizen;
 import com.example.data.MobileCallRecords;
 import com.example.data.PeopleMobile;
+import com.example.repo.MobileCallRecordsRepo;
 import com.example.repo.PeopleMobileRepo;
 import com.example.rest.DTO.MobileCallRecordsDTO;
 import com.example.rest.DTO.PeopleMobileDTO;
@@ -17,10 +18,12 @@ import com.example.rest.DTO.PeopleMobileDTO;
 public class MobileService {
 
 	private PeopleMobileRepo pmRepo;
+	private MobileCallRecordsRepo mcRepo;
 
-	public MobileService(PeopleMobileRepo pmRepo) {
+	public MobileService(PeopleMobileRepo pmRepo, MobileCallRecordsRepo mcRepo) {
 		super();
 		this.pmRepo = pmRepo;
+		this.mcRepo = mcRepo;
 	}
 
 	public List<PeopleMobileDTO> findPM(Citizen citizen) {
@@ -64,16 +67,17 @@ public class MobileService {
 			}
 
 			ArrayList<MobileCallRecordsDTO> suspectIncomingRecords = new ArrayList<>();
-//			for (MobileCallRecords mcr : pmRepo.findByReceiverMSISDN(pm.getPhoneNumber())) {
-//
-//				MobileCallRecordsDTO receiverRecordsDTO = new MobileCallRecordsDTO();
-//				receiverRecordsDTO.setTimestamp(mcr.getTimestamp());
-//				receiverRecordsDTO.setCallerMSISDN(mcr.getPhoneNumber().getPhoneNumber());
-//				receiverRecordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
-//				receiverRecordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
-//
-//				suspectIncomingRecords.add(receiverRecordsDTO);
-//			}
+			for (MobileCallRecords mcr : mcRepo.findByReceiverMSISDN(pm.getPhoneNumber())) {
+
+				MobileCallRecordsDTO receiverRecordsDTO = new MobileCallRecordsDTO();
+				receiverRecordsDTO.setTimestamp(mcr.getTimestamp());
+				receiverRecordsDTO.setCallerMSISDN(mcr.getPhoneNumber().getPhoneNumber());
+				receiverRecordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
+				receiverRecordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
+
+				suspectIncomingRecords.add(receiverRecordsDTO);
+
+			}
 
 			suspectMobileDTO.setMobileCallRecords(suspectOutgoingRecords);
 			suspectMobileDTO.setMobileReceiveRecords(suspectIncomingRecords);
