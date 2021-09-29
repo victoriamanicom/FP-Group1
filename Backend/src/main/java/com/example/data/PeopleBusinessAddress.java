@@ -1,5 +1,7 @@
 package com.example.data;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "people_business_address")
 public class PeopleBusinessAddress {
 
-	public PeopleBusinessAddress(Long id, String personName, String homeAddress, String dateOfBirth,
+	public PeopleBusinessAddress(Long id, String personName, String homeAddress, LocalDateTime dateOfBirth,
 			String businessName, String businessAddress) {
 		super();
 		this.id = id;
@@ -35,7 +37,7 @@ public class PeopleBusinessAddress {
 	private String homeAddress;
 
 	@Column(name = "date_of_birth")
-	private String dateOfBirth;
+	private LocalDateTime dateOfBirth;
 
 	@Column(name = "business_name")
 	private String businessName;
@@ -67,11 +69,11 @@ public class PeopleBusinessAddress {
 		this.homeAddress = homeAddress;
 	}
 
-	public String getDateOfBirth() {
+	public LocalDateTime getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(LocalDateTime dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

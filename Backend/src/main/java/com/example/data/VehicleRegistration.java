@@ -1,5 +1,7 @@
 package com.example.data;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +12,7 @@ import javax.persistence.Table;
 public class VehicleRegistration {
 
 	public VehicleRegistration(Long registrationId, String registrationDate, String vehicleRegistrationNo, String make,
-			String model, String colour, String forenames, String surname, String address, String dateOfBirth,
+			String model, String colour, String forenames, String surname, String address, LocalDateTime dateOfBirth,
 			String driverLicenceId) {
 		super();
 		this.registrationId = registrationId;
@@ -27,7 +29,7 @@ public class VehicleRegistration {
 	}
 
 	public VehicleRegistration(String registrationDate, String vehicleRegistrationNo, String make, String model,
-			String colour, String forenames, String surname, String address, String dateOfBirth,
+			String colour, String forenames, String surname, String address, LocalDateTime dateOfBirth,
 			String driverLicenceId) {
 		super();
 		this.registrationDate = registrationDate;
@@ -75,7 +77,7 @@ public class VehicleRegistration {
 	private String address;
 
 	@Column(name = "date_of_birth")
-	private String dateOfBirth;
+	private LocalDateTime dateOfBirth;
 
 	@Column(name = "driver_licence_id")
 	private String driverLicenceId;
@@ -152,11 +154,11 @@ public class VehicleRegistration {
 		this.address = address;
 	}
 
-	public String getDateOfBirth() {
+	public LocalDateTime getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(LocalDateTime dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

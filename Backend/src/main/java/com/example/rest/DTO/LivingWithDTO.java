@@ -1,10 +1,12 @@
 package com.example.rest.DTO;
 
+import java.time.LocalDateTime;
+
 //Taken from Citizen linked by honeAddress
 
 public class LivingWithDTO {
 
-	public LivingWithDTO(String forenames, String surname, String dateOfBirth) {
+	public LivingWithDTO(String forenames, String surname, LocalDateTime dateOfBirth) {
 		super();
 		this.forenames = forenames;
 		this.surname = surname;
@@ -19,13 +21,13 @@ public class LivingWithDTO {
 
 	private String surname;
 
-	private String dateOfBirth;
+	private LocalDateTime dateOfBirth;
 
-	public String getDateOfBirth() {
+	public LocalDateTime getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(LocalDateTime dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
