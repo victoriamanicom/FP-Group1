@@ -3,6 +3,7 @@ package com.example.service;
 import java.util.Optional;
 
 import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Service;
 
 import com.example.data.Citizen;
 import com.example.repo.CitizenRepo;
@@ -11,6 +12,7 @@ import com.example.repo.PeopleMobileRepo;
 import com.example.repo.VehicleRepo;
 import com.example.rest.DTO.MainDTO;
 
+@Service
 public class MainService {
 
 	private CitizenRepo citizenRepo;
