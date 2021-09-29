@@ -22,13 +22,14 @@ public class MainService {
 	public MainService(PeopleMobileRepo pmRepo, MobileCallRecordsRepo mcrRepo, VehicleRepo vehicleRepo,
 			CitizenRepo citizenRepo, AssService assService, CitizenService citizenService,
 			FinanceService financeService, MobileService mobileService, VehicleService vehicleService,
-			AboutService aboutservice) {
+			AboutService aboutService) {
 		super();
 		this.citizenRepo = citizenRepo;
 		this.assService = assService;
 		this.financeService = financeService;
 		this.mobileService = mobileService;
 		this.vehicleService = vehicleService;
+		this.aboutService = aboutService;
 	}
 
 	public MainDTO getSuspectInfo(String citizenID) {
