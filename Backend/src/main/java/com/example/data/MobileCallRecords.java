@@ -32,10 +32,10 @@ public class MobileCallRecords {
 		super();
 	}
 
-	@Id
 	@Column(name = "timestamp")
 	private String timestamp;
 
+	@Id
 	@Column(name = "id")
 	private Long Id;
 
