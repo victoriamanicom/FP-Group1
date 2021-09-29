@@ -2,7 +2,6 @@ package com.example.service;
 
 import java.util.Optional;
 
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import com.example.data.Citizen;
@@ -35,10 +34,8 @@ public class MainService {
 	}
 
 	public MainDTO getSuspectInfo(String citizenID) {
-		Citizen suspect = new Citizen();
-		suspect.setCitizenID(citizenID);
 
-		Optional<Citizen> foundSuspect = this.citizenRepo.findOne(Example.of(suspect));
+		Optional<Citizen> foundSuspect = this.citizenRepo.findById(citizenID);
 
 		MainDTO suspectInfo = new MainDTO();
 
