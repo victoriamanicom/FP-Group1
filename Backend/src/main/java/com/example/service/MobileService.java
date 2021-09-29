@@ -12,6 +12,7 @@ import com.example.data.PeopleMobile;
 import com.example.repo.MobileCallRecordsRepo;
 import com.example.repo.PeopleMobileRepo;
 import com.example.rest.DTO.MobileCallRecordsDTO;
+import com.example.rest.DTO.MobileReceiveRecordsDTO;
 import com.example.rest.DTO.PeopleMobileDTO;
 
 @Service
@@ -66,14 +67,24 @@ public class MobileService {
 
 			}
 
-			ArrayList<MobileCallRecordsDTO> suspectIncomingRecords = new ArrayList<>();
+			ArrayList<MobileReceiveRecordsDTO> suspectIncomingRecords = new ArrayList<>();
 			for (MobileCallRecords mcr : mcRepo.findByReceiverMSISDN(pm.getPhoneNumber())) {
 
-				MobileCallRecordsDTO receiverRecordsDTO = new MobileCallRecordsDTO();
+				MobileReceiveRecordsDTO receiverRecordsDTO = new MobileReceiveRecordsDTO();
 				receiverRecordsDTO.setTimestamp(mcr.getTimestamp());
 				receiverRecordsDTO.setCallerMSISDN(mcr.getPhoneNumber().getPhoneNumber());
 				receiverRecordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
 				receiverRecordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
+
+				PeopleMobile callerMobile = new PeopleMobile();
+				callerMobile.setPhoneNumber(mcr.getPhoneNumber().getPhoneNumber());
+				List<PeopleMobile> callerName = this.pmRepo.findAll(Example.of(callerMobile));
+
+				for (PeopleMobile rpm : callerName) {
+
+					receiverRecordsDTO.setCallerName(rpm.getForenames().concat(rpm.getSurname()));
+
+				}
 
 				suspectIncomingRecords.add(receiverRecordsDTO);
 
