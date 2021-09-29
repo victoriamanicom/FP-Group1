@@ -4,9 +4,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.data.Citizen;
 import com.example.repo.CitizenRepo;
-import com.example.repo.MobileCallRecordsRepo;
-import com.example.repo.PeopleMobileRepo;
-import com.example.repo.VehicleRepo;
 import com.example.rest.DTO.MainDTO;
 
 @Service
@@ -19,10 +16,8 @@ public class MainService {
 	private VehicleService vehicleService;
 	private AboutService aboutService;
 
-	public MainService(PeopleMobileRepo pmRepo, MobileCallRecordsRepo mcrRepo, VehicleRepo vehicleRepo,
-			CitizenRepo citizenRepo, AssService assService, CitizenService citizenService,
-			FinanceService financeService, MobileService mobileService, VehicleService vehicleService,
-			AboutService aboutService) {
+	public MainService(CitizenRepo citizenRepo, AssService assService, FinanceService financeService,
+			MobileService mobileService, VehicleService vehicleService, AboutService aboutService) {
 		super();
 		this.citizenRepo = citizenRepo;
 		this.assService = assService;

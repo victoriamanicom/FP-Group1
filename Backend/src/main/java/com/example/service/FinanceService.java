@@ -52,6 +52,7 @@ public class FinanceService {
 				bankCardDTO.setCardNumber(bc.getCardNumber());
 
 				ArrayList<ATMTransactionDTO> atmTrans = new ArrayList<>();
+
 				for (ATMTransaction ATMT : bc.getATMTransactions()) {
 					ATMTransactionDTO ATMtransDTO = new ATMTransactionDTO();
 					ATMtransDTO.setTimestamp(ATMT.getTimestamp());
@@ -63,9 +64,11 @@ public class FinanceService {
 
 					atmTrans.add(ATMtransDTO);
 				}
+
 				bankCardDTO.setATMTransaction(atmTrans);
 
 				ArrayList<EPOSTransactionsDTO> eposTrans = new ArrayList<>();
+
 				for (EPOSTransactions EPOST : bc.getEPOSTransactions()) {
 					EPOSTransactionsDTO EPOStransDTO = new EPOSTransactionsDTO();
 					EPOStransDTO.setTimestamp(EPOST.getTimestamp());

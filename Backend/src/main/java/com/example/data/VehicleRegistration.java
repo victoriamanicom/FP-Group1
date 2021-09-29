@@ -1,7 +1,5 @@
 package com.example.data;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,9 +9,9 @@ import javax.persistence.Table;
 @Table(name = "vehicle_registration")
 public class VehicleRegistration {
 
-	public VehicleRegistration(Long registrationId, LocalDateTime registrationDate, String vehicleRegistrationNo,
-			String make, String model, String colour, String forenames, String surname, String address,
-			LocalDateTime dateOfBirth, String driverLicenceId) {
+	public VehicleRegistration(Long registrationId, String registrationDate, String vehicleRegistrationNo, String make,
+			String model, String colour, String forenames, String surname, String address, String dateOfBirth,
+			String driverLicenceId) {
 		super();
 		this.registrationId = registrationId;
 		this.registrationDate = registrationDate;
@@ -28,8 +26,8 @@ public class VehicleRegistration {
 		this.driverLicenceId = driverLicenceId;
 	}
 
-	public VehicleRegistration(LocalDateTime registrationDate, String vehicleRegistrationNo, String make, String model,
-			String colour, String forenames, String surname, String address, LocalDateTime dateOfBirth,
+	public VehicleRegistration(String registrationDate, String vehicleRegistrationNo, String make, String model,
+			String colour, String forenames, String surname, String address, String dateOfBirth,
 			String driverLicenceId) {
 		super();
 		this.registrationDate = registrationDate;
@@ -53,7 +51,7 @@ public class VehicleRegistration {
 	private Long registrationId;
 
 	@Column(name = "registration_date")
-	private LocalDateTime registrationDate;
+	private String registrationDate;
 
 	@Column(name = "vehicle_registration_no")
 	private String vehicleRegistrationNo;
@@ -77,7 +75,7 @@ public class VehicleRegistration {
 	private String address;
 
 	@Column(name = "date_of_birth")
-	private LocalDateTime dateOfBirth;
+	private String dateOfBirth;
 
 	@Column(name = "driver_licence_id")
 	private String driverLicenceId;
@@ -90,11 +88,11 @@ public class VehicleRegistration {
 		this.registrationId = registrationId;
 	}
 
-	public LocalDateTime getRegistrationDate() {
+	public String getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistrationDate(LocalDateTime registrationDate) {
+	public void setRegistrationDate(String registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 
@@ -154,11 +152,11 @@ public class VehicleRegistration {
 		this.address = address;
 	}
 
-	public LocalDateTime getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDateTime dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

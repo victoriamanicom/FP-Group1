@@ -1,7 +1,5 @@
 package com.example.data;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,18 +9,7 @@ import javax.persistence.Table;
 @Table(name = "citizen")
 public class Citizen {
 
-	public Citizen(String forenames, String surname, String homeAddress, LocalDateTime dateOfBirth, String placeOfBirth,
-			String sex) {
-		super();
-		this.forenames = forenames;
-		this.surname = surname;
-		this.homeAddress = homeAddress;
-		this.dateOfBirth = dateOfBirth;
-		this.placeOfBirth = placeOfBirth;
-		this.sex = sex;
-	}
-
-	public Citizen(String citizenID, String forenames, String surname, String homeAddress, LocalDateTime dateOfBirth,
+	public Citizen(String citizenID, String forenames, String surname, String homeAddress, String dateOfBirth,
 			String placeOfBirth, String sex) {
 
 		super();
@@ -34,6 +21,17 @@ public class Citizen {
 		this.placeOfBirth = placeOfBirth;
 		this.sex = sex;
 
+	}
+
+	public Citizen(String forenames, String surname, String homeAddress, String dateOfBirth, String placeOfBirth,
+			String sex) {
+		super();
+		this.forenames = forenames;
+		this.surname = surname;
+		this.homeAddress = homeAddress;
+		this.dateOfBirth = dateOfBirth;
+		this.placeOfBirth = placeOfBirth;
+		this.sex = sex;
 	}
 
 	public Citizen() {
@@ -56,7 +54,7 @@ public class Citizen {
 	private String homeAddress;
 
 	@Column(name = "date_of_birth")
-	private LocalDateTime dateOfBirth;
+	private String dateOfBirth;
 
 	@Column(name = "place_of_birth")
 	private String placeOfBirth;
@@ -88,11 +86,11 @@ public class Citizen {
 		this.homeAddress = homeAddress;
 	}
 
-	public LocalDateTime getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDateTime dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

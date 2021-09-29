@@ -1,19 +1,17 @@
 package com.example.rest.DTO;
 
-import java.time.LocalDateTime;
-
 public class CitizenReturnDTO {
 
 	private String citizenID;
 	private String forenames;
 	private String surname;
 	private String homeAddress;
-	private LocalDateTime dateOfBirth;
+	private String dateOfBirth;
 	private String placeOfBirth;
 	private String sex;
 
-	public CitizenReturnDTO(String citizenID, String forenames, String surname, String homeAddress,
-			LocalDateTime dateOfBirth, String placeOfBirth, String sex) {
+	public CitizenReturnDTO(String citizenID, String forenames, String surname, String homeAddress, String dateOfBirth,
+			String placeOfBirth, String sex) {
 		super();
 		this.citizenID = citizenID;
 		this.forenames = forenames;
@@ -52,11 +50,11 @@ public class CitizenReturnDTO {
 		this.homeAddress = homeAddress;
 	}
 
-	public LocalDateTime getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDateTime dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
