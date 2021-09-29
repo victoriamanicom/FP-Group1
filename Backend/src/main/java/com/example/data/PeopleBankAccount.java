@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "people_bank_account")
 public class PeopleBankAccount {
 
 	public PeopleBankAccount(Long bankAccountId, Long accountNumber, String bank, String forenames, String surname,
@@ -59,7 +61,7 @@ public class PeopleBankAccount {
 	@Column(name = "home_address")
 	private String homeAddress;
 
-	@OneToMany(mappedBy = "accountNumber")
+	@OneToMany(mappedBy = "account_number")
 	private Set<BankCard> bankCards;
 
 	public Long getBankAccountId() {

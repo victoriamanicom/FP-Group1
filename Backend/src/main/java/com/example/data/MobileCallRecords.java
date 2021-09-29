@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "mobile_call_records")
 public class MobileCallRecords {
 
 	public MobileCallRecords(Long Id, String timestamp, String callerMSISDN, Long callCellTowerId,
@@ -40,13 +42,13 @@ public class MobileCallRecords {
 	private Long Id;
 
 	@ManyToOne
-	@JoinColumn(name = "caller_MSISDN", nullable = false)
+	@JoinColumn(name = "caller_msisdn", nullable = false)
 	private PeopleMobile phoneNumber;
 
 	@Column(name = "call_cell_tower_id")
 	private Long callCellTowerId;
 
-	@Column(name = "receiver_MSISDN")
+	@Column(name = "receiver_msisdn")
 	private String receiverMSISDN;
 
 	@Column(name = "receiver_tower_id")

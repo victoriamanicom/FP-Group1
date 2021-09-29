@@ -5,8 +5,10 @@ import java.math.BigInteger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "passport")
 public class Passports {
 
 	public Passports(BigInteger passportNumber, String surname, String givenName, String nationality, String dob,

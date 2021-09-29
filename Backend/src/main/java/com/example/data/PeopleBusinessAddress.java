@@ -3,8 +3,10 @@ package com.example.data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "people_business_address")
 public class PeopleBusinessAddress {
 
 	public PeopleBusinessAddress(Long id, String personName, String homeAddress, String dateOfBirth,
@@ -23,6 +25,7 @@ public class PeopleBusinessAddress {
 	}
 
 	@Id
+	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "person_name")

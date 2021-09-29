@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "epos_transactions")
 public class EPOSTransactions {
 
 	public EPOSTransactions(Long Id, Long eposId, String timestamp, Long payeeAccount, Double amount) {
@@ -28,6 +30,7 @@ public class EPOSTransactions {
 	}
 
 	@Id
+	@Column(name = "id")
 	private Long Id;
 
 	@Column(name = "timestamp")

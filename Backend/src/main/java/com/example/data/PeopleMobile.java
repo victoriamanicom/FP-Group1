@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "people_mobile")
 public class PeopleMobile {
 
 	public PeopleMobile(String forenames, String surname, String dateOfBirth, String address, String town,

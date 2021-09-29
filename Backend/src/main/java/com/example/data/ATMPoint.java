@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "atm_point")
 public class ATMPoint {
 
 	public ATMPoint(Long atmId, String operator, String streetName, String postcode, Double latitude,
@@ -38,17 +40,17 @@ public class ATMPoint {
 		super();
 	}
 
-	@OneToMany(mappedBy = "atmId")
+	@OneToMany(mappedBy = "atm_id")
 	private Set<ATMTransaction> ATMTransactions;
 
 	@Id
-	@Column(name = "atmId")
+	@Column(name = "atm_id")
 	private Long atmId;
 
 	@Column(name = "operator")
 	private String operator;
 
-	@Column(name = "streetName")
+	@Column(name = "street_name")
 	private String streetName;
 
 	@Column(name = "postcode")

@@ -3,8 +3,10 @@ package com.example.data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "citizen")
 public class Citizen {
 
 	public Citizen(String forenames, String surname, String homeAddress, String dateOfBirth, String placeOfBirth,

@@ -8,8 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "bank_card")
 public class BankCard {
 
 	public BankCard(Long cardNumber, String sortCode, Long bankAccountId, Long accountNumber, String bank) {
@@ -51,10 +53,10 @@ public class BankCard {
 	@Column(name = "bank_account_id")
 	private Long bankAccountId;
 
-	@OneToMany(mappedBy = "bankCardNumber")
+	@OneToMany(mappedBy = "bank_card_number")
 	private Set<ATMTransaction> atmTransactions;
 
-	@OneToMany(mappedBy = "bankCardNumber")
+	@OneToMany(mappedBy = "bank_card_number")
 	private Set<EPOSTransactions> eposTransactions;
 
 	@ManyToOne
