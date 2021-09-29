@@ -64,16 +64,16 @@ public class MobileService {
 			}
 
 			ArrayList<MobileCallRecordsDTO> suspectIncomingRecords = new ArrayList<>();
-			for (MobileCallRecords mcr : pmRepo.findByReceiverMSISDN(pm.getPhoneNumber())) {
-
-				MobileCallRecordsDTO receiverRecordsDTO = new MobileCallRecordsDTO();
-				receiverRecordsDTO.setTimestamp(mcr.getTimestamp());
-				receiverRecordsDTO.setCallerMSISDN(mcr.getPhoneNumber().getPhoneNumber());
-				receiverRecordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
-				receiverRecordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
-
-				suspectIncomingRecords.add(receiverRecordsDTO);
-			}
+//			for (MobileCallRecords mcr : pmRepo.findByReceiverMSISDN(pm.getPhoneNumber())) {
+//
+//				MobileCallRecordsDTO receiverRecordsDTO = new MobileCallRecordsDTO();
+//				receiverRecordsDTO.setTimestamp(mcr.getTimestamp());
+//				receiverRecordsDTO.setCallerMSISDN(mcr.getPhoneNumber().getPhoneNumber());
+//				receiverRecordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
+//				receiverRecordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
+//
+//				suspectIncomingRecords.add(receiverRecordsDTO);
+//			}
 
 			suspectMobileDTO.setMobileCallRecords(suspectOutgoingRecords);
 			suspectMobileDTO.setMobileReceiveRecords(suspectIncomingRecords);
