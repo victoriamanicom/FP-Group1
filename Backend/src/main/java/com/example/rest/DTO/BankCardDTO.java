@@ -13,7 +13,7 @@ public class BankCardDTO {
 		EPOSTransactions = eposTransactions;
 	}
 
-	public BankCardDTO(Long cardNumber, String sortCode) {
+	public BankCardDTO(Integer cardNumber, String sortCode) {
 		super();
 		this.cardNumber = cardNumber;
 		this.sortCode = sortCode;
