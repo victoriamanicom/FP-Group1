@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "atm_transaction")
 public class ATMTransaction {
 
-	public ATMTransaction(Long Id, String timestamp, String type, Double amount) {
+	public ATMTransaction(Long Id, Long atmId, String timestamp, String type, Double amount) {
 		super();
 		this.Id = Id;
 		this.timestamp = timestamp;
