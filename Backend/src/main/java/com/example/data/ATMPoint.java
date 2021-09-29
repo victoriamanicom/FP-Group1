@@ -40,7 +40,7 @@ public class ATMPoint {
 		super();
 	}
 
-	@OneToMany(mappedBy = "atmId")
+	@OneToMany(mappedBy = "atm_id")
 	private Set<ATMTransaction> ATMTransactions;
 
 	@Id
