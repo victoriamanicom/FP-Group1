@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BankCardDTO {
 
-	public BankCardDTO(Long cardNumber, String sortCode, List<ATMTransactionDTO> atmTransactions,
+	public BankCardDTO(Integer cardNumber, String sortCode, List<ATMTransactionDTO> atmTransactions,
 			List<EPOSTransactionsDTO> eposTransactions) {
 		super();
 		this.cardNumber = cardNumber;
@@ -23,18 +23,18 @@ public class BankCardDTO {
 		super();
 	}
 
-	private Long cardNumber;
+	private Integer cardNumber;
 	private String sortCode;
 
 	private List<ATMTransactionDTO> ATMTransaction;
 
 	private List<EPOSTransactionsDTO> EPOSTransactions;
 
-	public Long getCardNumber() {
+	public Integer getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(Long cardNumber) {
+	public void setCardNumber(Integer cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
