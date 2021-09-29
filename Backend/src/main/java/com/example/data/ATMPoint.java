@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "atm_point")
 public class ATMPoint {
 
-	public ATMPoint(Long atmId, String operator, String streetName, String postcode, Double latitude,
+	public ATMPoint(String atmId, String operator, String streetName, String postcode, Double latitude,
 			Double longitude) {
 
 		super();
@@ -45,7 +45,7 @@ public class ATMPoint {
 
 	@Id
 	@Column(name = "atm_id")
-	private Long atmId;
+	private String atmId;
 
 	@Column(name = "operator")
 	private String operator;
@@ -62,11 +62,11 @@ public class ATMPoint {
 	@Column(name = "longitude")
 	private Double longitude;
 
-	public Long getAtmId() {
+	public String getAtmId() {
 		return atmId;
 	}
 
-	public void setAtmId(Long atmId) {
+	public void setAtmId(String atmId) {
 		this.atmId = atmId;
 	}
 
