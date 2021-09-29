@@ -3,15 +3,18 @@ package com.example.data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class MobileCallRecords {
 
-	public MobileCallRecords(String timestamp, String callerMSISN, Long callCellTowerId, String receiverMSISDN,
+	public MobileCallRecords(String timestamp, String callerMSISDN, Long callCellTowerId, String receiverMSISDN,
 			Long receiverTowerId) {
 		super();
 		this.timestamp = timestamp;
 		this.callCellTowerId = callCellTowerId;
+		this.callerMSISDN = callerMSISDN;
 		this.receiverMSISDN = receiverMSISDN;
 		this.receiverTowerId = receiverTowerId;
 	}
@@ -30,6 +33,10 @@ public class MobileCallRecords {
 	@Id
 	@Column(name = "timestamp")
 	private String timestamp;
+
+	@ManyToOne
+	@JoinColumn(name = "caller_MSISDN", nullable = false)
+	private PeopleMobile phoneNumber;
 
 	@Column(name = "caller_MSISDN")
 	private String callerMSISDN;
@@ -75,6 +82,14 @@ public class MobileCallRecords {
 		this.receiverTowerId = receiverTowerId;
 	}
 
+	public PeopleMobile getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(PeopleMobile phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
 	public String getCallerMSISDN() {
 		return callerMSISDN;
 	}
@@ -82,4 +97,5 @@ public class MobileCallRecords {
 	public void setCallerMSISDN(String callerMSISDN) {
 		this.callerMSISDN = callerMSISDN;
 	}
+
 }

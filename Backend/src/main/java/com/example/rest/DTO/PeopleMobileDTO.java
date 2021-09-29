@@ -1,14 +1,24 @@
 package com.example.rest.DTO;
 
-import java.util.Set;
+import java.util.List;
 
 public class PeopleMobileDTO {
 
-	public PeopleMobileDTO(String phoneNumber, String network, Set<MobileCallRecordsDTO> mobileCallRecords) {
+	public PeopleMobileDTO(String phoneNumber, String network, List<MobileCallRecordsDTO> mobileCallRecords,
+			List<MobileCallRecordsDTO> mobileReceiveRecords) {
 		super();
 		this.phoneNumber = phoneNumber;
 		this.network = network;
 		this.mobileCallRecords = mobileCallRecords;
+		this.mobileReceiveRecords = mobileReceiveRecords;
+	}
+
+	public List<MobileCallRecordsDTO> getMobileReceiveRecords() {
+		return mobileReceiveRecords;
+	}
+
+	public void setMobileReceiveRecords(List<MobileCallRecordsDTO> mobileReceiveRecords) {
+		this.mobileReceiveRecords = mobileReceiveRecords;
 	}
 
 	public PeopleMobileDTO() {
@@ -18,8 +28,8 @@ public class PeopleMobileDTO {
 	private String phoneNumber;
 
 	private String network;
-
-	private Set<MobileCallRecordsDTO> mobileCallRecords;
+	private List<MobileCallRecordsDTO> mobileReceiveRecords;
+	private List<MobileCallRecordsDTO> mobileCallRecords;
 
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -37,11 +47,11 @@ public class PeopleMobileDTO {
 		this.network = network;
 	}
 
-	public Set<MobileCallRecordsDTO> getMobileCallRecords() {
+	public List<MobileCallRecordsDTO> getMobileCallRecords() {
 		return mobileCallRecords;
 	}
 
-	public void setMobileCallRecords(Set<MobileCallRecordsDTO> mobileCallRecords) {
+	public void setMobileCallRecords(List<MobileCallRecordsDTO> mobileCallRecords) {
 		this.mobileCallRecords = mobileCallRecords;
 	}
 

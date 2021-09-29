@@ -14,6 +14,7 @@ public class ATMTransaction {
 		this.timestamp = timestamp;
 		this.type = type;
 		this.amount = amount;
+		
 	}
 
 	public ATMTransaction() {

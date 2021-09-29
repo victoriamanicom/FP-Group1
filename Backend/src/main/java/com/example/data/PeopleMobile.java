@@ -1,14 +1,17 @@
 package com.example.data;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class PeopleMobile {
 
 	public PeopleMobile(String forenames, String surname, String dateOfBirth, String address, String town,
-			String postcode, String phoneNumber, String network) {
+			String postcode, String network, String phoneNumber) {
 		super();
 		this.forenames = forenames;
 		this.surname = surname;
@@ -45,6 +48,9 @@ public class PeopleMobile {
 	@Id
 	@Column(name = "phone_number")
 	private String phoneNumber;
+
+	@OneToMany(mappedBy = "phone_number")
+	private Set<MobileCallRecords> mobileCallRecords;
 
 	@Column(name = "network")
 	private String network;
@@ -111,6 +117,14 @@ public class PeopleMobile {
 
 	public void setNetwork(String network) {
 		this.network = network;
+	}
+
+	public Set<MobileCallRecords> getMobileCallRecords() {
+		return mobileCallRecords;
+	}
+
+	public void setMobileCallRecords(Set<MobileCallRecords> mobileCallRecords) {
+		this.mobileCallRecords = mobileCallRecords;
 	}
 
 	@Override
@@ -186,4 +200,5 @@ public class PeopleMobile {
 				+ ", address=" + address + ", town=" + town + ", postcode=" + postcode + ", phoneNumber=" + phoneNumber
 				+ ", network=" + network + "]";
 	}
+
 }

@@ -1,20 +1,20 @@
 package com.example.rest.DTO;
 
-import java.util.Set;
+import java.util.List;
 
 public class MainDTO {
 
 	private String CitizenID;
-	private Set<AssociatesDTO> associatesDTO;
-	private Set<WhereaboutsDTO> whereaboutsDTO;
-	private Set<VehicleDTO> vehiclesDTO;
-	private Set<PeopleMobileDTO> peopleMobileDTO;
-	private Set<CitizenReturnDTO> citizenReturnDTO;
-	private Set<PeopleBankAccountDTO> peopleBankAccountDTO;
+	private AssociatesDTO associatesDTO;
+	private List<WhereaboutsDTO> whereaboutsDTO;
+	private List<VehicleDTO> vehiclesDTO;
+	private List<PeopleMobileDTO> peopleMobileDTO;
+	private CitizenReturnDTO citizenReturnDTO;
+	private List<PeopleBankAccountDTO> peopleBankAccountDTO;
 
-	public MainDTO(String CitizenID, Set<AssociatesDTO> associatesDTO, Set<WhereaboutsDTO> whereaboutsDTO,
-			Set<VehicleDTO> vehiclesDTO, Set<PeopleMobileDTO> peopleMobileDTO, Set<CitizenReturnDTO> citizenReturnDTO,
-			Set<PeopleBankAccountDTO> peopleBankAccountDTO) {
+	public MainDTO(String CitizenID, AssociatesDTO associatesDTO, List<WhereaboutsDTO> whereaboutsDTO,
+			List<VehicleDTO> vehiclesDTO, List<PeopleMobileDTO> peopleMobileDTO, CitizenReturnDTO citizenReturnDTO,
+			List<PeopleBankAccountDTO> peopleBankAccountDTO) {
 
 		super();
 		this.CitizenID = CitizenID;
@@ -27,6 +27,12 @@ public class MainDTO {
 
 	}
 
+	public MainDTO() {
+
+		this.super();
+
+	}
+
 	public String getCitizenID() {
 		return CitizenID;
 	}
@@ -35,51 +41,51 @@ public class MainDTO {
 		CitizenID = citizenID;
 	}
 
-	public Set<AssociatesDTO> getAssociatesDTO() {
+	public AssociatesDTO getAssociatesDTO() {
 		return associatesDTO;
 	}
 
-	public void setAssociatesDTO(Set<AssociatesDTO> associatesDTO) {
+	public void setAssociatesDTO(AssociatesDTO associatesDTO) {
 		this.associatesDTO = associatesDTO;
 	}
 
-	public Set<WhereaboutsDTO> getWhereaboutsDTO() {
+	public List<WhereaboutsDTO> getWhereaboutsDTO() {
 		return whereaboutsDTO;
 	}
 
-	public void setWhereaboutsDTO(Set<WhereaboutsDTO> whereaboutsDTO) {
+	public void setWhereaboutsDTO(List<WhereaboutsDTO> whereaboutsDTO) {
 		this.whereaboutsDTO = whereaboutsDTO;
 	}
 
-	public Set<VehicleDTO> getVehiclesDTO() {
+	public List<VehicleDTO> getVehiclesDTO() {
 		return vehiclesDTO;
 	}
 
-	public void setVehiclesDTO(Set<VehicleDTO> vehiclesDTO) {
+	public void setVehiclesDTO(List<VehicleDTO> vehiclesDTO) {
 		this.vehiclesDTO = vehiclesDTO;
 	}
 
-	public Set<PeopleMobileDTO> getPeopleMobileDTO() {
+	public List<PeopleMobileDTO> getPeopleMobileDTO() {
 		return peopleMobileDTO;
 	}
 
-	public void setPeopleMobileDTO(Set<PeopleMobileDTO> peopleMobileDTO) {
+	public void setPeopleMobileDTO(List<PeopleMobileDTO> peopleMobileDTO) {
 		this.peopleMobileDTO = peopleMobileDTO;
 	}
 
-	public Set<CitizenReturnDTO> getCitizenReturnDTO() {
+	public CitizenReturnDTO getCitizenReturnDTO() {
 		return citizenReturnDTO;
 	}
 
-	public void setCitizenReturnDTO(Set<CitizenReturnDTO> citizenReturnDTO) {
+	public void setCitizenReturnDTO(CitizenReturnDTO citizenReturnDTO) {
 		this.citizenReturnDTO = citizenReturnDTO;
 	}
 
-	public Set<PeopleBankAccountDTO> getPeopleBankAccountDTO() {
+	public List<PeopleBankAccountDTO> getPeopleBankAccountDTO() {
 		return peopleBankAccountDTO;
 	}
 
-	public void setPeopleBankAccountDTO(Set<PeopleBankAccountDTO> peopleBankAccountDTO) {
+	public void setPeopleBankAccountDTO(List<PeopleBankAccountDTO> peopleBankAccountDTO) {
 		this.peopleBankAccountDTO = peopleBankAccountDTO;
 	}
 

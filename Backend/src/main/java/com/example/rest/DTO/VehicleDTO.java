@@ -7,18 +7,29 @@ public class VehicleDTO {
 	private String model;
 	private String colour;
 	private String vehicleRegistrationNo;
+	private String driverLicenceId;
 
-	public VehicleDTO(String registrationDate, String make, String model, String colour, String vehicleRegistrationNo) {
+	public VehicleDTO(String registrationDate, String make, String model, String colour, String vehicleRegistrationNo,
+			String driverLicenceId) {
 		super();
 		this.registrationDate = registrationDate;
 		this.make = make;
 		this.model = model;
 		this.colour = colour;
 		this.vehicleRegistrationNo = vehicleRegistrationNo;
+		this.driverLicenceId = driverLicenceId;
 	}
 
 	public VehicleDTO() {
 		super();
+	}
+
+	public String getDriverLicenceId() {
+		return driverLicenceId;
+	}
+
+	public void setDriverLicenceId(String driverLicenceId) {
+		this.driverLicenceId = driverLicenceId;
 	}
 
 	public String getRegistrationDate() {
