@@ -12,6 +12,7 @@ import javax.persistence.Table;
 public class ATMTransaction {
 
 	public ATMTransaction(Long Id, java.sql.Timestamp timestamp, String type, java.math.BigDecimal amount) {
+
 		super();
 		this.Id = Id;
 		this.timestamp = timestamp;

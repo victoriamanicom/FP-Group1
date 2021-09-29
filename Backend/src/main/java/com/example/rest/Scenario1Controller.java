@@ -31,9 +31,11 @@ public class Scenario1Controller {
 
 	@Autowired
 	public Scenario1Controller(CitizenService citizenservice, FinanceService financeservice, AssService assservice,
-			MobileService mobileservice, VehicleService vehicleservice, AboutService aboutservice) {
+			MobileService mobileservice, VehicleService vehicleservice, AboutService aboutservice,
+			MainService mainservice) {
 		super();
 		this.citizenservice = citizenservice;
+		this.mainservice = mainservice;
 	}
 
 	@GetMapping("/findCitizens")
