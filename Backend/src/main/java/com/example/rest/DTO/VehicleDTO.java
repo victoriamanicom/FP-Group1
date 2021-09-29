@@ -1,16 +1,18 @@
 package com.example.rest.DTO;
 
+import java.time.LocalDateTime;
+
 public class VehicleDTO {
 
-	private String registrationDate;
+	private LocalDateTime registrationDate;
 	private String make;
 	private String model;
 	private String colour;
 	private String vehicleRegistrationNo;
 	private String driverLicenceId;
 
-	public VehicleDTO(String registrationDate, String make, String model, String colour, String vehicleRegistrationNo,
-			String driverLicenceId) {
+	public VehicleDTO(LocalDateTime registrationDate, String make, String model, String colour,
+			String vehicleRegistrationNo, String driverLicenceId) {
 		super();
 		this.registrationDate = registrationDate;
 		this.make = make;
@@ -32,11 +34,11 @@ public class VehicleDTO {
 		this.driverLicenceId = driverLicenceId;
 	}
 
-	public String getRegistrationDate() {
+	public LocalDateTime getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistrationDate(String registrationDate) {
+	public void setRegistrationDate(LocalDateTime registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 

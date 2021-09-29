@@ -11,9 +11,9 @@ import javax.persistence.Table;
 @Table(name = "vehicle_registration")
 public class VehicleRegistration {
 
-	public VehicleRegistration(Long registrationId, String registrationDate, String vehicleRegistrationNo, String make,
-			String model, String colour, String forenames, String surname, String address, LocalDateTime dateOfBirth,
-			String driverLicenceId) {
+	public VehicleRegistration(Long registrationId, LocalDateTime registrationDate, String vehicleRegistrationNo,
+			String make, String model, String colour, String forenames, String surname, String address,
+			LocalDateTime dateOfBirth, String driverLicenceId) {
 		super();
 		this.registrationId = registrationId;
 		this.registrationDate = registrationDate;
@@ -28,7 +28,7 @@ public class VehicleRegistration {
 		this.driverLicenceId = driverLicenceId;
 	}
 
-	public VehicleRegistration(String registrationDate, String vehicleRegistrationNo, String make, String model,
+	public VehicleRegistration(LocalDateTime registrationDate, String vehicleRegistrationNo, String make, String model,
 			String colour, String forenames, String surname, String address, LocalDateTime dateOfBirth,
 			String driverLicenceId) {
 		super();
@@ -53,7 +53,7 @@ public class VehicleRegistration {
 	private Long registrationId;
 
 	@Column(name = "registration_date")
-	private String registrationDate;
+	private LocalDateTime registrationDate;
 
 	@Column(name = "vehicle_registration_no")
 	private String vehicleRegistrationNo;
@@ -90,11 +90,11 @@ public class VehicleRegistration {
 		this.registrationId = registrationId;
 	}
 
-	public String getRegistrationDate() {
+	public LocalDateTime getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistrationDate(String registrationDate) {
+	public void setRegistrationDate(LocalDateTime registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 
