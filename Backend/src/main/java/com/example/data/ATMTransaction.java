@@ -29,7 +29,7 @@ public class ATMTransaction {
 	private ATMPoint atmId;
 
 	@ManyToOne
-	@JoinColumn(name = "card_number", nullable = false)
+	@JoinColumn(name = "card_number", referencedColumnName = "card_number", nullable = false)
 	private BankCard cardNumber;
 
 	@Id
