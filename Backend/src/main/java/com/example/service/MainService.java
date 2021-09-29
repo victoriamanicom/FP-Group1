@@ -1,7 +1,5 @@
 package com.example.service;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import com.example.data.Citizen;
@@ -35,17 +33,17 @@ public class MainService {
 
 	public MainDTO getSuspectInfo(String citizenID) {
 
-		Optional<Citizen> foundSuspect = this.citizenRepo.findById(citizenID);
+		Citizen foundSuspect = this.citizenRepo.findById(citizenID).get();
 
 		MainDTO suspectInfo = new MainDTO();
 
 		suspectInfo.setCitizenID(citizenID);
 
-		suspectInfo.setAssociatesDTO(assService.findAssociates(foundSuspect.get()));
-		suspectInfo.setCitizenReturnDTO(aboutService.findCit(foundSuspect.get()));
-		suspectInfo.setPeopleBankAccountDTO(financeService.findBA(foundSuspect.get()));
-		suspectInfo.setPeopleMobileDTO(mobileService.findPM(foundSuspect.get()));
-		suspectInfo.setVehiclesDTO(vehicleService.findVehicles(foundSuspect.get()));
+		suspectInfo.setAssociatesDTO(assService.findAssociates(foundSuspect));
+		suspectInfo.setCitizenReturnDTO(aboutService.findCit(foundSuspect));
+		suspectInfo.setPeopleBankAccountDTO(financeService.findBA(foundSuspect));
+		suspectInfo.setPeopleMobileDTO(mobileService.findPM(foundSuspect));
+		suspectInfo.setVehiclesDTO(vehicleService.findVehicles(foundSuspect));
 
 		return suspectInfo;
 
