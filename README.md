@@ -62,7 +62,11 @@ Backend
 
 The backend is powered by Java using the Spring Boot Framework. This allows rapid and simple deployment of an integration structure between the database and the frontend. As well as the database logic, the backend has HTTP requests, and allows the frontend to access the database and work with the data there.
 
-In order for our frontend to receive the required information on the suspect, Our Controller maps our two HTTP GET requests to our services, where our data on the suspects information is mapped to Data Transfer Objects, allowing the frontend to display the correct information. DTOs are data contracts instructing classes how data should be represented, The benefits of DTOs have been illustrated throughout this project as with large datasets filled with sensitive information you only want to present requested data, the implementation of DTOs allows for custom representation of data decoupled from their entities.
+In order for our frontend to receive the required information on the suspect, Our Controller maps our two HTTP GET requests to our services, where our data on the suspects information is mapped to Data Transfer Objects, allowing the frontend to display the correct information. 
+
+#### DTOs ####
+
+Data Transfer Objects are data contracts instructing classes how data should be represented, The benefits of DTOs have been illustrated throughout this project as with large datasets filled with sensitive information you only want to present requested data, the implementation of DTOs allows for custom representation of data decoupled from their entities.
 
 Frontend
 ---------------
