@@ -18,18 +18,13 @@ The data in citizen.csv folder needs to be displayed in a readable manner for ea
 - Whereabouts (from ANPR, Cell Tower location, or a bank transaction data), a single location from a single source is sufficient for scenario 1
 - Associates (from mobile call records)
 
-
-
- 
-
 Kanban Board
 ---------------
 <img width="400" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135302757-6082d80a-9d1d-4add-bc94-27b15522ea13.PNG">
 
 <img width="400" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135303272-8d923222-8351-448d-897a-789f7bdc5f4b.PNG">
-The Kanban board for this project is available here. For the Kanban board Jira software was used and modelled as an Agile Scrum Board. 
-Jira board presentation
-Example of a user story
+
+The Kanban board for this project is available here. For the Kanban board Jira software was used and modelled as an Agile Scrum Board. JIRA has been beneficial for our project, by assigning tasks, having a GUI to organise our workflow and keep track of progress.
 
 
 Network Infrastructure & Database
@@ -69,9 +64,6 @@ Frontend
 ---------------
 
 The frontend is powered by HTML, CSS and JavaScript, utilising the Bootstrap Framework to finetune the layout of the webpage using containers, columns, and rows. This allows the search method to be easily implemented and accessible to website users. HTML and CSS have been used to produce the look of the website and JavaScript has been used to get data from the database to populate the elements on the webpage. 
-Screenshots of the final frontend homepage
-Of it searching for someone
-For each of the tabs for a person
 
 <img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135296922-6b03bb73-737d-43a2-82ca-65822ab742fd.PNG">
 <img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135296640-1c9cbbf7-1a4a-4fc8-95d5-99164afb4aae.PNG">
