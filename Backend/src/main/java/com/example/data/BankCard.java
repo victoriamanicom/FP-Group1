@@ -47,7 +47,7 @@ public class BankCard {
 	@Column(name = "card_number")
 	private Long cardNumber;
 
-	@Column(name = "sort_code")
+	@Column(name = "sortcode")
 	private String sortCode;
 
 	@Column(name = "bank_account_id")
