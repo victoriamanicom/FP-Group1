@@ -16,13 +16,13 @@ function App() {
     const [citizenSurname, setCitizenSurname] = useState("");
     const [citizenGender, setCitizenGender] = useState("");
     const [citizens, setCitizens] = useState([]);
-    const [citizenID, setCitizenID] = useState("");
+    const [searchID, setSearchID] = useState("");
 
     const handleReset = (e) => {
         setCitizenForenames("");
         setCitizenSurname("");
         setCitizenGender("");
-        setCitizenID("");
+        setSearchID("");
         setCitizens([]);
     };
 
@@ -108,11 +108,11 @@ function App() {
                 <Route exact path="/">
                     <CitizenReturn
                         citizens={citizens}
-                        setCitizenID={setCitizenID}
+                        setSearchID={setSearchID}
                     />
                 </Route>
                 <Route path="/:lastName">
-                    <CitizenAbout citizens={citizens} citizenID={citizenID} />
+                    <CitizenAbout citizens={citizens} searchID={searchID} />
                 </Route>
             </Switch>
         </Router>

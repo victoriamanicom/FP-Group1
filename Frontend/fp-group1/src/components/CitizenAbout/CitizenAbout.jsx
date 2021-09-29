@@ -12,8 +12,102 @@ import BioReturn from "./BioReturn/BioReturn";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const CitizenAbout = ({ citizenID }) => {
-    const [citizenData, setCitizenData] = useState([1]);
+const CitizenAbout = ({ searchID }) => {
+    const [citizenData, setCitizenData] = useState({
+        citizenID: "0",
+        associatesDTO: {
+            businessName: "",
+            businessAddress: "",
+            collegues: [
+                {
+                    personName: "",
+                    dateOfBirth: ""
+                }
+            ],
+            livingWith: [
+                {
+                    forenames: "",
+                    surname: "",
+                    dateOfBirth: ""
+                }
+            ] 
+        },
+        whereaboutsDTO: { data: "" },
+        vehiclesDTO: [
+            {
+                make: "",
+                model: "",
+                colour: "",
+                vehicleRegistrationNo: "",
+                registrationDate: "",
+                driverLicenceId: ""
+            },
+        ],
+        peopleMobileDTO: [
+            {
+            phoneNumber: "",
+            network: "",
+            mobileCallRecords: [
+                {
+                    timestamp: "",
+                    callerMSISDN: "",
+                    recieverMSISDN: "",
+                    callCellTowerId: "",
+                    recieverName: ""
+                }
+            ],
+            mobileReceiveRecords: [
+                {
+                    timestamp: "",
+                    callerMSISDN: "",
+                    recieverMSISDN: "",
+                    callCellTowerId: "",
+                    callerName: "" 
+                }
+            ]
+            }
+        ],
+        citizenReturnDTO: {
+            citizenID: "",
+            forenames: "y",
+            surname: "",
+            homeAddress: "",
+            dateOfBirth: "",
+            placeOfBirth: "",
+            sex: "",
+        },
+        peopleBankAccountDTO: [{
+            forenames: "",
+            surname: "",
+            bank: "",
+            accountNumber: "",
+            bankCardsDTO: [
+                {
+                    cardNumber: "",
+                    sortCode: "",
+                    eposTransactions: [
+                        {
+                            timestamp: "",
+                            amount: "",
+                            vendor: "",
+                            streetName: "",
+                            postcode: ""
+                        },
+                    ],
+                    atmTransactions: [
+                        {
+                            timestamp: "",
+                            type: "",
+                            amount: "",
+                            operator: "",
+                            streetName: "",
+                            postcode: ""
+                        }
+                    ],
+                }
+            ],
+        }],
+    });
 
     const { lastName } = useParams();
     const { push } = useHistory();
@@ -22,7 +116,7 @@ const CitizenAbout = ({ citizenID }) => {
         push(`/${lastName}${eventKey}`);
     };
 
-    const handleGetCitizen = (citizenID) => {
+    const handleGetCitizen = (searchID) => {
         // axios
         // .get()
         // .then (({ data }) => setCitizenData(data))
@@ -30,114 +124,158 @@ const CitizenAbout = ({ citizenID }) => {
 
         setCitizenData({
             citizenID: "001L",
-            associatesData: { data: "null" },
-            whereaboutsData: { data: "null" },
-            vehicleData: [
+            associatesDTO: {
+                businessName: "Comedian Store",
+                businessAddress: "67 Work Road, Worksfod, WO5 FO8",
+                collegues: [
+                    {
+                        personName: "Steave Smith",
+                        dateOfBirth: "31/08/1654"
+                    },{
+                        personName: "Deseray Berch",
+                        dateOfBirth: "03/02/1899"
+                    }
+                ],
+                livingWith: [
+                    {
+                        forenames: "Dave John",
+                        surname: "Banks",
+                        dateOfBirth: "12/12/2012"
+                    },{
+                        forenames: "Alice",
+                        surname: "Rogers",
+                        dateOfBirth: "25/10/1983"
+                    }
+                ] 
+            },
+            whereaboutsDTO: { data: "null" },
+            vehiclesDTO: [
                 {
                     make: "Ford",
                     model: "T",
                     colour: "yello",
-                    licencePlate: "YO5 QT33",
+                    vehicleRegistrationNo: "YO5 QT33",
                     registrationDate: "19/03/1956",
-                },
-                {
+                    driverLicenceId: "896698ds"
+                },{
                     make: "Tesla",
                     model: "S",
                     colour: "silver",
-                    licencePlate: "UH45 J32",
+                    vehicleRegistrationNo: "UH45 J32",
                     registrationDate: "21/07/2019",
+                    driverLicenceId: "896698ds"
                 },
             ],
-            mobileData: {
-                phoneNum: "08428 768234",
+            peopleMobileDTO: [
+                {
+                phoneNumber: "08428 768234",
                 network: "Norange",
-                callData: [
+                mobileCallRecords: [
                     {
                         timestamp: "21/09/2021:23:21:44",
-                        callReceive: "Call",
-                        phoneNum: "07323 578123",
-                        forename: "Sam",
-                        surname: "Smith",
-                    },
-                    {
-                        timestamp: "22/09/2021:10:03:54",
-                        callReceive: "Receive",
-                        phoneNum: "07323 578123",
-                        forename: "Sam",
-                        surname: "Smith",
-                    },
+                        callerMSISDN: "08428 768234",
+                        recieverMSISDN: "08432 678217",
+                        callCellTowerId: "78628936593465",
+                        recieverName: "Alice Rogers"
+                    }
                 ],
-            },
-            citizenBio: {
-                forename: "Hary",
+                mobileReceiveRecords: [
+                    {
+                        timestamp: "22/09/2021:09:14:56",
+                        callerMSISDN: "08432 678217",
+                        recieverMSISDN: "08428 768234",
+                        callCellTowerId: "3427658098",
+                        callerName: "Alice Rogers" 
+                    }
+                ]
+                }
+            ],
+            citizenReturnDTO: {
+                citizenID: "001L",
+                forenames: "Hary",
                 surname: "Hill",
-                sex: "Male",
-                dob: "12/13/14",
                 homeAddress: "12 Hill Hill, Hillsfod, HI12 6HA",
-                drivingLicenceNo: "98973965",
-                phoneNo: "98563964",
-                passportNo: "3457304957",
-                nationality: "Doiche",
-                businessName: "Comedian Store",
-                businessAddress: "67 Work Road, Worksfod, WO5 FO8",
+                dateOfBirth: "12/13/14",
+                placeOfBirth: "London",
+                sex: "Male",
             },
-            financialData: {
+            peopleBankAccountDTO: [{
+                forenames: "Hary",
+                surname: "Hill",
                 bank: "HSBC",
-                accountNum: "2938723",
-                eposData: [
+                accountNumber: "2938723",
+                bankCardsDTO: [
                     {
-                        timestamp: "21/09/2021:13:28:59",
-                        amount: "£3.99",
-                        vendor: "Tesco",
-                        streetName: "Barton Avenue",
-                    },
-                    {
-                        timestamp: "21/09/2021:15:01:31",
-                        amount: "£99.00",
-                        vendor: "John Lewis",
-                        streetName: "Barton Avenue",
-                    },
+                        cardNumber: "98633945",
+                        sortCode: "34-34-34",
+                        eposTransactions: [
+                            {
+                                timestamp: "21/09/2021:13:28:59",
+                                amount: "£3.99",
+                                vendor: "Tesco",
+                                streetName: "Barton Avenue",
+                                postcode: "sei 986"
+                            },{
+                                timestamp: "21/09/2021:15:01:31",
+                                amount: "£99.00",
+                                vendor: "John Lewis",
+                                streetName: "Barton Avenue",
+                                postcode: "sei 986"
+                            },
+                        ],
+                        atmTransactions: [
+                            {
+                                timestamp: "10/09/2021:10:54:26",
+                                type: "withdraw",
+                                amount: "£100",
+                                operator: "Lloyds",
+                                streetName: "Highgate Lane",
+                                postcode: "sei 64"
+                            },{
+                                timestamp: "19/09/2021:21:41:53",
+                                type: "withdraw",
+                                amount: "£25",
+                                operator: "HSBC",
+                                streetName: "Town Center",
+                                postcode: "sei 425"
+                            }
+                        ],
+                    }
                 ],
-                atmData: [
-                    {
-                        timestamp: "10/09/2021:10:54:26",
-                        amount: "£100",
-                        streetName: "Highgate Lane",
-                    },
-                    {
-                        timestamp: "19/09/2021:21:41:53",
-                        amount: "£25",
-                        streetName: "Town Center",
-                    },
-                ],
-            },
+            }],
         });
     };
 
-    if (citizenData == 1) {
-        handleGetCitizen(citizenID);
+    //initial render check
+    if (citizenData.citizenID == "0") {
+        console.log("setting data");
+        handleGetCitizen(searchID);
     }
 
-    console.log(`the data:`);
+    //development data structure check
+    console.log(`data check:`);
     console.log(citizenData);
-    console.log(citizenData.citizenBio);
+
     return (
         <>
             <Row className="citizenInfoReturn">
                 <Col xs={2}>
                     <SideNavBar
-                        citizenBio={citizenData.citizenBio}
+                        citizenReturnDTO={citizenData.citizenReturnDTO}
                         handleSelect={handleSelect}
                     />
                 </Col>
                 <Col className="citizenInfoComponents">
                     <Switch>
                         <Route exact path="/:lastName/about">
-                            <BioReturn citizenBio={citizenData.citizenBio} />
+                            <BioReturn citizenReturnDTO={citizenData.citizenReturnDTO} 
+                            driverLicenceId={citizenData.vehiclesDTO[0].driverLicenceId}
+                            phoneNumber={citizenData.peopleMobileDTO[0].phoneNumber}
+                            associatesDTO={citizenData.associatesDTO}/>
                         </Route>
                         <Route path="/:lastName/finance">
                             <FinanceReturn
-                                financialData={citizenData.financialData}
+                                peopleBankAccountDTO={citizenData.peopleBankAccountDTO}
                             />
                         </Route>
                         <Route path="/:lastName/mobile">

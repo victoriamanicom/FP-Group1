@@ -1,14 +1,16 @@
 import Table from 'react-bootstrap/Table';
 import "./ATMReturn.css";
 
-const ATMReturn = ({atmData}) => {
+const ATMReturn = ({atmTransactions}) => {
 
-    const ListATM = ({timestamp, amount, streetName}) => {
+    const ListATM = ({timestamp, amount, operator, streetName, postcode}) => {
         return (
             <tr>
                 <td>{timestamp}</td>
                 <td>{amount}</td>
+                <td>{operator}</td>
                 <td>{streetName}</td>
+                <td>{postcode}</td>
             </tr>
         )
     }
@@ -19,12 +21,14 @@ const ATMReturn = ({atmData}) => {
                 <tr>
                     <th>Timestamp</th>
                     <th>Amount</th>
+                    <th>Operator</th>
                     <th>Street Name</th>
+                    <th>Postcode</th>
                 </tr>
             </thead>
             <tbody>
-                {atmData.map(atmRecord =>
-                <ListATM key={atmRecord.timestamp} {...atmRecord} />
+                {atmTransactions.map(atmTransaction =>
+                <ListATM key={atmTransaction.timestamp} {...atmTransaction} />
                 )}
             </tbody>
         </Table>
