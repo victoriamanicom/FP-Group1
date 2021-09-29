@@ -38,10 +38,10 @@ public class ATMPoint {
 		super();
 	}
 
-	@Id
 	@OneToMany(mappedBy = "atmId")
 	private Set<ATMTransaction> ATMTransactions;
 
+	@Id
 	@Column(name = "atmId")
 	private Long atmId;
 
