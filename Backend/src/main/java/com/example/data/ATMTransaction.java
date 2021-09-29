@@ -85,12 +85,12 @@ public class ATMTransaction {
 		this.atmId = atmId;
 	}
 
-	public BankCard getBankCardNumber() {
+	public BankCard getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setBankCardNumber(BankCard bankCardNumber) {
-		this.cardNumber = bankCardNumber;
+	public void setCardNumber(BankCard cardNumber) {
+		this.cardNumber = cardNumber;
 	}
 
 }

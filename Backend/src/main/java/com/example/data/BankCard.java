@@ -53,10 +53,10 @@ public class BankCard {
 	@Column(name = "bank_account_id")
 	private Integer bankAccountId;
 
-	@OneToMany(mappedBy = "bankCardNumber")
+	@OneToMany(mappedBy = "cardNumber")
 	private Set<ATMTransaction> atmTransactions;
 
-	@OneToMany(mappedBy = "bankCardNumber")
+	@OneToMany(mappedBy = "cardNumber")
 	private Set<EPOSTransactions> eposTransactions;
 
 	@ManyToOne

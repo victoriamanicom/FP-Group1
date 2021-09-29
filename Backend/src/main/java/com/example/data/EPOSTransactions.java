@@ -42,7 +42,7 @@ public class EPOSTransactions {
 
 	@ManyToOne
 	@JoinColumn(name = "bank_card_number", nullable = false)
-	private BankCard bankCardNumber;
+	private BankCard cardNumber;
 
 	@Column(name = "payee_account")
 	private Long payeeAccount;
@@ -86,12 +86,12 @@ public class EPOSTransactions {
 		this.id = id;
 	}
 
-	public BankCard getBankCardNumber() {
-		return bankCardNumber;
+	public BankCard getCardNumber() {
+		return cardNumber;
 	}
 
-	public void setBankCardNumber(BankCard bankCardNumber) {
-		this.bankCardNumber = bankCardNumber;
+	public void setCardNumber(BankCard cardNumber) {
+		this.cardNumber = cardNumber;
 	}
 
 }
