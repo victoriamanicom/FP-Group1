@@ -9,18 +9,20 @@ import javax.persistence.ManyToOne;
 @Entity
 public class MobileCallRecords {
 
-	public MobileCallRecords(String timestamp, String callerMSISDN, Long callCellTowerId, String receiverMSISDN,
-			Long receiverTowerId) {
+	public MobileCallRecords(Long Id, String timestamp, String callerMSISDN, Long callCellTowerId,
+			String receiverMSISDN, Long receiverTowerId) {
 		super();
+		this.callCellTowerId = Id;
 		this.timestamp = timestamp;
 		this.callCellTowerId = callCellTowerId;
-		this.callerMSISDN = callerMSISDN;
 		this.receiverMSISDN = receiverMSISDN;
 		this.receiverTowerId = receiverTowerId;
 	}
 
-	public MobileCallRecords(String callerMSISN, Long callCellTowerId, String receiverMSISDN, Long receiverTowerId) {
+	public MobileCallRecords(String timestamp, String callerMSISN, Long callCellTowerId, String receiverMSISDN,
+			Long receiverTowerId) {
 		super();
+		this.timestamp = timestamp;
 		this.callCellTowerId = callCellTowerId;
 		this.receiverMSISDN = receiverMSISDN;
 		this.receiverTowerId = receiverTowerId;
@@ -34,12 +36,12 @@ public class MobileCallRecords {
 	@Column(name = "timestamp")
 	private String timestamp;
 
+	@Column(name = "id")
+	private Long Id;
+
 	@ManyToOne
 	@JoinColumn(name = "caller_MSISDN", nullable = false)
 	private PeopleMobile phoneNumber;
-
-	@Column(name = "caller_MSISDN")
-	private String callerMSISDN;
 
 	@Column(name = "call_cell_tower_id")
 	private Long callCellTowerId;
@@ -90,12 +92,12 @@ public class MobileCallRecords {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getCallerMSISDN() {
-		return callerMSISDN;
+	public Long getId() {
+		return Id;
 	}
 
-	public void setCallerMSISDN(String callerMSISDN) {
-		this.callerMSISDN = callerMSISDN;
+	public void setId(Long id) {
+		Id = id;
 	}
 
 }
