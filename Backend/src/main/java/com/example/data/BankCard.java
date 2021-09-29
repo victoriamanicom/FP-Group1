@@ -14,8 +14,7 @@ import javax.persistence.Table;
 @Table(name = "bank_card")
 public class BankCard {
 
-	public BankCard(java.math.BigDecimal cardNumber, String sortCode, Integer bankAccountId, Integer accountNumber,
-			String bank) {
+	public BankCard(Long cardNumber, String sortCode, Integer bankAccountId, Integer accountNumber, String bank) {
 
 		super();
 		this.cardNumber = cardNumber;
@@ -25,8 +24,8 @@ public class BankCard {
 
 	}
 
-	public BankCard(Integer bankCardId, java.math.BigDecimal cardNumber, String sortCode, Integer bankAccountId,
-			Integer accountNumber, String bank) {
+	public BankCard(Integer bankCardId, Long cardNumber, String sortCode, Integer bankAccountId, Integer accountNumber,
+			String bank) {
 
 		super();
 		this.bankCardId = bankCardId;
@@ -46,7 +45,7 @@ public class BankCard {
 	private Integer bankCardId;
 
 	@Column(name = "card_number")
-	private java.math.BigDecimal cardNumber;
+	private Long cardNumber;
 
 	@Column(name = "sort_code")
 	private String sortCode;
@@ -75,11 +74,11 @@ public class BankCard {
 		this.bankCardId = bankCardId;
 	}
 
-	public java.math.BigDecimal getCardNumber() {
+	public Long getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(java.math.BigDecimal cardNumber) {
+	public void setCardNumber(Long cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
