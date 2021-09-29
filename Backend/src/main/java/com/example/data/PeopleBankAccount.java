@@ -61,7 +61,7 @@ public class PeopleBankAccount {
 	@Column(name = "home_address")
 	private String homeAddress;
 
-	@OneToMany(mappedBy = "account_number")
+	@OneToMany(mappedBy = "accountNumber")
 	private Set<BankCard> bankCards;
 
 	public Long getBankAccountId() {
