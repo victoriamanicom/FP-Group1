@@ -34,7 +34,7 @@ Network Infrastructure & Database
 
 <img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135298012-3629ce89-4224-43b8-b2f1-23b34584256c.jpg">
 
-The database utilises many technologies in order to host our data and allow our application to run in the cloud:
+The network infrastructure illustrated above utilises many technologies in order to host our data and allow our application to run in the cloud:
 
 #### Jenkins ####
 
@@ -42,11 +42,13 @@ By using Jenkins pipeline we have access to plugins which facilitate continuous 
 
 #### AWS #### 
 
-The technologies we use from AWS are examples of Infrastructure as a Service (IaaS), where we have the most control and responsibility over the cloud services available to us. -- We are deploying 3 EC2 instances for Jenkins, our Docker Swarm Manager and Docker Swarm Worker nodes. 
-- Amazon RDS Database is being used to host our data for this project. 
-- Our Database is within a private Subnet and connected to the internet via a NAT Gateway
+The technologies we use from AWS are examples of Infrastructure as a Service (IaaS), where we have the most control and responsibility over the cloud services available to us. -- We are deploying 3 EC2 instances for Jenkins, our Docker Swarm Manager and Docker Swarm Worker nodes
+- Amazon RDS Database is being used to host our data for this project
+- The route tables indicate how our subnets are connected to the internet via an Internet Gateway and NAT Gateway
+- Our Database is within a private subnet
 - Our EC2 instances communicate through an NGINX proxy and are in a public subnet
-- All of our resources on Amazon are being held within an VPC
+- All of our resources on Amazon are being held within a VPC
+
 
 
 #### Docker #### 
