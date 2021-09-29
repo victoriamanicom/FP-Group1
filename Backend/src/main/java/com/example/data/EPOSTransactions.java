@@ -11,14 +11,14 @@ import javax.persistence.Table;
 @Table(name = "epos_transactions")
 public class EPOSTransactions {
 
-	public EPOSTransactions(Long Id, Long eposId, String timestamp, Long payeeAccount, Double amount) {
+	public EPOSTransactions(Long Id, Long eposId, String timestamp, Long payeeAccount, java.math.BigDecimal amount) {
 		super();
 		this.Id = Id;
 		this.payeeAccount = payeeAccount;
 		this.amount = amount;
 	}
 
-	public EPOSTransactions(String timestamp, Long payeeAccount, Double amount) {
+	public EPOSTransactions(String timestamp, Long payeeAccount, java.math.BigDecimal amount) {
 		super();
 		this.timestamp = timestamp;
 		this.payeeAccount = payeeAccount;
@@ -41,14 +41,14 @@ public class EPOSTransactions {
 	private EPOS id;
 
 	@ManyToOne
-	@JoinColumn(name = "bank_card_number", nullable = false)
+	@JoinColumn(name = "card_number", nullable = false)
 	private BankCard cardNumber;
 
 	@Column(name = "payee_account")
 	private Long payeeAccount;
 
 	@Column(name = "amount")
-	private Double amount;
+	private java.math.BigDecimal amount;
 
 	public void setId(Long id) {
 		Id = id;
@@ -70,11 +70,11 @@ public class EPOSTransactions {
 		this.payeeAccount = payeeAccount;
 	}
 
-	public Double getAmount() {
+	public java.math.BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(java.math.BigDecimal amount) {
 		this.amount = amount;
 	}
 
