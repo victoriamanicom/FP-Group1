@@ -12,8 +12,8 @@ import javax.persistence.Table;
 @Table(name = "atm_point")
 public class ATMPoint {
 
-	public ATMPoint(String atmId, String operator, String streetName, String postcode, Double latitude,
-			Double longitude) {
+	public ATMPoint(String atmId, String operator, String streetName, String postcode, java.math.BigDecimal latitude,
+			java.math.BigDecimal longitude) {
 
 		super();
 		this.atmId = atmId;
@@ -25,7 +25,8 @@ public class ATMPoint {
 
 	}
 
-	public ATMPoint(String operator, String streetName, String postcode, Double latitude, Double longitude) {
+	public ATMPoint(String operator, String streetName, String postcode, java.math.BigDecimal latitude,
+			java.math.BigDecimal longitude) {
 
 		super();
 		this.operator = operator;
@@ -57,10 +58,10 @@ public class ATMPoint {
 	private String postcode;
 
 	@Column(name = "latitude")
-	private Double latitude;
+	private java.math.BigDecimal latitude;
 
 	@Column(name = "longitude")
-	private Double longitude;
+	private java.math.BigDecimal longitude;
 
 	public String getAtmId() {
 		return atmId;
@@ -94,19 +95,19 @@ public class ATMPoint {
 		this.postcode = postcode;
 	}
 
-	public Double getLatitude() {
+	public java.math.BigDecimal getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Double latitude) {
+	public void setLatitude(java.math.BigDecimal latitude) {
 		this.latitude = latitude;
 	}
 
-	public Double getLongitude() {
+	public java.math.BigDecimal getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Double longitude) {
+	public void setLongitude(java.math.BigDecimal longitude) {
 		this.longitude = longitude;
 	}
 
