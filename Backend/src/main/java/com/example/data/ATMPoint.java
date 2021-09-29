@@ -40,8 +40,8 @@ public class ATMPoint {
 		super();
 	}
 
-	@OneToMany(mappedBy = "atm_id")
-	private Set<ATMTransaction> ATMTransaction;
+	@OneToMany(mappedBy = "atmId")
+	private Set<ATMTransaction> ATMTransactions;
 
 	@Id
 	@Column(name = "atm_id")
@@ -110,12 +110,12 @@ public class ATMPoint {
 		this.longitude = longitude;
 	}
 
-	public Set<ATMTransaction> getATMTransaction() {
-		return ATMTransaction;
+	public Set<ATMTransaction> getATMTransactions() {
+		return ATMTransactions;
 	}
 
-	public void setAtmTransaction(Set<ATMTransaction> ATMTransaction) {
-		this.ATMTransaction = ATMTransaction;
+	public void setAtmTransaction(Set<ATMTransaction> ATMTransactions) {
+		this.ATMTransactions = ATMTransactions;
 	}
 
 }
