@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "bank_card")
 public class BankCard {
 
-	public BankCard(Long cardNumber, String sortCode, Long bankAccountId, Long accountNumber, String bank) {
+	public BankCard(Integer cardNumber, String sortCode, Integer bankAccountId, Integer accountNumber, String bank) {
 
 		super();
 		this.cardNumber = cardNumber;
@@ -24,8 +24,8 @@ public class BankCard {
 
 	}
 
-	public BankCard(Long bankCardId, Long cardNumber, String sortCode, Long bankAccountId, Long accountNumber,
-			String bank) {
+	public BankCard(Integer bankCardId, Integer cardNumber, String sortCode, Integer bankAccountId,
+			Integer accountNumber, String bank) {
 
 		super();
 		this.bankCardId = bankCardId;
@@ -42,16 +42,16 @@ public class BankCard {
 
 	@Id
 	@Column(name = "bank_card_id")
-	private Long bankCardId;
+	private Integer bankCardId;
 
 	@Column(name = "card_number")
-	private Long cardNumber;
+	private Integer cardNumber;
 
 	@Column(name = "sort_code")
 	private String sortCode;
 
 	@Column(name = "bank_account_id")
-	private Long bankAccountId;
+	private Integer bankAccountId;
 
 	@OneToMany(mappedBy = "bankCardNumber")
 	private Set<ATMTransaction> atmTransactions;
@@ -66,19 +66,19 @@ public class BankCard {
 	@Column(name = "bank")
 	private String bank;
 
-	public Long getBankCardId() {
+	public Integer getBankCardId() {
 		return bankCardId;
 	}
 
-	public void setBankCardId(Long bankCardId) {
+	public void setBankCardId(Integer bankCardId) {
 		this.bankCardId = bankCardId;
 	}
 
-	public Long getCardNumber() {
+	public Integer getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(Long cardNumber) {
+	public void setCardNumber(Integer cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
@@ -90,11 +90,11 @@ public class BankCard {
 		this.sortCode = sortCode;
 	}
 
-	public Long getBankAccountId() {
+	public Integer getBankAccountId() {
 		return bankAccountId;
 	}
 
-	public void setBankAccountId(Long bankAccountId) {
+	public void setBankAccountId(Integer bankAccountId) {
 		this.bankAccountId = bankAccountId;
 	}
 
