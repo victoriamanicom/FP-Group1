@@ -16,7 +16,7 @@ Jira board presentation
 Example of a user story
 
 
-Database
+Network & Database
 ---------------
 <img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135297409-b6fef0de-889c-4735-8686-d63a7b21b8c8.jpg">
 
@@ -26,10 +26,10 @@ The database utilises many technologies in order to host our data and allow our 
 
 •	Jenkins: By using Jenkins pipeline we have access to plugins which facilitate continuous delivery (via webhooks), allowing our application to run automatically when commits are made, accompanied by autonomous testing.
 
-•	AWS: The technologies we use from AWS are examples of Infrastructure as a Service (IaaS), where we have the most control and responsibility over the cloud services available to us.
+•	AWS: The technologies we use from AWS are examples of Infrastructure as a Service (IaaS), where we have the most control and responsibility over the cloud services available to us. We are deploying 3 EC2 instances for Jenkins, our Docker Swarm Manager and Docker Swarm Worker nodes. 
 
 
-•	Docker: Through docker, our autonomous process builds images of our flask app and then proceeds to run them on containers. These containers are orchestrated by Docker Swarm, which controls x Manager and x Worker nodes.
+•	Docker: Through docker, our autonomous process builds images of our application and then proceeds to run them on containers. These containers are orchestrated by Docker Swarm, which is controlling 1 manager and 1 worker node.
 
 Backend
 ---------------
