@@ -58,7 +58,7 @@ Backend
 
 The backend is powered by Java using the Spring Boot Framework. This allows rapid and simple deployment of an integration structure between the database and the frontend. As well as the database logic, the backend has HTTP requests, and allows the frontend to access the database and work with the data there.
 
-Our Controller maps the two HTTP GET requests to our services, where our data on the suspects information is mapped to Data Transfer Objects, allowing the frontend to display the correct information.
+In order for our frontend to receive the required information on the suspect, Our Controller maps our two HTTP GET requests to our services, where our data on the suspects information is mapped to Data Transfer Objects, allowing the frontend to display the correct information. The benefits of DTOs have been illustrated throughout this project as with large datasets filled with sensitive information you only want to present requested data.
 
 Frontend
 ---------------
@@ -71,7 +71,7 @@ The frontend is powered by HTML, CSS and JavaScript, utilising the Bootstrap Fra
 Testing
 ---------------
 
-Extensive backend testing was carried out, including integration testing and Mockito testing on all functionality and methods called in Java. This enabled the functionality in Java to be tested to make sure that there were no possible breaking points in the backend. Frontend testing was carried out in the form of Selenium testing. SELENIUM
+Extensive backend testing was carried out, including integration testing and Mockito testing on all functionality and methods called in Java. This enabled the functionality in Java to be tested to make sure that there were no possible breaking points in the backend. Frontend testing was carried out in the form of Selenium testing.
 
 Stretch Goals
 ---------------
