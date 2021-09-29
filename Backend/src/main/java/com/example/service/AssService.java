@@ -2,7 +2,6 @@ package com.example.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
@@ -34,13 +33,13 @@ public class AssService {
 
 		PeopleBusinessAddress busAdd = new PeopleBusinessAddress();
 
-		busAdd.setPersonName(citizen.getForenames().concat(citizen.getSurname()));
+		busAdd.setPersonName(citizen.getForenames() + " " + citizen.getSurname());
 		busAdd.setDateOfBirth(citizen.getDateOfBirth());
 
-		Optional<PeopleBusinessAddress> citizenBusAdd = this.pbRepo.findOne(Example.of(busAdd));
+		PeopleBusinessAddress citizenBusAdd = this.pbRepo.findOne(Example.of(busAdd)).get();
 
-		newAssociate.setBusinessAddress(citizenBusAdd.get().getBusinessAddress());
-		newAssociate.setBusinessName(citizenBusAdd.get().getBusinessName());
+		newAssociate.setBusinessAddress(citizenBusAdd.getBusinessAddress());
+		newAssociate.setBusinessName(citizenBusAdd.getBusinessName());
 
 		ArrayList<LivingWithDTO> housemates = new ArrayList<>();
 
@@ -65,7 +64,7 @@ public class AssService {
 
 		PeopleBusinessAddress colleague = new PeopleBusinessAddress();
 
-		colleague.setBusinessAddress(citizenBusAdd.get().getBusinessAddress());
+		colleague.setBusinessAddress(citizenBusAdd.getBusinessAddress());
 
 		List<PeopleBusinessAddress> workmates = this.pbRepo.findAll(Example.of(colleague));
 
