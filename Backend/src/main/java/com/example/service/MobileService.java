@@ -45,7 +45,7 @@ public class MobileService {
 
 				MobileCallRecordsDTO recordsDTO = new MobileCallRecordsDTO();
 				recordsDTO.setTimestamp(mcr.getTimestamp());
-				recordsDTO.setCallerMSISDN(mcr.getCallerMSISDN());
+				recordsDTO.setCallerMSISDN(mcr.getPhoneNumber().getPhoneNumber());
 				recordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
 				recordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
 
@@ -68,7 +68,7 @@ public class MobileService {
 
 				MobileCallRecordsDTO receiverRecordsDTO = new MobileCallRecordsDTO();
 				receiverRecordsDTO.setTimestamp(mcr.getTimestamp());
-				receiverRecordsDTO.setCallerMSISDN(mcr.getCallerMSISDN());
+				receiverRecordsDTO.setCallerMSISDN(mcr.getPhoneNumber().getPhoneNumber());
 				receiverRecordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
 				receiverRecordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
 

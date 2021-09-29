@@ -49,7 +49,7 @@ public class PeopleMobile {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	@OneToMany(mappedBy = "phone_number")
+	@OneToMany(mappedBy = "phoneNumber")
 	private Set<MobileCallRecords> mobileCallRecords;
 
 	@Column(name = "network")
