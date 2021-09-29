@@ -16,12 +16,10 @@ import com.example.rest.DTO.CitizenReturnDTO;
 public class CitizenService {
 
 	private CitizenRepo citizenrepo;
-	private PeopleBankAccountRepo pbaRepo;
 
 	@Autowired
 	public CitizenService(CitizenRepo citizenrepo, PeopleBankAccountRepo pbaRepo) {
 		this.citizenrepo = citizenrepo;
-		this.pbaRepo = pbaRepo;
 	}
 
 	private CitizenReturnDTO mapCitizenToDTO(Citizen citizen) {

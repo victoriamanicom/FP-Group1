@@ -9,12 +9,9 @@ import com.example.rest.DTO.CitizenReturnDTO;
 @Service
 public class AboutService {
 
-	private CitizenRepo bioRepo;
-
 	public AboutService(CitizenRepo bioRepo) {
 
 		super();
-		this.bioRepo = bioRepo;
 
 	}
 

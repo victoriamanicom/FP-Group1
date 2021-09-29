@@ -13,12 +13,8 @@ import com.example.rest.DTO.MainDTO;
 
 public class MainService {
 
-	private PeopleMobileRepo pmRepo;
-	private MobileCallRecordsRepo mcrRepo;
-	private VehicleRepo vehicleRepo;
 	private CitizenRepo citizenRepo;
 	private AssService assService;
-	private CitizenService citizenService;
 	private FinanceService financeService;
 	private MobileService mobileService;
 	private VehicleService vehicleService;
@@ -29,16 +25,11 @@ public class MainService {
 			FinanceService financeService, MobileService mobileService, VehicleService vehicleService,
 			AboutService aboutservice) {
 		super();
-		this.pmRepo = pmRepo;
-		this.mcrRepo = mcrRepo;
-		this.vehicleRepo = vehicleRepo;
 		this.citizenRepo = citizenRepo;
 		this.assService = assService;
-		this.citizenService = citizenService;
 		this.financeService = financeService;
 		this.mobileService = mobileService;
 		this.vehicleService = vehicleService;
-		this.aboutService = aboutService;
 	}
 
 	public MainDTO getSuspectInfo(String citizenID) {

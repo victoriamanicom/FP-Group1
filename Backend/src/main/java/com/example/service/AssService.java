@@ -19,13 +19,11 @@ import com.example.rest.DTO.LivingWithDTO;
 @Service
 public class AssService {
 
-	private PeopleMobileRepo pmRepo;
 	private PeopleBusinessRepo pbRepo;
 	private CitizenRepo citizenRepo;
 
 	public AssService(PeopleMobileRepo pmRepo, PeopleBusinessRepo pbRepo, CitizenRepo citizenRepo) {
 		super();
-		this.pmRepo = pmRepo;
 		this.pbRepo = pbRepo;
 		this.citizenRepo = citizenRepo;
 	}

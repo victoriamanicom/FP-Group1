@@ -11,9 +11,6 @@ import com.example.data.BankCard;
 import com.example.data.Citizen;
 import com.example.data.EPOSTransactions;
 import com.example.data.PeopleBankAccount;
-import com.example.repo.ATMPointRepo;
-import com.example.repo.ATMTransactionRepo;
-import com.example.repo.BankCardRepo;
 import com.example.repo.PeopleBankAccountRepo;
 import com.example.rest.DTO.ATMTransactionDTO;
 import com.example.rest.DTO.BankCardDTO;
@@ -24,15 +21,10 @@ import com.example.rest.DTO.PeopleBankAccountDTO;
 public class FinanceService {
 
 	private PeopleBankAccountRepo pbaRepo;
-	private ATMTransactionRepo atmTRepo;
-	private ATMPointRepo atmPRepo;
-	private BankCardRepo bankCRepo;
 
 	public FinanceService(PeopleBankAccountRepo pbaRepo) {
 		super();
 		this.pbaRepo = pbaRepo;
-		this.atmTRepo = atmTRepo;
-		this.atmPRepo = atmPRepo;
 	}
 
 	public List<PeopleBankAccountDTO> findBA(Citizen citizen) {

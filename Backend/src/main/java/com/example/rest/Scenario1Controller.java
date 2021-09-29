@@ -27,11 +27,6 @@ import com.example.service.VehicleService;
 public class Scenario1Controller {
 
 	private CitizenService citizenservice;
-	private FinanceService financeservice;
-	private AssService assservice;
-	private MobileService mobileservice;
-	private VehicleService vehicleservice;
-	private AboutService aboutservice;
 	private MainService mainservice;
 
 	@Autowired
@@ -39,11 +34,6 @@ public class Scenario1Controller {
 			MobileService mobileservice, VehicleService vehicleservice, AboutService aboutservice) {
 		super();
 		this.citizenservice = citizenservice;
-		this.financeservice = financeservice;
-		this.assservice = assservice;
-		this.mobileservice = mobileservice;
-		this.vehicleservice = vehicleservice;
-		this.aboutservice = aboutservice;
 	}
 
 	@GetMapping("/findCitizens")
