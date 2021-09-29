@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BankCardDTO {
 
-	public BankCardDTO(Integer cardNumber, String sortCode, List<ATMTransactionDTO> atmTransactions,
+	public BankCardDTO(java.math.BigInteger cardNumber, String sortCode, List<ATMTransactionDTO> atmTransactions,
 			List<EPOSTransactionsDTO> eposTransactions) {
 		super();
 		this.cardNumber = cardNumber;
@@ -13,7 +13,7 @@ public class BankCardDTO {
 		EPOSTransactions = eposTransactions;
 	}
 
-	public BankCardDTO(Integer cardNumber, String sortCode) {
+	public BankCardDTO(java.math.BigInteger cardNumber, String sortCode) {
 		super();
 		this.cardNumber = cardNumber;
 		this.sortCode = sortCode;
@@ -23,18 +23,18 @@ public class BankCardDTO {
 		super();
 	}
 
-	private Integer cardNumber;
+	private java.math.BigInteger cardNumber;
 	private String sortCode;
 
 	private List<ATMTransactionDTO> ATMTransaction;
 
 	private List<EPOSTransactionsDTO> EPOSTransactions;
 
-	public Integer getCardNumber() {
+	public java.math.BigInteger getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(Integer cardNumber) {
+	public void setCardNumber(java.math.BigInteger cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
