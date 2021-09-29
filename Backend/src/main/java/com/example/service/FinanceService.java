@@ -86,6 +86,7 @@ public class FinanceService {
 			suspectBankDTO.setAccountNumber(citizenToBankAccount.getAccountNumber());
 			suspectBankDTO.setBank(citizenToBankAccount.getBank());
 			suspectBankDTO.setBankcardDTOs(bankCards);
+
 			suspectFinances.add(suspectBankDTO);
 
 		}
