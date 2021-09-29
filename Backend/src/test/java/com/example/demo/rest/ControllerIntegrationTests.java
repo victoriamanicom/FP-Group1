@@ -113,7 +113,7 @@ public AssociatesDTO associatesDTO(List<PeopleMobileDTO> callRecords, String bus
 	return testAssoc;
  }
 
-public PeopleMobileDTO peopleMobileDTO(String phoneNumber, String network, List<MobileCallRecordsDTO> mobileCallRecords, List<MobileReceiveRecordsDTO> mobileReceiveRecords) { 
+public PeopleMobileDTO peopleMobileDTO(String phoneNumber, String network, List<MobileCallRecordsDTO> mobileCallRecords, List<MobileCallRecordsDTO> mobileReceiveRecords) { 
 	
 	PeopleMobileDTO testPM = new PeopleMobileDTO();
 	testPM.setMobileCallRecords(mobileCallRecords);
@@ -131,6 +131,7 @@ public List<PeopleBankAccountDTO> peopleBADTO(BankCardDTO bankCardDTOs, String b
 		BankCardDTO card = new BankCardDTO(); 
 		card.setATMTransaction(null);
 		card.setEPOSTransactions(null);
+		
 		PeopleBankAccountDTO bankAcc = new PeopleBankAccountDTO();
 		bankAcc.setAccountNumber(accountNumber);
 		bankAcc.setBank(bank);
@@ -149,7 +150,7 @@ public List<PeopleBankAccountDTO> peopleBADTO(BankCardDTO bankCardDTOs, String b
 		VehicleDTO car = new VehicleDTO();
 		car.setColour(colour);
 		car.setMake(make);
-		car.setDriverLicenceId(driverLicenceId);
+		car.setVehicleRegistrationNo(vehicleRegistrationNo);
 		car.setModel(model);
 		
 		
@@ -170,6 +171,20 @@ public List<PeopleBankAccountDTO> peopleBADTO(BankCardDTO bankCardDTOs, String b
 		
 	
 	return testWhere;
+	}
+	
+	public CitizenReturnDTO citizenReturnDTO(String forenames, String surname, String homeAddress, String dateOfBirth, String sex) { 
+	
+		CitizenReturnDTO testCit = new CitizenReturnDTO();
+		testCit.setDateOfBirth(dateOfBirth);
+		testCit.setForenames(forenames);
+		testCit.setHomeAddress(homeAddress);
+		testCit.setSex(sex);
+		testCit.setSurname(surname);
+		
+		
+	
+	return testCit;
 	}
 
 
@@ -206,7 +221,7 @@ void testSuspectInfo() throws Exception {
 		String driverLicenceId = "";
 		
 		 
-		 mainDTO = new MainDTO();
+		 
 		 
 		 mainDTO.setCitizenID("9171862863");
 		 mainDTO.setAssociatesDTO(this.associatesDTO(callRecords, businessName, businessAddress, collegues, livingWith));
