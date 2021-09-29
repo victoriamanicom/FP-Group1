@@ -30,7 +30,7 @@ public class ATMTransaction {
 
 	@ManyToOne
 	@JoinColumn(name = "bank_card_number", nullable = false)
-	private BankCard bankCardNumber;
+	private BankCard cardNumber;
 
 	@Id
 	@Column(name = "id")
@@ -86,11 +86,11 @@ public class ATMTransaction {
 	}
 
 	public BankCard getBankCardNumber() {
-		return bankCardNumber;
+		return cardNumber;
 	}
 
 	public void setBankCardNumber(BankCard bankCardNumber) {
-		this.bankCardNumber = bankCardNumber;
+		this.cardNumber = bankCardNumber;
 	}
 
 }
