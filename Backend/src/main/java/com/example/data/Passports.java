@@ -1,5 +1,7 @@
 package com.example.data;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,8 +11,9 @@ import javax.persistence.Table;
 @Table(name = "passport")
 public class Passports {
 
-	public Passports(Integer passportNumber, String surname, String givenName, String nationality, String dob,
-			String sex, String placeOfBirth, String issuingCountry, String dateOfIssue, String dateOfExpiry) {
+	public Passports(Integer passportNumber, String surname, String givenName, String nationality, LocalDateTime dob,
+			String sex, String placeOfBirth, String issuingCountry, LocalDateTime dateOfIssue,
+			LocalDateTime dateOfExpiry) {
 
 		super();
 		this.passportNumber = passportNumber;
@@ -26,8 +29,8 @@ public class Passports {
 
 	}
 
-	public Passports(String surname, String givenName, String nationality, String dob, String sex, String placeOfBirth,
-			String issuingCountry, String dateOfIssue, String dateOfExpiry) {
+	public Passports(String surname, String givenName, String nationality, LocalDateTime dob, String sex,
+			String placeOfBirth, String issuingCountry, LocalDateTime dateOfIssue, LocalDateTime dateOfExpiry) {
 
 		super();
 		this.surname = surname;
@@ -60,7 +63,7 @@ public class Passports {
 	private String nationality;
 
 	@Column(name = "dob")
-	private String dob;
+	private LocalDateTime dob;
 
 	@Column(name = "sex")
 	private String sex;
@@ -72,10 +75,10 @@ public class Passports {
 	private String issuingCountry;
 
 	@Column(name = "date_of_issue")
-	private String dateOfIssue;
+	private LocalDateTime dateOfIssue;
 
 	@Column(name = "date_of_expiry")
-	private String dateOfExpiry;
+	private LocalDateTime dateOfExpiry;
 
 	public Integer getPassportNumber() {
 		return passportNumber;
@@ -109,11 +112,11 @@ public class Passports {
 		this.nationality = nationality;
 	}
 
-	public String getDob() {
+	public LocalDateTime getDob() {
 		return dob;
 	}
 
-	public void setDob(String dob) {
+	public void setDob(LocalDateTime dob) {
 		this.dob = dob;
 	}
 
@@ -141,19 +144,19 @@ public class Passports {
 		this.issuingCountry = issuingCountry;
 	}
 
-	public String getDateOfIssue() {
+	public LocalDateTime getDateOfIssue() {
 		return dateOfIssue;
 	}
 
-	public void setDateOfIssue(String dateOfIssue) {
+	public void setDateOfIssue(LocalDateTime dateOfIssue) {
 		this.dateOfIssue = dateOfIssue;
 	}
 
-	public String getDateOfExpiry() {
+	public LocalDateTime getDateOfExpiry() {
 		return dateOfExpiry;
 	}
 
-	public void setDateOfExpiry(String dateOfExpiry) {
+	public void setDateOfExpiry(LocalDateTime dateOfExpiry) {
 		this.dateOfExpiry = dateOfExpiry;
 	}
 
