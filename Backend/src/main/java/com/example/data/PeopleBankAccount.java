@@ -1,5 +1,6 @@
 package com.example.data;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NaturalId;
+
 @Entity
 @Table(name = "people_bank_account")
-public class PeopleBankAccount {
+public class PeopleBankAccount implements Serializable {
 
 	public PeopleBankAccount(Long bankAccountId, Long accountNumber, String bank, String forenames, String surname,
 			String dateOfBirth, String homeAddress) {
@@ -43,6 +46,7 @@ public class PeopleBankAccount {
 	@Column(name = "bank_account_id")
 	private Long bankAccountId;
 
+	@NaturalId
 	@Column(name = "account_number")
 	private Long accountNumber;
 
