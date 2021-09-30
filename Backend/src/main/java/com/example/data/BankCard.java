@@ -1,5 +1,6 @@
 package com.example.data;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "bank_card")
-public class BankCard {
+public class BankCard implements Serializable {
 
 	public BankCard(Long cardNumber, String sortCode, Integer bankAccountId, Integer accountNumber, String bank) {
 
