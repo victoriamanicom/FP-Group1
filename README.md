@@ -29,46 +29,31 @@ The Kanban board for this project is available here. For the Kanban board Jira s
 
 Network Infrastructure & Database
 ---------------
+<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135436469-0f1bd8c7-35bb-4225-856d-d62922d85a45.PNG">
 
-#### AWS ####
+
+<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135298012-3629ce89-4224-43b8-b2f1-23b34584256c.jpg">
+
+The network infrastructure illustrated above utilises many technologies in order to host our data and allow our application to run in the cloud:
+
+#### Jenkins ####
+
+By using Jenkins pipeline we have access to plugins which facilitate continuous delivery (via webhooks), allowing our application to run automatically when commits are made, accompanied by autonomous testing.
+
+#### AWS #### 
 
 The technologies we use from AWS are examples of Infrastructure as a Service (IaaS), where we have the most control and responsibility over the cloud services available to us.
 
 - We are deploying 3 EC2 instances for Jenkins, our Docker Swarm Manager and Docker Swarm Worker nodes
 - Amazon RDS Database is being used to host our data for this project
 - The route tables indicate how our subnets are connected to the internet via an Internet Gateway and NAT Gateway
-- Our Application Manager and Worker instances are within a public subnet and communicate through an NGINX proxy
 - Our Database is within a private subnet
-- All of our resources on AWS are being held within a VPC
- 
- This is represented in the network diagram below:
-
-<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135297409-b6fef0de-889c-4735-8686-d63a7b21b8c8.jpg">
-
-The network infrastructure illustrated below utilises many technologies in order to host our data and allow our application to run in the cloud:
-
-<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135298012-3629ce89-4224-43b8-b2f1-23b34584256c.jpg">
-
-For additional security a Bastion Host was used and our IP addresses were assigned to the the Bastion Host's security group. Therefore machines only defined in the security group could connect to the EC2 instances and access the application.
+- Our EC2 instances communicate through an NGINX proxy and are in a public subnet
+- All of our resources on Amazon are being held within a VPC
 
 #### Docker #### 
 
-Dockerfiles were created for both the frontend and backend parts of the application before building our docker images for our frontend, backend and database. 
-We created a nginx.conf file and another image to create an nginx instance which would allow us to access into our application via the internet using a reverse-proxy.
-
-#### Docker Compose #### 
-We installed Docker compose onto our application manager EC2 instance before writing a "docker-compose.yaml" file to allow us to build our images and deploy our containers all from one command.
-In an effort to add some security to this file we made sure to use environmental variables to pass any sensitive or changeable information into this file such as passwords, this meant that this information wasn't stored in a file on our EC2 instance.
-
-#### Docker Swarm #### 
-We initialised our application manager EC2 instance as our Docker Swarm manager and added our second instance as a worker node before deploying our application in a stack with multiple replicas of each container or both instances.
-The two nodes would allow our system to handle larger amounts of traffic without issue and having multiple replicas gave us some redundancy in case we encountered any problems as well as allowing us to keep the application up even during updates.
-
-#### Jenkins ####
-
-Jenkins was installed on a seperate EC2 Instance from the Application Manager instance, the reason for this was due to Jenkins using a lot of RAM when performing it's builds and tests, which would result in additional load to the Application Manager Instance. 
-A pipeline job was created which would automate the deployment our application. The job would build the images we had designed earlier, run unit tests of the java running our application, push our up-to-date images to DockerHub and finally deploy our stack to get the application up and running.
-The instructions for this Jenkins job are stored in a Jenkinsfile which we created and added to our GitHub repo. The Jenkins job has also been setup to trigger a redeployment whenever the main branch of our GitHub repo is updated. As mentioned earlier the use of replicas in our swarm allows Jenkins to update the replicas one by one so that the application is not taken fully offline.
+Through Docker, our autonomous process builds images of our application and then proceeds to run them on containers. These containers are orchestrated by Docker Swarm, which is controlling 1 manager and 1 worker node.
 
 Backend
 ---------------
@@ -84,10 +69,16 @@ Data Transfer Objects are data contracts instructing classes how data should be 
 Frontend
 ---------------
 
-The frontend is powered by HTML, CSS and JavaScript, utilising the Bootstrap Framework to finetune the layout of the webpage using containers, columns, and rows. This allows the search method to be easily implemented and accessible to website users. HTML and CSS have been used to produce the look of the website and JavaScript has been used to get data from the database to populate the elements on the webpage. 
+The frontend is developed using the JavaScript framework React. This allowed us to build a component-based frontend and run a single page application, which improves the rendering times in the browser.
 
-<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135296922-6b03bb73-737d-43a2-82ca-65822ab742fd.PNG">
-<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135296640-1c9cbbf7-1a4a-4fc8-95d5-99164afb4aae.PNG">
+Before building, we started out by creating our wireframe for the application - to give us a strong plan to follow and refer back to throughout development. This helped us keep the user interface clean and easy to use, because we already knew where the components should be placed.
+It is written in JSX, interlacing JavaScript and HTML together, which is really useful for building reusable components. We utilised routing in this project to make the user experience as seamless as possible.
+
+We also used the react-bootstrap CSS library to style our website, importing only the required components. Using React-Bootstrap meant we could focus on one of our main requirements for this project by making each component user-friendly, and by using the grid system with a series of containers, rows, and columns, we could layout and align our content so it is easy to read for the user.
+We chose to use axios, a promise-based HTTP client, to make our HTTP requests because it automatically converts the response to JSON and it has a simple syntax for making requests.
+
+<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135436346-e7c32a82-3afb-4781-aaf8-9f626c9e9a00.PNG">
+<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135436424-57499ec0-f8d6-4fa6-a5bf-91a94f032921.PNG">
 
 Testing
 ---------------
