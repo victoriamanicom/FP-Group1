@@ -44,7 +44,7 @@ We prioritised our epics to make sure we were focusing our efforts in the right 
 
 We used a feature branch model matched to our Jira sprints to allow us to work on the different areas of our project without disturbing the main source code base. This meant that the main branch never contained broken code, which was advantageous to our continuous integration environment. We implemented branch protection rules to force peer reviews on any pull requests made, ensuring that the updates were correct before approval.
 
-<img width="400" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135482202-b7f85513-33e0-4e76-a3e8-2b3927818b32.png">
+![](https://lh4.googleusercontent.com/niORkqIpfqfsOY8R60N498R_7psx5PI64SWAS5ZjQLIV1LrSvg0RMIk7rlaXnFFhQvv3F371dk7hS6RV1D6KPUTo-64IDwAe3wGOsfMruocHebMZjnXXnmv_41hUPGCgCC7wc8FVQFs=s0)
 
 
 ---------------
