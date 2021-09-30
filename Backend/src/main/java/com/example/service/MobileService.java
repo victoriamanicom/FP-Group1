@@ -46,6 +46,8 @@ public class MobileService {
 		citizenToMobile.setTown(Town);
 		citizenToMobile.setPostcode(Postcode);
 
+		System.out.println("FORENAMES: " + Forenames);
+		System.out.println("SURNAME: " + Surname);
 		System.out.println("ADDRESS: " + Address);
 		System.out.println("TOWN: " + Town);
 		System.out.println("POSTCODE: " + Postcode);
