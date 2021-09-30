@@ -119,22 +119,15 @@ const CitizenAbout = ({ searchID }) => {
 
     const handleGetCitizen = (searchID) => {
         axios
-            .get(`http://54.72.172.119:5001/getSuspectInfo/4914442527`)
-            .then(({ data }) => {
-                console.log(data);
-                setCitizenData(data);
-            })
+            .get(`http://54.72.172.119:5001/getSuspectInfo/${searchID}`)
+            .then(({ data }) => setCitizenData(data))
             .catch((err) => console.log(err));
     };
 
     //initial render check
     if (citizenData.citizenID == "0") {
-        console.log("setting data");
+        handleGetCitizen(searchID);
     }
-
-    //development data structure check
-    console.log(`data check:`);
-    console.log(citizenData);
 
     return (
         <>

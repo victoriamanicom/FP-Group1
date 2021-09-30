@@ -19,7 +19,7 @@ const Citizen = ({
                     <Card.Title className="citizenTitle">
                         <h5
                             className="citizenNameHeading"
-                            onClick={() => selectCitizen(surname, citizenID)}
+                            onClick={() => selectCitizen(citizenID)}
                         >
                             {forenames} {surname}
                         </h5>
