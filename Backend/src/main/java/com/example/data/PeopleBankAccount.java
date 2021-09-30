@@ -1,7 +1,6 @@
 package com.example.data;
 
-import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ import javax.persistence.Table;
 public class PeopleBankAccount {
 
 	public PeopleBankAccount(Long bankAccountId, Long accountNumber, String bank, String forenames, String surname,
-			LocalDateTime dateOfBirth, String homeAddress) {
+			String dateOfBirth, String homeAddress) {
 		super();
 		this.bankAccountId = bankAccountId;
 		this.accountNumber = accountNumber;
@@ -25,8 +24,8 @@ public class PeopleBankAccount {
 		this.homeAddress = homeAddress;
 	}
 
-	public PeopleBankAccount(Long accountNumber, String bank, String forenames, String surname,
-			LocalDateTime dateOfBirth, String homeAddress) {
+	public PeopleBankAccount(Long accountNumber, String bank, String forenames, String surname, String dateOfBirth,
+			String homeAddress) {
 		super();
 		this.accountNumber = accountNumber;
 		this.bank = bank;
@@ -57,13 +56,13 @@ public class PeopleBankAccount {
 	private String surname;
 
 	@Column(name = "date_of_birth")
-	private LocalDateTime dateOfBirth;
+	private String dateOfBirth;
 
 	@Column(name = "home_address")
 	private String homeAddress;
 
 	@OneToMany(mappedBy = "accountNumber")
-	private Set<BankCard> bankCards;
+	private List<BankCard> bankCards;
 
 	public Long getBankAccountId() {
 		return bankAccountId;
@@ -105,11 +104,11 @@ public class PeopleBankAccount {
 		this.surname = surname;
 	}
 
-	public LocalDateTime getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDateTime dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -121,11 +120,11 @@ public class PeopleBankAccount {
 		this.homeAddress = homeAddress;
 	}
 
-	public Set<BankCard> getBankCards() {
+	public List<BankCard> getBankCards() {
 		return bankCards;
 	}
 
-	public void setBankCards(Set<BankCard> bankCards) {
+	public void setBankCards(List<BankCard> bankCards) {
 		this.bankCards = bankCards;
 	}
 

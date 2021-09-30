@@ -36,6 +36,9 @@ public class MobileService {
 
 		List<PeopleMobile> peopleM = this.pmRepo.findAll(Example.of(citizenToMobile));
 
+		System.out.println(citizenToMobile);
+		System.out.println(peopleM);
+
 		ArrayList<PeopleMobileDTO> suspectMobile = new ArrayList<>();
 
 		for (PeopleMobile pm : peopleM) {
