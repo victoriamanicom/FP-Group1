@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { Container } from "react-bootstrap";
 import "material-icons/iconfont/material-icons.css";
 import SearchBar from "./components/searchBar/SearchBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import axios from "axios";
 import CitizenReturn from "./components/CitizenReturn/CitizenReturn";
@@ -25,9 +25,9 @@ function App() {
             placeOfBirth: "",
             sex: "",
             surname: "",
-        }
+        },
     ]);
-
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const handleReset = (e) => {
         setCitizenForenames("");
@@ -43,16 +43,20 @@ function App() {
         const searchCitizen = {
             forenames: `${citizenForenames}`,
             surname: `${citizenSurname}`,
-            sex: `${citizenGender}`
-        }
+            sex: `${citizenGender}`,
+        };
 
         axios
-        .post("http://54.72.172.119:5001/findCitizens", searchCitizen)
-        .then(({ data }) => setCitizens(data))
-        .catch((err) => console.log(err));
+            .post("http://54.72.172.119:5001/findCitizens", searchCitizen)
+            .then(({ data }) => setCitizens(data))
+            .catch((err) => console.log(err));
 
         console.log(citizens);
     };
+
+    useEffect(() => {
+        setIsLoaded(true);
+    }, [citizens]);
 
     return (
         <Router className="App">
@@ -88,7 +92,11 @@ function App() {
                     />
                 </Route>
                 <Route path="/:lastName">
-                    <CitizenAbout citizens={citizens} searchID={searchID} />
+                    {isLoaded ? (
+                        <CitizenAbout citizens={citizens} searchID={searchID} />
+                    ) : (
+                        <></>
+                    )}
                 </Route>
             </Switch>
         </Router>
