@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.example.data.PeopleMobile;
 
 @Repository
-public interface PeopleMobileRepo extends JpaRepository<PeopleMobile, Integer> {
+public interface PeopleMobileRepo extends JpaRepository<PeopleMobile, String> {
 
 	List<PeopleMobile> findByForenamesAndSurnameAndPostcode(String forenames, String Surname, String Postcode);
 

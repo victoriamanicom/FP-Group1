@@ -1,6 +1,6 @@
 package com.example.data;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -52,7 +52,7 @@ public class PeopleMobile {
 	private String phoneNumber;
 
 	@OneToMany(mappedBy = "phoneNumber")
-	private Set<MobileCallRecords> mobileCallRecords;
+	private List<MobileCallRecords> mobileCallRecords;
 
 	@Column(name = "network")
 	private String network;
@@ -121,11 +121,11 @@ public class PeopleMobile {
 		this.network = network;
 	}
 
-	public Set<MobileCallRecords> getMobileCallRecords() {
+	public List<MobileCallRecords> getMobileCallRecords() {
 		return mobileCallRecords;
 	}
 
-	public void setMobileCallRecords(Set<MobileCallRecords> mobileCallRecords) {
+	public void setMobileCallRecords(List<MobileCallRecords> mobileCallRecords) {
 		this.mobileCallRecords = mobileCallRecords;
 	}
 
