@@ -6,20 +6,18 @@ public class MainDTO {
 
 	private String CitizenID;
 	private AssociatesDTO associatesDTO;
-	private List<WhereaboutsDTO> whereaboutsDTO;
 	private List<VehicleDTO> vehiclesDTO;
 	private List<PeopleMobileDTO> peopleMobileDTO;
 	private CitizenReturnDTO citizenReturnDTO;
 	private List<PeopleBankAccountDTO> peopleBankAccountDTO;
 
-	public MainDTO(String CitizenID, AssociatesDTO associatesDTO, List<WhereaboutsDTO> whereaboutsDTO,
-			List<VehicleDTO> vehiclesDTO, List<PeopleMobileDTO> peopleMobileDTO, CitizenReturnDTO citizenReturnDTO,
+	public MainDTO(String CitizenID, AssociatesDTO associatesDTO, List<VehicleDTO> vehiclesDTO,
+			List<PeopleMobileDTO> peopleMobileDTO, CitizenReturnDTO citizenReturnDTO,
 			List<PeopleBankAccountDTO> peopleBankAccountDTO) {
 
 		super();
 		this.CitizenID = CitizenID;
 		this.associatesDTO = associatesDTO;
-		this.whereaboutsDTO = whereaboutsDTO;
 		this.vehiclesDTO = vehiclesDTO;
 		this.peopleMobileDTO = peopleMobileDTO;
 		this.citizenReturnDTO = citizenReturnDTO;
@@ -29,7 +27,7 @@ public class MainDTO {
 
 	public MainDTO() {
 
-		this.super();
+		super();
 
 	}
 
@@ -47,14 +45,6 @@ public class MainDTO {
 
 	public void setAssociatesDTO(AssociatesDTO associatesDTO) {
 		this.associatesDTO = associatesDTO;
-	}
-
-	public List<WhereaboutsDTO> getWhereaboutsDTO() {
-		return whereaboutsDTO;
-	}
-
-	public void setWhereaboutsDTO(List<WhereaboutsDTO> whereaboutsDTO) {
-		this.whereaboutsDTO = whereaboutsDTO;
 	}
 
 	public List<VehicleDTO> getVehiclesDTO() {
@@ -95,7 +85,6 @@ public class MainDTO {
 		int result = 1;
 		result = prime * result + ((CitizenID == null) ? 0 : CitizenID.hashCode());
 		result = prime * result + ((associatesDTO == null) ? 0 : associatesDTO.hashCode());
-		result = prime * result + ((whereaboutsDTO == null) ? 0 : whereaboutsDTO.hashCode());
 		result = prime * result + ((vehiclesDTO == null) ? 0 : vehiclesDTO.hashCode());
 		result = prime * result + ((peopleMobileDTO == null) ? 0 : peopleMobileDTO.hashCode());
 		result = prime * result + ((citizenReturnDTO == null) ? 0 : citizenReturnDTO.hashCode());
@@ -121,11 +110,6 @@ public class MainDTO {
 				return false;
 		} else if (!associatesDTO.equals(other.associatesDTO))
 			return false;
-		if (whereaboutsDTO == null) {
-			if (other.whereaboutsDTO != null)
-				return false;
-		} else if (!whereaboutsDTO.equals(other.whereaboutsDTO))
-			return false;
 		if (vehiclesDTO == null) {
 			if (other.vehiclesDTO != null)
 				return false;
@@ -146,9 +130,9 @@ public class MainDTO {
 
 	@Override
 	public String toString() {
-		return "MainDTO [CitizenID=" + CitizenID + ", associatesDTO=" + associatesDTO + ", whereaboutsDTO="
-				+ whereaboutsDTO + ", vehiclesDTO=" + vehiclesDTO + ", peopleMobileDTO=" + peopleMobileDTO
-				+ ", citizenReturnDTO=" + citizenReturnDTO + ", peopleBankAccountDTO=" + peopleBankAccountDTO + "]";
+		return "MainDTO [CitizenID=" + CitizenID + ", associatesDTO=" + associatesDTO + ", vehiclesDTO=" + vehiclesDTO
+				+ ", peopleMobileDTO=" + peopleMobileDTO + ", citizenReturnDTO=" + citizenReturnDTO
+				+ ", peopleBankAccountDTO=" + peopleBankAccountDTO + "]";
 	}
 
 }

@@ -6,11 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "epos")
 public class EPOS {
 
-	public EPOS(Long id, String vendor, String streetName, String postcode, Double latitude, Double longitude) {
+	public EPOS(Long id, String vendor, String streetName, String postcode, java.math.BigDecimal latitude,
+			java.math.BigDecimal longitude) {
 
 		super();
 		this.id = id;
@@ -22,7 +25,8 @@ public class EPOS {
 
 	}
 
-	public EPOS(String vendor, String streetName, String postcode, Double latitude, Double longitude) {
+	public EPOS(String vendor, String streetName, String postcode, java.math.BigDecimal latitude,
+			java.math.BigDecimal longitude) {
 
 		super();
 		this.vendor = vendor;
@@ -54,10 +58,10 @@ public class EPOS {
 	private String postcode;
 
 	@Column(name = "latitude")
-	private Double latitude;
+	private java.math.BigDecimal latitude;
 
 	@Column(name = "longitude")
-	private Double longitude;
+	private java.math.BigDecimal longitude;
 
 	public Long getId() {
 		return id;
@@ -91,19 +95,19 @@ public class EPOS {
 		this.postcode = postcode;
 	}
 
-	public Double getLatitude() {
+	public java.math.BigDecimal getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Double latitude) {
+	public void setLatitude(java.math.BigDecimal latitude) {
 		this.latitude = latitude;
 	}
 
-	public Double getLongitude() {
+	public java.math.BigDecimal getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Double longitude) {
+	public void setLongitude(java.math.BigDecimal longitude) {
 		this.longitude = longitude;
 	}
 

@@ -1,13 +1,15 @@
 package com.example.data;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "people_mobile")
 public class PeopleMobile {
 
 	public PeopleMobile(String forenames, String surname, String dateOfBirth, String address, String town,
@@ -49,8 +51,8 @@ public class PeopleMobile {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	@OneToMany(mappedBy = "phone_number")
-	private Set<MobileCallRecords> mobileCallRecords;
+	@OneToMany(mappedBy = "phoneNumber")
+	private List<MobileCallRecords> mobileCallRecords;
 
 	@Column(name = "network")
 	private String network;
@@ -119,11 +121,11 @@ public class PeopleMobile {
 		this.network = network;
 	}
 
-	public Set<MobileCallRecords> getMobileCallRecords() {
+	public List<MobileCallRecords> getMobileCallRecords() {
 		return mobileCallRecords;
 	}
 
-	public void setMobileCallRecords(Set<MobileCallRecords> mobileCallRecords) {
+	public void setMobileCallRecords(List<MobileCallRecords> mobileCallRecords) {
 		this.mobileCallRecords = mobileCallRecords;
 	}
 

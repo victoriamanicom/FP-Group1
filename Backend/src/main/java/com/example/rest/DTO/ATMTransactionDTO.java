@@ -4,13 +4,13 @@ public class ATMTransactionDTO {
 
 	private String timestamp;
 	private String type;
-	private Double amount;
+	private java.math.BigDecimal amount;
 	private String operator;
 	private String streetName;
 	private String postcode;
 
-	public ATMTransactionDTO(String timestamp, String type, Double amount, String operator, String streetName,
-			String postcode) {
+	public ATMTransactionDTO(String timestamp, String type, java.math.BigDecimal amount, String operator,
+			String streetName, String postcode) {
 
 		super();
 		this.timestamp = timestamp;
@@ -42,11 +42,11 @@ public class ATMTransactionDTO {
 		this.type = type;
 	}
 
-	public Double getAmount() {
+	public java.math.BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(java.math.BigDecimal amount) {
 		this.amount = amount;
 	}
 

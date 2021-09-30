@@ -1,20 +1,21 @@
 package com.example.rest.DTO;
 
 import java.util.List;
-import java.util.Set;
 
 public class BankCardDTO {
 
-	public BankCardDTO(String sortCode, List<ATMTransactionDTO> atmTransactions,
+	public BankCardDTO(Long cardNumber, String sortCode, List<ATMTransactionDTO> atmTransactions,
 			List<EPOSTransactionsDTO> eposTransactions) {
 		super();
+		this.cardNumber = cardNumber;
 		this.sortCode = sortCode;
 		ATMTransaction = atmTransactions;
 		EPOSTransactions = eposTransactions;
 	}
 
-	public BankCardDTO(String sortCode) {
+	public BankCardDTO(Long cardNumber, String sortCode) {
 		super();
+		this.cardNumber = cardNumber;
 		this.sortCode = sortCode;
 	}
 
@@ -22,11 +23,20 @@ public class BankCardDTO {
 		super();
 	}
 
+	private Long cardNumber;
 	private String sortCode;
 
 	private List<ATMTransactionDTO> ATMTransaction;
 
 	private List<EPOSTransactionsDTO> EPOSTransactions;
+
+	public Long getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(Long cardNumber) {
+		this.cardNumber = cardNumber;
+	}
 
 	public String getSortCode() {
 		return sortCode;
@@ -59,6 +69,7 @@ public class BankCardDTO {
 		result = prime * result + ((ATMTransaction == null) ? 0 : ATMTransaction.hashCode());
 		result = prime * result + ((EPOSTransactions == null) ? 0 : EPOSTransactions.hashCode());
 		result = prime * result + ((sortCode == null) ? 0 : sortCode.hashCode());
+		result = prime * result + ((cardNumber == null) ? 0 : cardNumber.hashCode());
 		return result;
 	}
 
@@ -86,13 +97,18 @@ public class BankCardDTO {
 				return false;
 		} else if (!sortCode.equals(other.sortCode))
 			return false;
+		if (cardNumber == null) {
+			if (other.cardNumber != null)
+				return false;
+		} else if (!cardNumber.equals(other.cardNumber))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "BankCardDTO [sortCode=" + sortCode + ", ATMTransaction=" + ATMTransaction + ", EPOSTransactions="
-				+ EPOSTransactions + "]";
+		return "BankCardDTO [cardNumber=" + cardNumber + ", sortCode=" + sortCode + ", ATMTransaction=" + ATMTransaction
+				+ ", EPOSTransactions=" + EPOSTransactions + "]";
 	}
 
 }

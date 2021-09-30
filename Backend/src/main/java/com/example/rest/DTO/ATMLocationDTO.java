@@ -3,15 +3,15 @@ package com.example.rest.DTO;
 public class ATMLocationDTO {
 
 	private String timestamp;
-	private Long atmId;
+	private Integer atmId;
 	private String operator;
 	private String streetName;
 	private String postcode;
-	private Double latitude;
-	private Double longitude;
+	private java.math.BigDecimal latitude;
+	private java.math.BigDecimal longitude;
 
-	public ATMLocationDTO(String timestamp, Long atmId, String operator, String streetName, String postcode,
-			Double latitude, Double longitude) {
+	public ATMLocationDTO(String timestamp, Integer atmId, String operator, String streetName, String postcode,
+			java.math.BigDecimal latitude, java.math.BigDecimal longitude) {
 
 		super();
 		this.timestamp = timestamp;
@@ -36,11 +36,11 @@ public class ATMLocationDTO {
 		this.timestamp = timestamp;
 	}
 
-	public Long getAtmId() {
+	public Integer getAtmId() {
 		return atmId;
 	}
 
-	public void setAtmId(Long atmId) {
+	public void setAtmId(Integer atmId) {
 		this.atmId = atmId;
 	}
 
@@ -68,19 +68,19 @@ public class ATMLocationDTO {
 		this.postcode = postcode;
 	}
 
-	public Double getLatitude() {
+	public java.math.BigDecimal getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Double latitude) {
+	public void setLatitude(java.math.BigDecimal latitude) {
 		this.latitude = latitude;
 	}
 
-	public Double getLongitude() {
+	public java.math.BigDecimal getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Double longitude) {
+	public void setLongitude(java.math.BigDecimal longitude) {
 		this.longitude = longitude;
 	}
 

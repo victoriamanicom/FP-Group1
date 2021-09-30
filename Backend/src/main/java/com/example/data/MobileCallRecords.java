@@ -5,22 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "mobile_call_records")
 public class MobileCallRecords {
 
-	public MobileCallRecords(String timestamp, String callerMSISDN, Long callCellTowerId, String receiverMSISDN,
-			Long receiverTowerId) {
+	public MobileCallRecords(Long Id, String timestamp, String callerMSISDN, Long callCellTowerId,
+			String receiverMSISDN, Long receiverTowerId) {
 		super();
+		this.callCellTowerId = Id;
 		this.timestamp = timestamp;
 		this.callCellTowerId = callCellTowerId;
-		this.callerMSISDN = callerMSISDN;
 		this.receiverMSISDN = receiverMSISDN;
 		this.receiverTowerId = receiverTowerId;
 	}
 
-	public MobileCallRecords(String callerMSISN, Long callCellTowerId, String receiverMSISDN, Long receiverTowerId) {
+	public MobileCallRecords(String timestamp, String callerMSISN, Long callCellTowerId, String receiverMSISDN,
+			Long receiverTowerId) {
 		super();
+		this.timestamp = timestamp;
 		this.callCellTowerId = callCellTowerId;
 		this.receiverMSISDN = receiverMSISDN;
 		this.receiverTowerId = receiverTowerId;
@@ -30,21 +34,21 @@ public class MobileCallRecords {
 		super();
 	}
 
-	@Id
 	@Column(name = "timestamp")
 	private String timestamp;
 
-	@ManyToOne
-	@JoinColumn(name = "caller_MSISDN", nullable = false)
-	private PeopleMobile phoneNumber;
+	@Id
+	@Column(name = "id")
+	private Long Id;
 
-	@Column(name = "caller_MSISDN")
-	private String callerMSISDN;
+	@ManyToOne
+	@JoinColumn(name = "caller_msisdn", nullable = false)
+	private PeopleMobile phoneNumber;
 
 	@Column(name = "call_cell_tower_id")
 	private Long callCellTowerId;
 
-	@Column(name = "receiver_MSISDN")
+	@Column(name = "receiver_msisdn")
 	private String receiverMSISDN;
 
 	@Column(name = "receiver_tower_id")
@@ -90,12 +94,12 @@ public class MobileCallRecords {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getCallerMSISDN() {
-		return callerMSISDN;
+	public Long getId() {
+		return Id;
 	}
 
-	public void setCallerMSISDN(String callerMSISDN) {
-		this.callerMSISDN = callerMSISDN;
+	public void setId(Long id) {
+		Id = id;
 	}
 
 }

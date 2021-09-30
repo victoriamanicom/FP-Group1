@@ -7,11 +7,11 @@ public class EPOSLocationDTO {
 	private String vendor;
 	private String streetName;
 	private String postcode;
-	private Double latitude;
-	private Double longitude;
+	private java.math.BigDecimal latitude;
+	private java.math.BigDecimal longitude;
 
 	public EPOSLocationDTO(String timestamp, Long id, String vendor, String streetName, String postcode,
-			Double latitude, Double longitude) {
+			java.math.BigDecimal latitude, java.math.BigDecimal longitude) {
 
 		super();
 		this.timestamp = timestamp;
@@ -68,19 +68,19 @@ public class EPOSLocationDTO {
 		this.postcode = postcode;
 	}
 
-	public Double getLatitude() {
+	public java.math.BigDecimal getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Double latitude) {
+	public void setLatitude(java.math.BigDecimal latitude) {
 		this.latitude = latitude;
 	}
 
-	public Double getLongitude() {
+	public java.math.BigDecimal getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Double longitude) {
+	public void setLongitude(java.math.BigDecimal longitude) {
 		this.longitude = longitude;
 	}
 

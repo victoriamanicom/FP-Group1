@@ -42,6 +42,7 @@ public class VehicleService {
 			suspectVehicleDTO.setModel(pV.getModel());
 			suspectVehicleDTO.setColour(pV.getColour());
 			suspectVehicleDTO.setVehicleRegistrationNo(pV.getVehicleRegistrationNo());
+			suspectVehicleDTO.setDriverLicenceId(pV.getDriverLicenceId());
 
 			suspectVehicles.add(suspectVehicleDTO);
 		}

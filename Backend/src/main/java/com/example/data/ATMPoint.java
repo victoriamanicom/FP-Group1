@@ -6,12 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "atm_point")
 public class ATMPoint {
 
-	public ATMPoint(Long atmId, String operator, String streetName, String postcode, Double latitude,
-			Double longitude) {
+	public ATMPoint(Integer atmId, String operator, String streetName, String postcode, java.math.BigDecimal latitude,
+			java.math.BigDecimal longitude) {
 
 		super();
 		this.atmId = atmId;
@@ -23,7 +25,8 @@ public class ATMPoint {
 
 	}
 
-	public ATMPoint(String operator, String streetName, String postcode, Double latitude, Double longitude) {
+	public ATMPoint(String operator, String streetName, String postcode, java.math.BigDecimal latitude,
+			java.math.BigDecimal longitude) {
 
 		super();
 		this.operator = operator;
@@ -38,33 +41,33 @@ public class ATMPoint {
 		super();
 	}
 
-	@Id
 	@OneToMany(mappedBy = "atmId")
 	private Set<ATMTransaction> ATMTransactions;
 
-	@Column(name = "atmId")
-	private Long atmId;
+	@Id
+	@Column(name = "atm_id")
+	private Integer atmId;
 
 	@Column(name = "operator")
 	private String operator;
 
-	@Column(name = "streetName")
+	@Column(name = "street_name")
 	private String streetName;
 
 	@Column(name = "postcode")
 	private String postcode;
 
 	@Column(name = "latitude")
-	private Double latitude;
+	private java.math.BigDecimal latitude;
 
 	@Column(name = "longitude")
-	private Double longitude;
+	private java.math.BigDecimal longitude;
 
-	public Long getAtmId() {
+	public Integer getAtmId() {
 		return atmId;
 	}
 
-	public void setAtmId(Long atmId) {
+	public void setAtmId(Integer atmId) {
 		this.atmId = atmId;
 	}
 
@@ -92,19 +95,19 @@ public class ATMPoint {
 		this.postcode = postcode;
 	}
 
-	public Double getLatitude() {
+	public java.math.BigDecimal getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Double latitude) {
+	public void setLatitude(java.math.BigDecimal latitude) {
 		this.latitude = latitude;
 	}
 
-	public Double getLongitude() {
+	public java.math.BigDecimal getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Double longitude) {
+	public void setLongitude(java.math.BigDecimal longitude) {
 		this.longitude = longitude;
 	}
 
@@ -112,7 +115,7 @@ public class ATMPoint {
 		return ATMTransactions;
 	}
 
-	public void setAtmTransactions(Set<ATMTransaction> ATMTransactions) {
+	public void setAtmTransaction(Set<ATMTransaction> ATMTransactions) {
 		this.ATMTransactions = ATMTransactions;
 	}
 

@@ -9,30 +9,54 @@ import org.springframework.stereotype.Service;
 import com.example.data.Citizen;
 import com.example.data.MobileCallRecords;
 import com.example.data.PeopleMobile;
+import com.example.repo.MobileCallRecordsRepo;
 import com.example.repo.PeopleMobileRepo;
 import com.example.rest.DTO.MobileCallRecordsDTO;
+import com.example.rest.DTO.MobileReceiveRecordsDTO;
 import com.example.rest.DTO.PeopleMobileDTO;
 
 @Service
 public class MobileService {
 
 	private PeopleMobileRepo pmRepo;
+	private MobileCallRecordsRepo mcRepo;
 
-	public MobileService(PeopleMobileRepo pmRepo) {
+	public MobileService(PeopleMobileRepo pmRepo, MobileCallRecordsRepo mcRepo) {
 		super();
 		this.pmRepo = pmRepo;
+		this.mcRepo = mcRepo;
 	}
 
 	public List<PeopleMobileDTO> findPM(Citizen citizen) {
 
 		PeopleMobile citizenToMobile = new PeopleMobile();
-		citizenToMobile.setForenames(citizen.getForenames());
-		citizenToMobile.setSurname(citizen.getSurname());
-		citizenToMobile.setAddress(citizen.getHomeAddress());
+
+		String Forenames = citizen.getForenames();
+		String Surname = citizen.getSurname();
+
+		citizenToMobile.setForenames(Forenames);
+		citizenToMobile.setSurname(Surname);
+
+		String[] BrokenAddress = citizen.getHomeAddress().split(",");
+		String Address = BrokenAddress[0];
+		String Town = BrokenAddress[1];
+		String Postcode = BrokenAddress[2];
+
+		citizenToMobile.setAddress(Address);
+		citizenToMobile.setTown(Town);
+		citizenToMobile.setPostcode(Postcode);
+
+		System.out.println("FORENAMES: " + Forenames);
+		System.out.println("SURNAME: " + Surname);
+		System.out.println("ADDRESS: " + Address);
+		System.out.println("TOWN: " + Town);
+		System.out.println("POSTCODE: " + Postcode);
 
 		List<PeopleMobile> peopleM = this.pmRepo.findAll(Example.of(citizenToMobile));
 
 		ArrayList<PeopleMobileDTO> suspectMobile = new ArrayList<>();
+
+		System.out.println("PEOPLEM: " + peopleM);
 
 		for (PeopleMobile pm : peopleM) {
 
@@ -45,7 +69,7 @@ public class MobileService {
 
 				MobileCallRecordsDTO recordsDTO = new MobileCallRecordsDTO();
 				recordsDTO.setTimestamp(mcr.getTimestamp());
-				recordsDTO.setCallerMSISDN(mcr.getCallerMSISDN());
+				recordsDTO.setCallerMSISDN(mcr.getPhoneNumber().getPhoneNumber());
 				recordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
 				recordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
 
@@ -63,16 +87,27 @@ public class MobileService {
 
 			}
 
-			ArrayList<MobileCallRecordsDTO> suspectIncomingRecords = new ArrayList<>();
-			for (MobileCallRecords mcr : pmRepo.findByReceiverMSISDN(pm.getPhoneNumber())) {
+			ArrayList<MobileReceiveRecordsDTO> suspectIncomingRecords = new ArrayList<>();
+			for (MobileCallRecords mcr : mcRepo.findByReceiverMSISDN(pm.getPhoneNumber())) {
 
-				MobileCallRecordsDTO receiverRecordsDTO = new MobileCallRecordsDTO();
+				MobileReceiveRecordsDTO receiverRecordsDTO = new MobileReceiveRecordsDTO();
 				receiverRecordsDTO.setTimestamp(mcr.getTimestamp());
-				receiverRecordsDTO.setCallerMSISDN(mcr.getCallerMSISDN());
+				receiverRecordsDTO.setCallerMSISDN(mcr.getPhoneNumber().getPhoneNumber());
 				receiverRecordsDTO.setReceiverMSISDN(mcr.getReceiverMSISDN());
 				receiverRecordsDTO.setCallCellTowerId(mcr.getCallCellTowerId());
 
+				PeopleMobile callerMobile = new PeopleMobile();
+				callerMobile.setPhoneNumber(mcr.getPhoneNumber().getPhoneNumber());
+				List<PeopleMobile> callerName = this.pmRepo.findAll(Example.of(callerMobile));
+
+				for (PeopleMobile rpm : callerName) {
+
+					receiverRecordsDTO.setCallerName(rpm.getForenames() + " " + rpm.getSurname());
+
+				}
+
 				suspectIncomingRecords.add(receiverRecordsDTO);
+
 			}
 
 			suspectMobileDTO.setMobileCallRecords(suspectOutgoingRecords);

@@ -1,5 +1,6 @@
 package com.example.data;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -8,11 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.NaturalId;
 
 @Entity
-public class BankCard {
+@Table(name = "bank_card")
+public class BankCard implements Serializable {
 
-	public BankCard(Long cardNumber, String sortCode, Long bankAccountId, Long accountNumber, String bank) {
+	public BankCard(Long cardNumber, String sortCode, Integer bankAccountId, Integer accountNumber, String bank) {
 
 		super();
 		this.cardNumber = cardNumber;
@@ -22,7 +27,7 @@ public class BankCard {
 
 	}
 
-	public BankCard(Long bankCardId, Long cardNumber, String sortCode, Long bankAccountId, Long accountNumber,
+	public BankCard(Integer bankCardId, Long cardNumber, String sortCode, Integer bankAccountId, Integer accountNumber,
 			String bank) {
 
 		super();
@@ -38,37 +43,38 @@ public class BankCard {
 		super();
 	}
 
-	@Column(name = "bank_card_id")
-	private Long bankCardId;
-
 	@Id
+	@Column(name = "bank_card_id")
+	private Integer bankCardId;
+
+	@NaturalId
 	@Column(name = "card_number")
 	private Long cardNumber;
 
-	@Column(name = "sort_code")
+	@Column(name = "sortcode")
 	private String sortCode;
 
 	@Column(name = "bank_account_id")
-	private Long bankAccountId;
+	private Integer bankAccountId;
 
-	@OneToMany(mappedBy = "bankCardNumber")
+	@OneToMany(mappedBy = "cardNumber")
 	private Set<ATMTransaction> atmTransactions;
 
-	@OneToMany(mappedBy = "bankCardNumber")
+	@OneToMany(mappedBy = "cardNumber")
 	private Set<EPOSTransactions> eposTransactions;
 
 	@ManyToOne
-	@JoinColumn(name = "account_number", nullable = false)
+	@JoinColumn(name = "account_number", referencedColumnName = "account_number", nullable = false)
 	private PeopleBankAccount accountNumber;
 
 	@Column(name = "bank")
 	private String bank;
 
-	public Long getBankCardId() {
+	public Integer getBankCardId() {
 		return bankCardId;
 	}
 
-	public void setBankCardId(Long bankCardId) {
+	public void setBankCardId(Integer bankCardId) {
 		this.bankCardId = bankCardId;
 	}
 
@@ -88,11 +94,11 @@ public class BankCard {
 		this.sortCode = sortCode;
 	}
 
-	public Long getBankAccountId() {
+	public Integer getBankAccountId() {
 		return bankAccountId;
 	}
 
-	public void setBankAccountId(Long bankAccountId) {
+	public void setBankAccountId(Integer bankAccountId) {
 		this.bankAccountId = bankAccountId;
 	}
 
