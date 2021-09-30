@@ -29,33 +29,46 @@ The Kanban board for this project is available here. For the Kanban board Jira s
 
 Network Infrastructure & Database
 ---------------
-<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135297409-b6fef0de-889c-4735-8686-d63a7b21b8c8.jpg">
 
-
-<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135298012-3629ce89-4224-43b8-b2f1-23b34584256c.jpg">
-
-The network infrastructure illustrated above utilises many technologies in order to host our data and allow our application to run in the cloud:
-
-#### Jenkins ####
-
-By using Jenkins pipeline we have access to plugins which facilitate continuous delivery (via webhooks), allowing our application to run automatically when commits are made, accompanied by autonomous testing.
-
-#### AWS #### 
+#### AWS ####
 
 The technologies we use from AWS are examples of Infrastructure as a Service (IaaS), where we have the most control and responsibility over the cloud services available to us.
 
 - We are deploying 3 EC2 instances for Jenkins, our Docker Swarm Manager and Docker Swarm Worker nodes
 - Amazon RDS Database is being used to host our data for this project
 - The route tables indicate how our subnets are connected to the internet via an Internet Gateway and NAT Gateway
+- Our Application Manager and Worker instance is within a public subnet and communicate through an NGINX proxy
 - Our Database is within a private subnet
-- Our EC2 instances communicate through an NGINX proxy and are in a public subnet
-- All of our resources on Amazon are being held within a VPC
+- All of our resources on AWS are being held within a VPC
+ 
+ This is represented in the network diagram below:
 
+<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135297409-b6fef0de-889c-4735-8686-d63a7b21b8c8.jpg">
 
+The network infrastructure illustrated below utilises many technologies in order to host our data and allow our application to run in the cloud:
+
+<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135298012-3629ce89-4224-43b8-b2f1-23b34584256c.jpg">
+
+For additional security a Bastion Host was used and our IP addresses were assigned to the the Bastion Host's security group. Therefore machines only defined in the security group could connect to the EC2 instances and access the application.
 
 #### Docker #### 
 
-Through Docker, our autonomous process builds images of our application and then proceeds to run them on containers. These containers are orchestrated by Docker Swarm, which is controlling 1 manager and 1 worker node.
+Dockerfiles were created for both the frontend and backend parts of the application before building our docker images for our frontend, backend and database. 
+We created a nginx.conf file and another image to create an nginx instance which would allow us to access into our application via the internet using a reverse-proxy.
+
+#### Docker Compose #### 
+We installed Docker compose onto our application manager EC2 instance before writing a "docker-compose.yaml" file to allow us to build our images and deploy our containers all from one command.
+In an effort to add some security to this file we made sure to use environmental variables to pass any sensitive or changeable information into this file such as passwords, this meant that this information wasn't stored in a file on our EC2 instance.
+
+#### Docker Swarm #### 
+We initialised our application manager EC2 instance as our Docker Swarm manager and added our second instance as a worker node before deploying our application in a stack with multiple replicas of each container or both instances.
+The two nodes would allow our system to handle larger amounts of traffic without issue and having multiple replicas gave us some redundancy in case we encountered any problems as well as allowing us to keep the application up even during updates.
+
+#### Jenkins ####
+
+Jenkins was installed on a seperate EC2 Instance from the Application Manager instance, the reason for this was due to Jenkins using a lot of RAM when performing it's builds and tests, which would result in additional load to the Application Manager Instance. 
+A pipeline job was created which would automate the deployment our application. The job would build the images we had designed earlier, run unit tests of the java running our application, push our up-to-date images to DockerHub and finally deploy our stack to get the application up and running.
+The instructions for this Jenkins job are stored in a Jenkinsfile which we created and added to our GitHub repo. The Jenkins job has also been setup to trigger a redeployment whenever the main branch of our GitHub repo is updated. As mentioned earlier the use of replicas in our swarm allows Jenkins to update the replicas one by one so that the application is not taken fully offline.
 
 Backend
 ---------------
