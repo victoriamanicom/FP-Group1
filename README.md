@@ -138,15 +138,14 @@ The frontend is developed using the JavaScript framework React. This allowed us 
 
 Before building, we started out by creating our wireframe for the application - to give us a strong plan to follow and refer back to throughout development. This helped us keep the user interface clean and easy to use, because we already knew where the components should be placed.
 
-<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135436346-e7c32a82-3afb-4781-aaf8-9f626c9e9a00.PNG">
-<img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135436424-57499ec0-f8d6-4fa6-a5bf-91a94f032921.PNG">
-ADD FINAL SCREENSHOT IN HERE
+![](https://lh6.googleusercontent.com/XupjcLUZ9YsDqZr5LGQtQke-IackL7rCCILm7XSbzUw-LH7Xci-uGBfedUpHjEfocBTI7bqwEzlQqhYvJ87HJ0-CaDWoFRw2NY0X8XTNxiKVzcedZxPs43PvBRs7YZoFOTW6E1HITvc=s0)
+
 It is written in JSX, interlacing JavaScript and HTML together, which is really useful for building reusable components. We utilised routing in this project to make the user experience as seamless as possible.
 
 #### React-Bootstrap ####
 We also used the react-bootstrap CSS library to style our website, importing only the required components. Using React-Bootstrap meant we could focus on one of our main requirements for this project by making each component user-friendly, and by using the grid system with a series of containers, rows, and columns, we could layout and align our content so it is easy to read for the user.
 
-SCREENSHOT OF BOOTSTRAP COMPONENT HERE
+![](https://lh4.googleusercontent.com/I0Rxq24_JgPqCIGXitKqRyfFXiMgxMCZ5Bhz7EyLxsNR23DMbs3JDuTsVH9fPAtZ_dAptc2JEQsBXANuo-5qxkeDm6iqgoz0UR6cEBlhRoovUOwwJYeubeyb447kwS6g82RYFm1LFE0=s0)
 
 #### Axios ####
 We chose to use axios, a promise-based HTTP client, to make our HTTP requests because it automatically converts the response to JSON and it has a simple syntax for making requests.
