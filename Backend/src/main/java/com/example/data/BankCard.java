@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NaturalId;
+
 @Entity
 @Table(name = "bank_card")
 public class BankCard implements Serializable {
@@ -45,6 +47,7 @@ public class BankCard implements Serializable {
 	@Column(name = "bank_card_id")
 	private Integer bankCardId;
 
+	@NaturalId
 	@Column(name = "card_number")
 	private Long cardNumber;
 
