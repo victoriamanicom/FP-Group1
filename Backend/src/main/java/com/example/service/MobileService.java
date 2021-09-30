@@ -44,6 +44,8 @@ public class MobileService {
 
 		System.out.println(BrokenAddress);
 		System.out.println(Town);
+		System.out.println(Address);
+		System.out.println(Postcode);
 
 		List<PeopleMobile> peopleM = this.pmRepo.findAll(Example.of(citizenToMobile));
 
