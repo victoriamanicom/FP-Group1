@@ -70,7 +70,7 @@ The network infrastructure illustrated below utilises many technologies in order
 <img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135298012-3629ce89-4224-43b8-b2f1-23b34584256c.jpg">
 
 #### Bastion Host ####
-For additional security a Bastion Host was used and our IP addresses were assigned to the the Bastion Host's security group. Therefore machines only with ip addresses defined in the security group could connect to the EC2 instances and access the application. Also the bation host was used to connect when we were testing the connection between the backend and the RDS. Below is an image showing the security group used for the basiton host:
+For additional security a Bastion Host was used and our IP addresses were assigned to the the Bastion Host's security group. Therefore machines only with ip addresses defined in the security group could connect to the EC2 instances and access the application. Also the bastion host was used to connect when we were testing the connection between the backend and the RDS. Below is an image showing the security group used for the bastion host:
 
 ![bastion host security groups](https://user-images.githubusercontent.com/86321052/135465168-d9aacbf8-f18c-4df4-929d-b7dbecafa497.JPG)
 
@@ -97,7 +97,7 @@ The two nodes would allow our system to handle larger amounts of traffic without
 
 #### Jenkins ####
 
-Jenkins was installed on a seperate EC2 Instance from the Application Manager instance, the reason for this was due to Jenkins using a lot of RAM when performing it's builds and tests, which would result in additional load to the Application Manager Instance. 
+Jenkins was installed on an individual EC2 Instance, the reason for this was due to Jenkins using a lot of RAM when performing it's builds and tests, which would result in additional load to the Application Manager Instance. 
 A pipeline job was created which would automate the deployment our application. The job would build the images we had designed earlier, run unit tests of the java running our application, push our up-to-date images to DockerHub and finally deploy our stack to get the application up and running.
 The instructions for this Jenkins job are stored in a Jenkinsfile which we created and added to our GitHub repo. The Jenkins job has also been setup to trigger a redeployment whenever the main branch of our GitHub repo is updated. As mentioned earlier the use of replicas in our swarm allows Jenkins to update the replicas one by one so that the application is not taken fully offline. Below is an image showing the triggers used initialising the jenkins pipeline:
 
