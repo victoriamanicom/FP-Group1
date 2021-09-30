@@ -74,7 +74,7 @@ The network infrastructure illustrated below utilises many technologies in order
 
 
 #### Bastion Host ####
-For additional security a Bastion Host was used and our IP addresses were assigned to the the Bastion Host's security group. Therefore machines only with ip addresses defined in the security group could connect to the EC2 instances and access the application. Also the bation host was used to connect when we were testing the connection between the backend and the RDS. Below is an image showing the security group used for the basiton host:
+For additional security a Bastion Host was used and our IP addresses were assigned to the the Bastion Host's security group. Therefore machines only with ip addresses defined in the security group could connect to the EC2 instances and access the application. Also the bastion host was used to connect when we were testing the connection between the backend and the RDS. Below is an image showing the security group used for the bastion host:
 
 <img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86321052/135465168-d9aacbf8-f18c-4df4-929d-b7dbecafa497.JPG">
 <img width="660" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135478165-e6422b07-e705-4cb0-b96c-3549f4053e63.JPG">
