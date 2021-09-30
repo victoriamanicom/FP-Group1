@@ -79,7 +79,7 @@ public class MobileService {
 
 				for (PeopleMobile rpm : receiverName) {
 
-					recordsDTO.setReceiverName(rpm.getForenames().concat(rpm.getSurname()));
+					recordsDTO.setReceiverName(rpm.getForenames() + " " + rpm.getSurname());
 
 				}
 
