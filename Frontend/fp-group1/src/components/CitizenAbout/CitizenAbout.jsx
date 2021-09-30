@@ -121,7 +121,7 @@ const CitizenAbout = ({ searchID }) => {
 
     const handleGetCitizen = (searchID) => {
         axios
-            .get(`http://54.72.172.119:5001/getSuspectInfo/${searchID}`)
+            .get(`/api/getSuspectInfo/${searchID}`)
             .then(({ data }) => setCitizenData(data))
             .catch((err) => console.log(err));
     };
