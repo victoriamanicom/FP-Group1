@@ -39,7 +39,7 @@ public class FinanceService {
 
 		List<PeopleBankAccount> peopleBA = this.pbaRepo.findAll(Example.of(citizenToBankAccount));
 
-		System.out.println(peopleBA);
+		System.out.println("PEOPLEBA: " + peopleBA);
 
 		ArrayList<PeopleBankAccountDTO> suspectFinances = new ArrayList<>();
 
