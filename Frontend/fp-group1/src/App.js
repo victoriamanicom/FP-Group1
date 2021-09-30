@@ -15,8 +15,19 @@ function App() {
     const [citizenForenames, setCitizenForenames] = useState("");
     const [citizenSurname, setCitizenSurname] = useState("");
     const [citizenGender, setCitizenGender] = useState("");
-    const [citizens, setCitizens] = useState([]);
     const [searchID, setSearchID] = useState("");
+    const [citizens, setCitizens] = useState([
+        {
+            citizenID: "",
+            dateOfBirth: "",
+            forenames: "",
+            homeAddress: "",
+            placeOfBirth: "",
+            sex: "",
+            surname: "",
+        }
+    ]);
+
 
     const handleReset = (e) => {
         setCitizenForenames("");
@@ -34,15 +45,13 @@ function App() {
             surname: `${citizenSurname}`,
             sex: `${citizenGender}`
         }
-        
 
-        console.log(searchCitizen);
         axios
         .post("http://54.72.172.119:5001/findCitizens", searchCitizen)
         .then(({ data }) => setCitizens(data))
         .catch((err) => console.log(err));
 
-
+        console.log(citizens);
     };
 
     return (
