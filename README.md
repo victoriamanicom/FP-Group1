@@ -37,7 +37,7 @@ The technologies we use from AWS are examples of Infrastructure as a Service (Ia
 - We are deploying 3 EC2 instances for Jenkins, our Docker Swarm Manager and Docker Swarm Worker nodes
 - Amazon RDS Database is being used to host our data for this project
 - The route tables indicate how our subnets are connected to the internet via an Internet Gateway and NAT Gateway
-- Our Application Manager and Worker instance is within a public subnet and communicate through an NGINX proxy
+- Our Application Manager and Worker instance are within a public subnet and communicate through an NGINX proxy
 - Our Database is within a private subnet
 - All of our resources on AWS are being held within a VPC
  
