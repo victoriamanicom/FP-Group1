@@ -1,14 +1,19 @@
 package com.example.data;
 
-import java.util.Set;
+import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.NaturalId;
 
 @Entity
-public class PeopleBankAccount {
+@Table(name = "people_bank_account")
+public class PeopleBankAccount implements Serializable {
 
 	public PeopleBankAccount(Long bankAccountId, Long accountNumber, String bank, String forenames, String surname,
 			String dateOfBirth, String homeAddress) {
@@ -41,6 +46,7 @@ public class PeopleBankAccount {
 	@Column(name = "bank_account_id")
 	private Long bankAccountId;
 
+	@NaturalId
 	@Column(name = "account_number")
 	private Long accountNumber;
 
@@ -60,7 +66,7 @@ public class PeopleBankAccount {
 	private String homeAddress;
 
 	@OneToMany(mappedBy = "accountNumber")
-	private Set<BankCard> bankCards;
+	private List<BankCard> bankCards;
 
 	public Long getBankAccountId() {
 		return bankAccountId;
@@ -118,11 +124,11 @@ public class PeopleBankAccount {
 		this.homeAddress = homeAddress;
 	}
 
-	public Set<BankCard> getBankCards() {
+	public List<BankCard> getBankCards() {
 		return bankCards;
 	}
 
-	public void setBankCards(Set<BankCard> bankCards) {
+	public void setBankCards(List<BankCard> bankCards) {
 		this.bankCards = bankCards;
 	}
 

@@ -3,13 +3,16 @@ package com.example.data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "people_business_address")
 public class PeopleBusinessAddress {
 
-	public PeopleBusinessAddress(String personName, String homeAddress, String dateOfBirth, String businessName,
-			String businessAddress) {
+	public PeopleBusinessAddress(Long id, String personName, String homeAddress, String dateOfBirth,
+			String businessName, String businessAddress) {
 		super();
+		this.id = id;
 		this.personName = personName;
 		this.homeAddress = homeAddress;
 		this.dateOfBirth = dateOfBirth;
@@ -22,6 +25,9 @@ public class PeopleBusinessAddress {
 	}
 
 	@Id
+	@Column(name = "id")
+	private Long id;
+
 	@Column(name = "person_name")
 	private String personName;
 
@@ -36,6 +42,14 @@ public class PeopleBusinessAddress {
 
 	@Column(name = "business_address")
 	private String businessAddress;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getPersonName() {
 		return personName;

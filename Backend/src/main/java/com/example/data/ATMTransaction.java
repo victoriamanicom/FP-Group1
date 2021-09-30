@@ -1,20 +1,26 @@
 package com.example.data;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-public class ATMTransaction {
+@Table(name = "atm_transaction")
+public class ATMTransaction implements Serializable {
 
-	public ATMTransaction(String timestamp, String type, Double amount) {
+	public ATMTransaction(Long Id, String timestamp, String type, java.math.BigDecimal amount) {
+
 		super();
+		this.Id = Id;
 		this.timestamp = timestamp;
 		this.type = type;
 		this.amount = amount;
-		
+
 	}
 
 	public ATMTransaction() {
@@ -26,10 +32,13 @@ public class ATMTransaction {
 	private ATMPoint atmId;
 
 	@ManyToOne
-	@JoinColumn(name = "bank_card_number", nullable = false)
-	private BankCard bankCardNumber;
+	@JoinColumn(name = "card_number", referencedColumnName = "card_number", nullable = false)
+	private BankCard cardNumber;
 
 	@Id
+	@Column(name = "id")
+	private Long Id;
+
 	@Column(name = "timestamp")
 	private String timestamp;
 
@@ -37,7 +46,15 @@ public class ATMTransaction {
 	private String type;
 
 	@Column(name = "amount")
-	private Double amount;
+	private java.math.BigDecimal amount;
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
 
 	public String getTimestamp() {
 		return timestamp;
@@ -55,11 +72,11 @@ public class ATMTransaction {
 		this.type = type;
 	}
 
-	public Double getAmount() {
+	public java.math.BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(java.math.BigDecimal amount) {
 		this.amount = amount;
 	}
 
@@ -71,12 +88,12 @@ public class ATMTransaction {
 		this.atmId = atmId;
 	}
 
-	public BankCard getBankCardNumber() {
-		return bankCardNumber;
+	public BankCard getCardNumber() {
+		return cardNumber;
 	}
 
-	public void setBankCardNumber(BankCard bankCardNumber) {
-		this.bankCardNumber = bankCardNumber;
+	public void setCardNumber(BankCard cardNumber) {
+		this.cardNumber = cardNumber;
 	}
 
 }

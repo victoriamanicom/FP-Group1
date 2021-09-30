@@ -1,7 +1,6 @@
 package com.example.rest.DTO;
 
 import java.util.List;
-import java.util.Set;
 
 public class PeopleBankAccountDTO {
 

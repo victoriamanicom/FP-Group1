@@ -2,20 +2,12 @@ package com.example.data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "citizen")
 public class Citizen {
-
-	public Citizen(String forenames, String surname, String homeAddress, String dateOfBirth, String placeOfBirth,
-			String sex) {
-		super();
-		this.forenames = forenames;
-		this.surname = surname;
-		this.homeAddress = homeAddress;
-		this.dateOfBirth = dateOfBirth;
-		this.placeOfBirth = placeOfBirth;
-		this.sex = sex;
-	}
 
 	public Citizen(String citizenID, String forenames, String surname, String homeAddress, String dateOfBirth,
 			String placeOfBirth, String sex) {
@@ -31,12 +23,24 @@ public class Citizen {
 
 	}
 
+	public Citizen(String forenames, String surname, String homeAddress, String dateOfBirth, String placeOfBirth,
+			String sex) {
+		super();
+		this.forenames = forenames;
+		this.surname = surname;
+		this.homeAddress = homeAddress;
+		this.dateOfBirth = dateOfBirth;
+		this.placeOfBirth = placeOfBirth;
+		this.sex = sex;
+	}
+
 	public Citizen() {
 
 		super();
 
 	}
 
+	@Id
 	@Column(name = "citizen_id")
 	private String citizenID;
 

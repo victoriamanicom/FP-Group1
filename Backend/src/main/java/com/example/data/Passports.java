@@ -1,15 +1,15 @@
 package com.example.data;
 
-import java.math.BigInteger;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "passport")
 public class Passports {
 
-	public Passports(BigInteger passportNumber, String surname, String givenName, String nationality, String dob,
+	public Passports(Integer passportNumber, String surname, String givenName, String nationality, String dob,
 			String sex, String placeOfBirth, String issuingCountry, String dateOfIssue, String dateOfExpiry) {
 
 		super();
@@ -48,7 +48,7 @@ public class Passports {
 
 	@Id
 	@Column(name = "passport_number")
-	private BigInteger passportNumber;
+	private Integer passportNumber;
 
 	@Column(name = "surname")
 	private String surname;
@@ -77,11 +77,11 @@ public class Passports {
 	@Column(name = "date_of_expiry")
 	private String dateOfExpiry;
 
-	public BigInteger getPassportNumber() {
+	public Integer getPassportNumber() {
 		return passportNumber;
 	}
 
-	public void setPassportNumber(BigInteger passportNumber) {
+	public void setPassportNumber(Integer passportNumber) {
 		this.passportNumber = passportNumber;
 	}
 

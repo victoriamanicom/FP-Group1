@@ -3,12 +3,13 @@ package com.example.rest.DTO;
 public class EPOSTransactionsDTO {
 
 	private String timestamp;
-	private Double amount;
+	private java.math.BigDecimal amount;
 	private String vendor;
 	private String streetName;
 	private String postcode;
 
-	public EPOSTransactionsDTO(String timestamp, Double amount, String vendor, String streetName, String postcode) {
+	public EPOSTransactionsDTO(String timestamp, java.math.BigDecimal amount, String vendor, String streetName,
+			String postcode) {
 		super();
 		this.timestamp = timestamp;
 		this.amount = amount;
@@ -29,11 +30,11 @@ public class EPOSTransactionsDTO {
 		this.timestamp = timestamp;
 	}
 
-	public Double getAmount() {
+	public java.math.BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(java.math.BigDecimal amount) {
 		this.amount = amount;
 	}
 

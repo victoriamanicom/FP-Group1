@@ -3,8 +3,10 @@ package com.example.data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "vehicle_registration")
 public class VehicleRegistration {
 
 	public VehicleRegistration(Long registrationId, String registrationDate, String vehicleRegistrationNo, String make,
