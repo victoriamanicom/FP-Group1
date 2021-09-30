@@ -43,11 +43,15 @@ public class MobileService {
 		citizenToMobile.setTown(Town);
 		citizenToMobile.setPostcode(Postcode);
 
+		System.out.println("ADDRESS: " + Address);
+		System.out.println("TOWN: " + Town);
+		System.out.println("POSTCODE: " + Postcode);
+
 		List<PeopleMobile> peopleM = this.pmRepo.findByForenamesAndSurnameAndPostcode(Forenames, Surname, Postcode);
 
 		ArrayList<PeopleMobileDTO> suspectMobile = new ArrayList<>();
 
-		System.out.println(peopleM);
+		System.out.println("PEOPLEM" + peopleM);
 
 		for (PeopleMobile pm : peopleM) {
 
