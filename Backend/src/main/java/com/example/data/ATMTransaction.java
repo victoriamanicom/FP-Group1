@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "atm_transaction")
 public class ATMTransaction {
 
-	public ATMTransaction(Long Id, java.sql.Timestamp timestamp, String type, java.math.BigDecimal amount) {
+	public ATMTransaction(Long Id, String timestamp, String type, java.math.BigDecimal amount) {
 
 		super();
 		this.Id = Id;
@@ -38,7 +38,7 @@ public class ATMTransaction {
 	private Long Id;
 
 	@Column(name = "timestamp")
-	private java.sql.Timestamp timestamp;
+	private String timestamp;
 
 	@Column(name = "type")
 	private String type;
@@ -54,11 +54,11 @@ public class ATMTransaction {
 		Id = id;
 	}
 
-	public java.sql.Timestamp getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(java.sql.Timestamp timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
 

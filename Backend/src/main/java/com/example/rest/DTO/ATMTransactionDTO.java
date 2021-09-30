@@ -2,14 +2,14 @@ package com.example.rest.DTO;
 
 public class ATMTransactionDTO {
 
-	private java.sql.Timestamp timestamp;
+	private String timestamp;
 	private String type;
 	private java.math.BigDecimal amount;
 	private String operator;
 	private String streetName;
 	private String postcode;
 
-	public ATMTransactionDTO(java.sql.Timestamp timestamp, String type, java.math.BigDecimal amount, String operator,
+	public ATMTransactionDTO(String timestamp, String type, java.math.BigDecimal amount, String operator,
 			String streetName, String postcode) {
 
 		super();
@@ -26,11 +26,11 @@ public class ATMTransactionDTO {
 		super();
 	}
 
-	public java.sql.Timestamp getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(java.sql.Timestamp timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
 

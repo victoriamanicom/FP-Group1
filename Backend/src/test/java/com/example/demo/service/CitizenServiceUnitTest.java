@@ -38,7 +38,7 @@ public class CitizenServiceUnitTest {
 
 		Mockito.when(this.citizenRepo.findAll()).thenReturn(returnedCitizenList);
 
-		assertThat(this.citizenService.findCitizens(colin)).isEqualTo(colin);
+		assertThat(this.citizenService.findCitizens(colin)).isEqualTo(returnedCitizenList);
 
 	}
 
