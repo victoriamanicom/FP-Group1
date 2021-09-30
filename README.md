@@ -149,7 +149,23 @@ We also used the react-bootstrap CSS library to style our website, importing onl
 
 #### Axios ####
 We chose to use axios, a promise-based HTTP client, to make our HTTP requests because it automatically converts the response to JSON and it has a simple syntax for making requests.
-CODE SNIPPET HERE
+
+
+````const handleSearch = (e) => {
+        e.preventDefault();
+
+        const searchCitizen = {
+            forenames: `${citizenForenames}`,
+            surname: `${citizenSurname}`,
+            sex: `${citizenGender}`,
+        };
+
+        axios
+            .post("http://54.72.172.119:5001/findCitizens", searchCitizen)
+            .then(({ data }) => setCitizens(data))
+            .catch((err) => console.log(err));
+    };
+````
 
 
 
@@ -175,9 +191,10 @@ Frontend Testing was planned for Selenium but unfortunately, due to time constra
 ---------------
 * To push the project further into Scenario 3 by including the ANPR observations linked to the suspect's vehicle details to find out their recent vehicle locations.
 * To Push the project into Scenario 2 by using cell tower location data, ANPR observations and financial transactions to find out who was in a certain location at given times.
-* 
+
+
 ### Final Words and Acknowledgements ###
-Without the guidance of Piers Barber and Jordan Harrison this project wouldn't of been possible, along with our team members:
+Without the guidance of Piers Barber and Jordan Harrison this project would not have been possible, along with our team members:
 
 * Eva Bullman
 * Sebastian Hook
