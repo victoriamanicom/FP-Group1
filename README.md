@@ -165,7 +165,7 @@ Automation and user acceptance tests for front end
 **80% test coverage goal** (*industry standard*)
 
 #### Backend Testing ####
-Extensive backend testing was carried out, including integration testing and Mockito testing on all functionality and methods called in Java. This enabled the functionality in Java to be tested to make sure that there were no possible breaking points in the backend. 
+Extensive backend testing was carried out, including integration testing and Mockito testing on all functionality and methods called in Java. This enabled the functionality in Java to be tested to make sure that there were no possible breaking points in the backend. While the integration tests were created, neither of them currently pass due to issues with the sql_schema. Many manual user tests were carried out however the automation of these tests was not able to be completed. 
 
 #### Frontend Testing ####
 Frontend Testing was planned for Selenium but unfortunately, due to time constraints, this was unable to be carried out. We completed as many manual user tests as we could in the time provided to check that it functioned as required but was unable to automate this process in time.
