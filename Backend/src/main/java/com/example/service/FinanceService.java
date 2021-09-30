@@ -49,7 +49,11 @@ public class FinanceService {
 
 			ArrayList<BankCardDTO> bankCards = new ArrayList<>();
 
+			System.out.println("CARDS: " + pBA.getBankCards());
+
 			for (BankCard bc : pBA.getBankCards()) {
+
+				System.out.println("CARD: " + bc);
 
 				BankCardDTO bankCardDTO = new BankCardDTO();
 				bankCardDTO.setSortCode(bc.getSortCode());
@@ -57,7 +61,10 @@ public class FinanceService {
 
 				ArrayList<ATMTransactionDTO> atmTrans = new ArrayList<>();
 
+				System.out.println("ATM TRANS: " + bc.getATMTransactions());
+
 				for (ATMTransaction ATMT : bc.getATMTransactions()) {
+					System.out.println("ATM: " + ATMT);
 					ATMTransactionDTO ATMtransDTO = new ATMTransactionDTO();
 					ATMtransDTO.setTimestamp(ATMT.getTimestamp());
 					ATMtransDTO.setType(ATMT.getType());
@@ -72,8 +79,11 @@ public class FinanceService {
 				bankCardDTO.setATMTransaction(atmTrans);
 
 				ArrayList<EPOSTransactionsDTO> eposTrans = new ArrayList<>();
+				System.out.println("EPOS TRANS: " + bc.getEPOSTransactions());
 
 				for (EPOSTransactions EPOST : bc.getEPOSTransactions()) {
+					System.out.println("EPOS: " + EPOST);
+
 					EPOSTransactionsDTO EPOStransDTO = new EPOSTransactionsDTO();
 					EPOStransDTO.setTimestamp(EPOST.getTimestamp());
 					EPOStransDTO.setAmount(EPOST.getAmount());
@@ -90,8 +100,8 @@ public class FinanceService {
 
 			suspectBankDTO.setForenames(citizenToBankAccount.getForenames());
 			suspectBankDTO.setSurname(citizenToBankAccount.getSurname());
-			suspectBankDTO.setAccountNumber(citizenToBankAccount.getAccountNumber());
-			suspectBankDTO.setBank(citizenToBankAccount.getBank());
+			suspectBankDTO.setAccountNumber(pBA.getAccountNumber());
+			suspectBankDTO.setBank(pBA.getBank());
 			suspectBankDTO.setBankcardDTOs(bankCards);
 
 			suspectFinances.add(suspectBankDTO);
