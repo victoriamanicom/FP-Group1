@@ -18,3 +18,8 @@
 #root > div > div.citizenInfoComponents.col > div > div.card-body {
     margin: 10px 15px;
 }
+
+#root > div > div.citizenInfoComponents.col > div > svg {
+    position: relative;
+    transform: translate(500px, 50px);
+}
