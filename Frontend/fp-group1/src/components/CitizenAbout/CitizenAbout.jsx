@@ -21,16 +21,16 @@ const CitizenAbout = ({ searchID }) => {
             collegues: [
                 {
                     personName: "",
-                    dateOfBirth: ""
-                }
+                    dateOfBirth: "",
+                },
             ],
             livingWith: [
                 {
                     forenames: "",
                     surname: "",
-                    dateOfBirth: ""
-                }
-            ] 
+                    dateOfBirth: "",
+                },
+            ],
         },
         vehiclesDTO: [
             {
@@ -39,32 +39,32 @@ const CitizenAbout = ({ searchID }) => {
                 colour: "",
                 vehicleRegistrationNo: "",
                 registrationDate: "",
-                driverLicenceId: ""
+                driverLicenceId: "",
             },
         ],
         peopleMobileDTO: [
             {
-            phoneNumber: "",
-            network: "",
-            mobileCallRecords: [
-                {
-                    timestamp: "",
-                    callerMSISDN: "",
-                    recieverMSISDN: "",
-                    callCellTowerId: "",
-                    recieverName: ""
-                }
-            ],
-            mobileReceiveRecords: [
-                {
-                    timestamp: "",
-                    callerMSISDN: "",
-                    recieverMSISDN: "",
-                    callCellTowerId: "",
-                    callerName: "" 
-                }
-            ]
-            }
+                phoneNumber: "",
+                network: "",
+                mobileCallRecords: [
+                    {
+                        timestamp: "",
+                        callerMSISDN: "",
+                        recieverMSISDN: "",
+                        callCellTowerId: "",
+                        recieverName: "",
+                    },
+                ],
+                mobileReceiveRecords: [
+                    {
+                        timestamp: "",
+                        callerMSISDN: "",
+                        recieverMSISDN: "",
+                        callCellTowerId: "",
+                        callerName: "",
+                    },
+                ],
+            },
         ],
         citizenReturnDTO: {
             citizenID: "",
@@ -75,37 +75,39 @@ const CitizenAbout = ({ searchID }) => {
             placeOfBirth: "",
             sex: "",
         },
-        peopleBankAccountDTO: [{
-            forenames: "",
-            surname: "",
-            bank: "",
-            accountNumber: "",
-            bankCardsDTO: [
-                {
-                    cardNumber: "",
-                    sortCode: "",
-                    eposTransactions: [
-                        {
-                            timestamp: "",
-                            amount: "",
-                            vendor: "",
-                            streetName: "",
-                            postcode: ""
-                        },
-                    ],
-                    atmTransactions: [
-                        {
-                            timestamp: "",
-                            type: "",
-                            amount: "",
-                            operator: "",
-                            streetName: "",
-                            postcode: ""
-                        }
-                    ],
-                }
-            ],
-        }],
+        peopleBankAccountDTO: [
+            {
+                forenames: "",
+                surname: "",
+                bank: "",
+                accountNumber: "",
+                bankCardsDTO: [
+                    {
+                        cardNumber: "",
+                        sortCode: "",
+                        eposTransactions: [
+                            {
+                                timestamp: "",
+                                amount: "",
+                                vendor: "",
+                                streetName: "",
+                                postcode: "",
+                            },
+                        ],
+                        atmTransactions: [
+                            {
+                                timestamp: "",
+                                type: "",
+                                amount: "",
+                                operator: "",
+                                streetName: "",
+                                postcode: "",
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
     });
 
     const { lastName } = useParams();
@@ -117,9 +119,9 @@ const CitizenAbout = ({ searchID }) => {
 
     const handleGetCitizen = (searchID) => {
         axios
-        .get(`http://54.72.172.119:5001/getSuspectInfo/4914442527`)
-        .then (({ data }) => setCitizenData(data))
-        .catch((err) => console.log(err));
+            .get(`http://54.72.172.119:5001/getSuspectInfo/4914442527`)
+            .then(({ data }) => setCitizenData(data))
+            .catch((err) => console.log(err));
 
         // setCitizenData({
         //     citizenID: "001L",
@@ -145,7 +147,7 @@ const CitizenAbout = ({ searchID }) => {
         //                 surname: "Rogers",
         //                 dateOfBirth: "25/10/1983"
         //             }
-        //         ] 
+        //         ]
         //     },
         //     whereaboutsDTO: { data: "null" },
         //     vehiclesDTO: [
@@ -184,7 +186,7 @@ const CitizenAbout = ({ searchID }) => {
         //                 callerMSISDN: "08432 678217",
         //                 recieverMSISDN: "08428 768234",
         //                 callCellTowerId: "3427658098",
-        //                 callerName: "Alice Rogers" 
+        //                 callerName: "Alice Rogers"
         //             }
         //         ]
         //         }
@@ -267,18 +269,28 @@ const CitizenAbout = ({ searchID }) => {
                 <Col className="citizenInfoComponents">
                     <Switch>
                         <Route exact path="/:lastName/about">
-                            <BioReturn citizenReturnDTO={citizenData.citizenReturnDTO} 
-                            driverLicenceId={citizenData.vehiclesDTO[0].driverLicenceId}
-                            phoneNumber={citizenData.peopleMobileDTO[0].phoneNumber}
-                            associatesDTO={citizenData.associatesDTO}/>
+                            <BioReturn
+                                citizenReturnDTO={citizenData.citizenReturnDTO}
+                                driverLicenceId={
+                                    citizenData.vehiclesDTO[0].driverLicenceId
+                                }
+                                phoneNumber={
+                                    citizenData.peopleMobileDTO[0].phoneNumber
+                                }
+                                associatesDTO={citizenData.associatesDTO}
+                            />
                         </Route>
                         <Route path="/:lastName/finance">
                             <FinanceReturn
-                                peopleBankAccountDTO={citizenData.peopleBankAccountDTO}
+                                peopleBankAccountDTO={
+                                    citizenData.peopleBankAccountDTO
+                                }
                             />
                         </Route>
                         <Route path="/:lastName/mobile">
-                            <MobileReturn peopleMobileDTO={citizenData.peopleMobileDTO} />
+                            <MobileReturn
+                                peopleMobileDTO={citizenData.peopleMobileDTO}
+                            />
                         </Route>
                         <Route path="/:lastName/vehicle">
                             <VehicleReturn
@@ -287,17 +299,29 @@ const CitizenAbout = ({ searchID }) => {
                         </Route>
                         <Route path="/:lastName/associates">
                             <AssociatesReturn
-                                businessName={citizenData.associatesDTO.businessName}
-                                businessAddress={citizenData.associatesDTO.businessAddress}
+                                businessName={
+                                    citizenData.associatesDTO.businessName
+                                }
+                                businessAddress={
+                                    citizenData.associatesDTO.businessAddress
+                                }
                                 collegues={citizenData.associatesDTO.collegues}
-                                livingWith={citizenData.associatesDTO.livingWith}
+                                livingWith={
+                                    citizenData.associatesDTO.livingWith
+                                }
                             />
                         </Route>
                         <Route path="/:lastName/whereabouts">
                             <WhereaboutsReturn
-                                businessAddress={citizenData.associatesDTO.businessAddress}
-                                homeAddress={citizenData.citizenReturnDTO.homeAddress}
-                                peopleBankAccountDTO={citizenData.peopleBankAccountDTO}
+                                businessAddress={
+                                    citizenData.associatesDTO.businessAddress
+                                }
+                                homeAddress={
+                                    citizenData.citizenReturnDTO.homeAddress
+                                }
+                                peopleBankAccountDTO={
+                                    citizenData.peopleBankAccountDTO
+                                }
                             />
                         </Route>
                     </Switch>

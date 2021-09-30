@@ -16,17 +16,17 @@ function App() {
     const [citizenSurname, setCitizenSurname] = useState("");
     const [citizenGender, setCitizenGender] = useState("");
     const [searchID, setSearchID] = useState("");
-    const [citizens, setCitizens] = useState([
-        {
-            citizenID: "",
-            dateOfBirth: "",
-            forenames: "",
-            homeAddress: "",
-            placeOfBirth: "",
-            sex: "",
-            surname: "",
-        },
-    ]);
+    const [citizens, setCitizens] = useState([]);
+    //     {
+    //         citizenID: "",
+    //         dateOfBirth: "",
+    //         forenames: "",
+    //         homeAddress: "",
+    //         placeOfBirth: "",
+    //         sex: "",
+    //         surname: "",
+    //     },
+    // ]);
     const [isLoaded, setIsLoaded] = useState(false);
 
     const handleReset = (e) => {
@@ -95,7 +95,7 @@ function App() {
                     )}
                 </Route>
 
-                <Route path="/:lastName">
+                <Route path="/:searchID">
                     <CitizenAbout citizens={citizens} searchID={searchID} />
                 </Route>
             </Switch>

@@ -3,7 +3,15 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
-const Citizen = ({ citizenID, firstName, lastName, dob, sex, Address, selectCitizen }) => {
+const Citizen = ({
+    citizenID,
+    forenames,
+    surname,
+    dateOfBirth,
+    sex,
+    homeAddress,
+    selectCitizen,
+}) => {
     return (
         <Row>
             <Card className="citizenCard">
@@ -11,19 +19,20 @@ const Citizen = ({ citizenID, firstName, lastName, dob, sex, Address, selectCiti
                     <Card.Title className="citizenTitle">
                         <h5
                             className="citizenNameHeading"
-                            onClick={() => selectCitizen(lastName, citizenID)}
+                            onClick={() => selectCitizen(surname, citizenID)}
                         >
-                            {firstName} {lastName}
+                            {forenames} {surname}
                         </h5>
                     </Card.Title>
                     <Card.Text>
                         <Row>
                             <Col xs={4}>
-                                <p>D.O.B: {dob}</p>
+                                <p>CitizenID: {citizenID} </p>
+                                <p>D.O.B: {dateOfBirth}</p>
                                 <p>Gender: {sex}</p>
                             </Col>
                             <Col>
-                                <p>Address: {Address}</p>
+                                <p>Address: {homeAddress}</p>
                             </Col>
                         </Row>
                     </Card.Text>
