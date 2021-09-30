@@ -7,12 +7,13 @@ import FinanceReturn from "./FinanceReturn/FinanceReturn";
 import MobileReturn from "./MobileReturn/MobileReturn";
 import VehicleReturn from "./VehicleReturn/VehicleReturn";
 import AssociatesReturn from "./AssociatesReturn/AssociatesReturn";
-
+import ReactLoading from "react-loading";
 import BioReturn from "./BioReturn/BioReturn";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 const CitizenAbout = ({ searchID }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
     const [citizenData, setCitizenData] = useState({
         citizenID: "0",
         associatesDTO: {
@@ -110,11 +111,11 @@ const CitizenAbout = ({ searchID }) => {
         ],
     });
 
-    const { lastName } = useParams();
+    const { citizenID } = useParams();
     const { push } = useHistory();
 
     const handleSelect = (eventKey) => {
-        push(`/${lastName}${eventKey}`);
+        push(`/${citizenData.citizenID}${eventKey}`);
     };
 
     const handleGetCitizen = (searchID) => {
@@ -125,9 +126,13 @@ const CitizenAbout = ({ searchID }) => {
     };
 
     //initial render check
-    if (citizenData.citizenID == "0") {
-        handleGetCitizen(searchID);
-    }
+    // if (citizenData.citizenID == "0") {
+    handleGetCitizen(searchID);
+    // }
+
+    useEffect(() => {
+        setIsLoaded(true);
+    }, [citizenData]);
 
     return (
         <>
@@ -140,36 +145,49 @@ const CitizenAbout = ({ searchID }) => {
                 </Col>
                 <Col className="citizenInfoComponents">
                     <Switch>
-                        <Route exact path="/:lastName/about">
-                            <BioReturn
-                                citizenReturnDTO={citizenData.citizenReturnDTO}
-                                driverLicenceId={
-                                    citizenData.vehiclesDTO[0].driverLicenceId
-                                }
-                                phoneNumber={
-                                    citizenData.peopleMobileDTO[0].phoneNumber
-                                }
-                                associatesDTO={citizenData.associatesDTO}
-                            />
+                        <Route exact path="/:citizenID/about">
+                            {isLoaded ? (
+                                <BioReturn
+                                    citizenReturnDTO={
+                                        citizenData.citizenReturnDTO
+                                    }
+                                    driverLicenceId={
+                                        citizenData.vehiclesDTO[0]
+                                            .driverLicenceId
+                                    }
+                                    phoneNumber={
+                                        citizenData.peopleMobileDTO[0]
+                                            .phoneNumber
+                                    }
+                                    associatesDTO={citizenData.associatesDTO}
+                                />
+                            ) : (
+                                <>
+                                    <ReactLoading
+                                        type={"spinningBubbles"}
+                                        color="#364b69"
+                                    />
+                                </>
+                            )}
                         </Route>
-                        <Route path="/:lastName/finance">
+                        <Route path="/:citizenID/finance">
                             <FinanceReturn
                                 peopleBankAccountDTO={
                                     citizenData.peopleBankAccountDTO
                                 }
                             />
                         </Route>
-                        <Route path="/:lastName/mobile">
+                        <Route path="/:citizenID/mobile">
                             <MobileReturn
                                 peopleMobileDTO={citizenData.peopleMobileDTO}
                             />
                         </Route>
-                        <Route path="/:lastName/vehicle">
+                        <Route path="/:citizenID/vehicle">
                             <VehicleReturn
                                 vehiclesDTO={citizenData.vehiclesDTO}
                             />
                         </Route>
-                        <Route path="/:lastName/associates">
+                        <Route path="/:citizenID/associates">
                             <AssociatesReturn
                                 businessName={
                                     citizenData.associatesDTO.businessName

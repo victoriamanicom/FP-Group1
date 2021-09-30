@@ -23,9 +23,16 @@ const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
     };
 
     const ListRecieveRecords = ({ timestamp, callerMSISDN, callerName }) => {
+        const splitTimestampFromDate = timestamp.split(" ");
+        console.log(splitTimestampFromDate);
+        const splitTimestamp = splitTimestampFromDate[1].split(":");
+        console.log(splitTimestamp);
         return (
             <tr>
-                <td>{timestamp}</td>
+                <td>{splitTimestampFromDate[0]}</td>
+                <td>
+                    {splitTimestamp[0]}:{splitTimestamp[1]}
+                </td>
                 <td>{callerMSISDN}</td>
                 <td>{callerName}</td>
             </tr>
@@ -37,7 +44,7 @@ const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
             <Col>
                 <Card className="callsReturn">
                     <Card.Header className="callsTitle">
-                        Call Records
+                        Outgoing Calls
                     </Card.Header>
                     <Card.Body className="callBody">
                         <Table className="callTable">
@@ -64,13 +71,14 @@ const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
             <Col>
                 <Card className="recieveReturn">
                     <Card.Header className="recieveTitle">
-                        Recieve Records
+                        Incoming Calls
                     </Card.Header>
                     <Card.Body className="recieveBody">
                         <Table className="recieveTable">
                             <thead>
                                 <tr>
-                                    <th>Timestamp</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
                                     <th>Phone Number</th>
                                     <th>Name</th>
                                 </tr>
