@@ -1,7 +1,7 @@
 import "./App.css";
-import Navbar from "react-bootstrap/NavBar";
+// import Navbar from "react-bootstrap/NavBar";
 import Nav from "react-bootstrap/Nav";
-import { Container } from "react-bootstrap";
+import { Container, NavBar } from "react-bootstrap";
 import "material-icons/iconfont/material-icons.css";
 import SearchBar from "./components/searchBar/SearchBar";
 import { useState, useEffect } from "react";
