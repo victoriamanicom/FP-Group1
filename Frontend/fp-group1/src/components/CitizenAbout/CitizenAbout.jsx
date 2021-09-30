@@ -14,6 +14,7 @@ import axios from "axios";
 
 const CitizenAbout = ({ searchID }) => {
     const [isLoaded, setIsLoaded] = useState(false);
+
     const [citizenData, setCitizenData] = useState({
         citizenID: "0",
         associatesDTO: {
@@ -130,9 +131,12 @@ const CitizenAbout = ({ searchID }) => {
     handleGetCitizen(searchID);
     // }
 
-    useEffect(() => {
+    if (citizenData.citizenID !== "0") {
         setIsLoaded(true);
-    }, [citizenData]);
+    }
+    // useEffect(() => {
+    //     setIsLoaded(true);
+    // }, [citizenData]);
 
     return (
         <>
