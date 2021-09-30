@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
@@ -42,7 +42,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @AutoConfigureMockMvc
 
 @ActiveProfiles("test")
-@Sql(scripts = { "classpath:project-schema,sql", "classpath:project-data.sql" })
+//@Sql(scripts = { "classpath:project-data.sql" })
 
 public class Scenario1IntegrationTests {
 
@@ -204,16 +204,6 @@ public class Scenario1IntegrationTests {
 		AssociatesDTO associates = new AssociatesDTO(callRecords, "Wash and Dry", "Seamoor Road, BH4 9AE", collegues,
 				livingWith);
 
-//		List<BankCardDTO> bankCard = new ArrayList<BankCardDTO>();
-//		BankCardDTO bankCards = new BankCardDTO();
-//		bankCards.setATMTransaction(atmTransactions);
-//		bankCards.setCardNumber(2139399399319671L);
-//		bankCards.setEPOSTransactions(eposTransactions);
-//		bankCards.setSortCode("31-01-93");
-//
-//		PeopleBankAccountDTO bankInfo = new PeopleBankAccountDTO(bankCard, "The Royal Bank of Scotland", 67875272L,
-//				"Michael Shane", "Cochrane");
-
 		List<VehicleDTO> listOfCars = new ArrayList<VehicleDTO>();
 		VehicleDTO cars = new VehicleDTO("1999-01-16", "Toyota", "Yaris", "red", "UN28 EIN", "COCHR509255MS9RM 41");
 		listOfCars.add(cars);
@@ -237,29 +227,45 @@ public class Scenario1IntegrationTests {
 		receivers.add(calledFrom);
 
 		List<PeopleMobileDTO> listOfMobiles = new ArrayList<PeopleMobileDTO>();
-		PeopleMobileDTO mobies = new PeopleMobileDTO("07700 192766", "T-Mobile", callers, receivers);
+		PeopleMobileDTO mobiles = new PeopleMobileDTO("07700 192766", "T-Mobile", callers, receivers);
+		listOfMobiles.add(mobiles);
 
-//		String phoneNumber = "07721 555484";
-//		String network = "O2";
-//		List<MobileCallRecordsDTO> mobileCallRecords = new ArrayList<MobileCallRecordsDTO>();
-//		MobileCallRecordsDTO callerRecords = new MobileCallRecordsDTO();
-//		callerRecords.setCallCellTowerId(2342L);
-//		callerRecords.setCallerMSISDN("07700 098484");
-//		callerRecords.setReceiverMSISDN("07701 198555");
-//		callerRecords.setReceiverName("Alex Sutton");
-//		callerRecords.setTimestamp("2016-04-02T15:31:13.335");
-//		mobileCallRecords.add(callerRecords);
-//
-//		List<MobileReceiveRecordsDTO> mobileReceiveRecords = new ArrayList<MobileReceiveRecordsDTO>();
-//		MobileReceiveRecordsDTO incomingRecords = new MobileReceiveRecordsDTO();
-//		incomingRecords.setCallCellTowerId(2343L);
-//		incomingRecords.setCallerMSISDN("07721 555484");
-//		incomingRecords.setReceiverMSISDN("07700 098484");
-//		incomingRecords.setCallerName("Davis Marbury");
-//		incomingRecords.setTimestamp("2015-05-02T15:31:13.335");
-//		mobileReceiveRecords.add(incomingRecords);
-//
-//		BigDecimal amountEPOS = new BigDecimal(96.34);
+		BigDecimal amountATM = new BigDecimal(50.0);
+
+		List<ATMTransactionDTO> atmTrans = new ArrayList<ATMTransactionDTO>();
+		ATMTransactionDTO transATM = new ATMTransactionDTO();
+		transATM.setAmount(amountATM);
+		transATM.setOperator("Barclays Bank");
+		transATM.setPostcode("BH4 9BB");
+		transATM.setStreetName("Poole Road");
+		transATM.setTimestamp("2015-05-03T17:36:59.673");
+		transATM.setType("Cash Withdrawal");
+		atmTrans.add(transATM);
+
+		BigDecimal amountEPOS = new BigDecimal(26.02);
+
+		List<EPOSTransactionsDTO> eposTrans = new ArrayList<EPOSTransactionsDTO>();
+		EPOSTransactionsDTO transEPOS = new EPOSTransactionsDTO();
+		transEPOS.setAmount(amountEPOS);
+		transEPOS.setPostcode("BH4 9AE");
+		transEPOS.setStreetName("Seamoor Road");
+		transEPOS.setTimestamp("2015-05-01T18:00:53.615Z");
+		transEPOS.setVendor("Wash and Dry");
+		eposTrans.add(transEPOS);
+
+		List<BankCardDTO> bankCard = new ArrayList<BankCardDTO>();
+		BankCardDTO bankCards = new BankCardDTO();
+		bankCards.setATMTransaction(atmTrans);
+		bankCards.setCardNumber(2139399399319671L);
+		bankCards.setEPOSTransactions(eposTrans);
+		bankCards.setSortCode("31-01-93");
+
+		PeopleBankAccountDTO bankInfo = new PeopleBankAccountDTO(bankCard, "The Royal Bank of Scotland", 67875272L,
+				"Michael Shane", "Cochrane");
+
+		List<PeopleBankAccountDTO> bankInfoList = new ArrayList<PeopleBankAccountDTO>();
+		bankInfoList.add(bankInfo);
+
 //		BigDecimal amountAMT = new BigDecimal(60);
 //
 //		List<EPOSTransactionsDTO> eposTransactions = new ArrayList<EPOSTransactionsDTO>();
@@ -299,7 +305,7 @@ public class Scenario1IntegrationTests {
 
 		mainDTO.setAssociatesDTO(associates);
 
-// 		mainDTO.setPeopleBankAccountDTO(bankInfo);
+		mainDTO.setPeopleBankAccountDTO(bankInfoList);
 
 		mainDTO.setVehiclesDTO(listOfCars);
 
