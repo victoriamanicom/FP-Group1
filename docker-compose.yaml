@@ -11,8 +11,8 @@ services:
       source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
   frontend:
-    build: ./Frontend/fp-group1
-    image: shamrehman/appfrontend:latest
+    build: ./Frontend/fp-group1/
+    image: shamrehman/appfrontend
     ports:
     - target: 3000
       published: 3000
@@ -21,7 +21,7 @@ services:
       replicas: 3
   backend:
     build: ./Backend/
-    image: shamrehman/appbackend:latest
+    image: shamrehman/appbackend
     ports:
     - target: 5001
       published: 5001
