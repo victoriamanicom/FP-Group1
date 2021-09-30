@@ -7,7 +7,9 @@ import ATMReturn from "./ATMReturn";
 
 const BankCardReturn = ({ bankCardsDTO}) => {
 
-    const DisplayBankCard = ({ cardNumber, sortCode, eposTransactions, atmTransactions}) => {
+    const DisplayBankCard = ({
+        cardNumber, sortCode, eposTransactions, atmTransactions
+    }) => {
         return (
             <Card className="bankCardReturn">
                 <Card.Header className="cardTitle">

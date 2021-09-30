@@ -1,6 +1,5 @@
 import "./sideNavBar.css";
 import Nav from "react-bootstrap/Nav";
-import { Link } from "react-router-dom";
 
 const SideNavBar = ({ citizenReturnDTO, handleSelect }) => {
     return (

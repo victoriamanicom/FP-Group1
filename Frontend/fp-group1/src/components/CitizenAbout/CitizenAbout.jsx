@@ -32,7 +32,6 @@ const CitizenAbout = ({ searchID }) => {
                 }
             ] 
         },
-        whereaboutsDTO: { data: "" },
         vehiclesDTO: [
             {
                 make: "",
@@ -220,7 +219,7 @@ const CitizenAbout = ({ searchID }) => {
                                 amount: "£99.00",
                                 vendor: "John Lewis",
                                 streetName: "Barton Avenue",
-                                postcode: "sei 986"
+                                postcode: "sei 452"
                             },
                         ],
                         atmTransactions: [
@@ -279,21 +278,26 @@ const CitizenAbout = ({ searchID }) => {
                             />
                         </Route>
                         <Route path="/:lastName/mobile">
-                            <MobileReturn mobileData={citizenData.mobileData} />
+                            <MobileReturn peopleMobileDTO={citizenData.peopleMobileDTO} />
                         </Route>
                         <Route path="/:lastName/vehicle">
                             <VehicleReturn
-                                vehicleData={citizenData.vehicleData}
+                                vehiclesDTO={citizenData.vehiclesDTO}
                             />
                         </Route>
                         <Route path="/:lastName/associates">
                             <AssociatesReturn
-                                associatesData={citizenData.associatesData}
+                                businessName={citizenData.associatesDTO.businessName}
+                                businessAddress={citizenData.associatesDTO.businessAddress}
+                                collegues={citizenData.associatesDTO.collegues}
+                                livingWith={citizenData.associatesDTO.livingWith}
                             />
                         </Route>
                         <Route path="/:lastName/whereabouts">
                             <WhereaboutsReturn
-                                whereaboutsData={citizenData.whereaboutsData}
+                                businessAddress={citizenData.associatesDTO.businessAddress}
+                                homeAddress={citizenData.citizenReturnDTO.homeAddress}
+                                peopleBankAccountDTO={citizenData.peopleBankAccountDTO}
                             />
                         </Route>
                     </Switch>

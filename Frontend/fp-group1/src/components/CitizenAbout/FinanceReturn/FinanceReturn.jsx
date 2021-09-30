@@ -8,9 +8,9 @@ const FinanceReturn = ({ peopleBankAccountDTO }) => {
         return (
             <>
                 Bank: {bank}
-                <br />
+                <br/>
                 Account Number: {accountNumber}
-                <br />
+                <br/>
             </>
         );
     };
@@ -18,9 +18,8 @@ const FinanceReturn = ({ peopleBankAccountDTO }) => {
     const DisplayBankAccount = ({ bank, accountNumber, bankCardsDTO}) => {
         return(
         <Card className="bankAccountReturn">
-            <Card.Header className="bankAccounttitle">
-                <DisplayBasicFinance
-                className="bankAccountBasic"
+            <Card.Header className="bankAccountTitle">
+                <DisplayBasicFinance className="bankAccountBasic"
                 bank={bank}
                 accountNumber={accountNumber}
                 />
@@ -41,7 +40,8 @@ const FinanceReturn = ({ peopleBankAccountDTO }) => {
             </Card.Header>
             <Card.Body className="finaceReturnBody">
                 {peopleBankAccountDTO.map(bankAccount =>
-                <DisplayBankAccount key={peopleBankAccountDTO.accountNumber} {...bankAccount}/>
+                <DisplayBankAccount key={peopleBankAccountDTO.accountNumber}
+                {...bankAccount}/>
                 )}
             </Card.Body>
         </Card>

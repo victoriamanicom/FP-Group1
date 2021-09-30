@@ -1,9 +1,11 @@
 import Table from 'react-bootstrap/Table';
 import "./ATMReturn.css";
 
-const ATMReturn = ({atmTransactions}) => {
+const ATMReturn = ({ atmTransactions }) => {
 
-    const ListATM = ({timestamp, amount, operator, streetName, postcode}) => {
+    const ListATM = ({
+        timestamp, amount, operator, streetName, postcode
+    }) => {
         return (
             <tr>
                 <td>{timestamp}</td>
