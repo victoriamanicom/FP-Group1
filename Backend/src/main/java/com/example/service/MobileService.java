@@ -42,9 +42,14 @@ public class MobileService {
 		citizenToMobile.setTown(Town);
 		citizenToMobile.setPostcode(Postcode);
 
+		System.out.println(BrokenAddress);
+		System.out.println(Town);
+
 		List<PeopleMobile> peopleM = this.pmRepo.findAll(Example.of(citizenToMobile));
 
 		ArrayList<PeopleMobileDTO> suspectMobile = new ArrayList<>();
+
+		System.out.println(peopleM);
 
 		for (PeopleMobile pm : peopleM) {
 
