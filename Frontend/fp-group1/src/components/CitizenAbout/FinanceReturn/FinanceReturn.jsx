@@ -15,7 +15,7 @@ const FinanceReturn = ({ peopleBankAccountDTO }) => {
         );
     };
 
-    const DisplayBankAccount = ({ bank, accountNumber, bankCardsDTO}) => {
+    const DisplayBankAccount = ({ bank, accountNumber, bankCardDTOs}) => {
         return(
         <Card className="bankAccountReturn">
             <Card.Header className="bankAccountTitle">
@@ -25,7 +25,7 @@ const FinanceReturn = ({ peopleBankAccountDTO }) => {
                 />
             </Card.Header>
             <Card.Body className="bankAccountBody">
-                <BankCardReturn bankCardsDTO={bankCardsDTO}/>
+                <BankCardReturn bankCardDTOs={bankCardDTOs}/>
             </Card.Body>
         </Card>
         )

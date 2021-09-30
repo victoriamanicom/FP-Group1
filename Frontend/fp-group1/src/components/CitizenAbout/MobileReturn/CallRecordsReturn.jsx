@@ -6,12 +6,12 @@ import "./CallRecordsReturn.css";
 
 const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
 
-    const ListCallRecords = ({ timestamp, recieverMSISDN, recieverName }) => {
+    const ListCallRecords = ({ timestamp, receiverMSISDN, receiverName }) => {
         return(
             <tr>
                 <td>{timestamp}</td>
-                <td>{recieverMSISDN}</td>
-                <td>{recieverName}</td>
+                <td>{receiverMSISDN}</td>
+                <td>{receiverName}</td>
             </tr>
         )
     }
