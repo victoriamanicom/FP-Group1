@@ -16,29 +16,29 @@ const WhereaboutsReturn = ({
         )
     }
 
-    const FilterThroughAccounts = ({ bankCardsDTO }) => {
+    const FilterThroughAccounts = ({ bankCardDTOs }) => {
         return (
             <>
-                {bankCardsDTO.map(card =>
-                <FilterThroughCard key={bankCardsDTO.cardNumber}
+                {bankCardDTOs.map(card =>
+                <FilterThroughCard key={bankCardDTOs.cardNumber}
                 {...card}/>
                 )}
             </>
         )
     }
 
-    const FilterThroughCard = ({ eposTransactions, atmTransactions}) => {
+    const FilterThroughCard = ({ epostransactions, atmtransaction}) => {
         return (
             <>
                 <>
-                    {eposTransactions.map(location =>
-                    <DisplayTransactionLocation key={eposTransactions.timestamp}
+                    {epostransactions.map(location =>
+                    <DisplayTransactionLocation key={epostransactions.timestamp}
                     {...location}/>
                     )}
                 </>
                 <>
-                    {atmTransactions.map(location =>
-                    <DisplayTransactionLocation key={atmTransactions.timestamp}
+                    {atmtransaction.map(location =>
+                    <DisplayTransactionLocation key={atmtransaction.timestamp}
                     {...location}/>
                     )}
                 </>

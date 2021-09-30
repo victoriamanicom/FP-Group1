@@ -6,8 +6,8 @@ import { useHistory } from "react-router-dom";
 const CitizenReturn = ({ citizens, setSearchID }) => {
     const { push } = useHistory();
 
-    const selectCitizen = (lastName, citizenID) => {
-        push(`/${lastName}/about`);
+    const selectCitizen = (citizenID) => {
+        push(`/${citizenID}/about`);
         setSearchID(citizenID);
     };
 

@@ -5,10 +5,10 @@ import Col from "react-bootstrap/Col";
 import EPOSReturn from "./EPOSReturn";
 import ATMReturn from "./ATMReturn";
 
-const BankCardReturn = ({ bankCardsDTO}) => {
+const BankCardReturn = ({ bankCardDTOs }) => {
 
     const DisplayBankCard = ({
-        cardNumber, sortCode, eposTransactions, atmTransactions
+        cardNumber, sortCode, epostransactions, atmtransaction
     }) => {
         return (
             <Card className="bankCardReturn">
@@ -24,7 +24,7 @@ const BankCardReturn = ({ bankCardsDTO}) => {
                         EPOS Records
                     </Card.Header>
                     <Card.Body className="eposBody">
-                        <EPOSReturn eposTransactions={eposTransactions} />
+                        <EPOSReturn epostransactions={epostransactions} />
                     </Card.Body>
                 </Card>
                 </Col>
@@ -34,7 +34,7 @@ const BankCardReturn = ({ bankCardsDTO}) => {
                         ATM Records
                     </Card.Header>
                     <Card.Body className="atmBody">
-                        <ATMReturn atmTransactions={atmTransactions} />
+                        <ATMReturn atmtransaction={atmtransaction} />
                     </Card.Body>
                 </Card>
             </Col>
@@ -42,12 +42,11 @@ const BankCardReturn = ({ bankCardsDTO}) => {
             </Card>
         )
     }
-    console.log("BankCardReturn:")
-    console.log(bankCardsDTO)
+
     return (
         <>
-            {bankCardsDTO.map(bankCard =>
-            <DisplayBankCard key={bankCardsDTO.cardNumber} {...bankCard}/>
+            {bankCardDTOs.map(bankCard =>
+            <DisplayBankCard key={bankCardDTOs.cardNumber} {...bankCard}/>
             )}
         </>
     )

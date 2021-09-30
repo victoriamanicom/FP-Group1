@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { Container } from "react-bootstrap";
 import "material-icons/iconfont/material-icons.css";
 import SearchBar from "./components/searchBar/SearchBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import axios from "axios";
 import CitizenReturn from "./components/CitizenReturn/CitizenReturn";
@@ -15,8 +15,9 @@ function App() {
     const [citizenForenames, setCitizenForenames] = useState("");
     const [citizenSurname, setCitizenSurname] = useState("");
     const [citizenGender, setCitizenGender] = useState("");
-    const [citizens, setCitizens] = useState([]);
     const [searchID, setSearchID] = useState("");
+    const [citizens, setCitizens] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const handleReset = (e) => {
         setCitizenForenames("");
@@ -29,54 +30,21 @@ function App() {
     const handleSearch = (e) => {
         e.preventDefault();
 
-        // axios
-        // .get()
-        // .then(({ data }) => setCitizens(data))
-        // .catch((err) => console.log(err));
+        const searchCitizen = {
+            forenames: `${citizenForenames}`,
+            surname: `${citizenSurname}`,
+            sex: `${citizenGender}`,
+        };
 
-        setCitizens([
-            {
-                citizenID: "001L",
-                firstName: "First Name",
-                lastName: "Last Name 1",
-                dob: "DD/MM/YYYY",
-                sex: "Male",
-                Address: "5 Street Name",
-            },
-            {
-                citizenID: "001L",
-                firstName: "First Name",
-                lastName: "Last Name 2",
-                dob: "DD/MM/YYYY",
-                sex: "Male",
-                Address: "6 Street Name",
-            },
-            {
-                citizenID: "001L",
-                firstName: "First Name",
-                lastName: "Last Name 3",
-                dob: "DD/MM/YYYY",
-                sex: "Male",
-                Address: "7 Street Name",
-            },
-            {
-                citizenID: "001L",
-                firstName: "First Name",
-                lastName: "Last Name 4",
-                dob: "DD/MM/YYYY",
-                sex: "Male",
-                Address: "7 Street Name",
-            },
-            {
-                citizenID: "001L",
-                firstName: "First Name",
-                lastName: "Last Name 5",
-                dob: "DD/MM/YYYY",
-                sex: "Male",
-                Address: "7 Street Name",
-            },
-        ]);
+        axios
+            .post("http://54.72.172.119:5001/findCitizens", searchCitizen)
+            .then(({ data }) => setCitizens(data))
+            .catch((err) => console.log(err));
     };
+
+    useEffect(() => {
+        setIsLoaded(true);
+    }, [citizens]);
 
     return (
         <Router className="App">
@@ -106,12 +74,17 @@ function App() {
 
             <Switch>
                 <Route exact path="/">
-                    <CitizenReturn
-                        citizens={citizens}
-                        setSearchID={setSearchID}
-                    />
+                    {isLoaded ? (
+                        <CitizenReturn
+                            citizens={citizens}
+                            setSearchID={setSearchID}
+                        />
+                    ) : (
+                        <></>
+                    )}
                 </Route>
-                <Route path="/:lastName">
+
+                <Route path="/:searchID">
                     <CitizenAbout citizens={citizens} searchID={searchID} />
                 </Route>
             </Switch>
