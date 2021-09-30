@@ -149,7 +149,23 @@ We also used the react-bootstrap CSS library to style our website, importing onl
 
 #### Axios ####
 We chose to use axios, a promise-based HTTP client, to make our HTTP requests because it automatically converts the response to JSON and it has a simple syntax for making requests.
-CODE SNIPPET HERE
+
+
+````const handleSearch = (e) => {
+        e.preventDefault();
+
+        const searchCitizen = {
+            forenames: `${citizenForenames}`,
+            surname: `${citizenSurname}`,
+            sex: `${citizenGender}`,
+        };
+
+        axios
+            .post("http://54.72.172.119:5001/findCitizens", searchCitizen)
+            .then(({ data }) => setCitizens(data))
+            .catch((err) => console.log(err));
+    };
+````
 
 
 
@@ -168,16 +184,17 @@ Automation and user acceptance tests for front end
 Extensive backend testing was carried out, including integration testing and Mockito testing on all functionality and methods called in Java. This enabled the functionality in Java to be tested to make sure that there were no possible breaking points in the backend. While the integration tests were created, neither of them currently pass due to issues with the sql_schema. Many manual user tests were carried out however the automation of these tests was not able to be completed. 
 
 #### Frontend Testing ####
-Frontend Testing was planned for Selenium but unfortunately, due to time constraints, this was unable to be carried out. We completed as many manual user tests as we could in the time provided to check that it functioned as required but was unable to automate this process in time.
+Frontend Testing was planned for Selenium but unfortunately, due to time constraints, this was unable to be carried out. We completed as many manual user tests as we could in the time provided to check that it functioned as required but were unable to automate this process in time.
 
 ---------------
 ### Stretch Goals ###
 ---------------
 * To push the project further into Scenario 3 by including the ANPR observations linked to the suspect's vehicle details to find out their recent vehicle locations.
 * To Push the project into Scenario 2 by using cell tower location data, ANPR observations and financial transactions to find out who was in a certain location at given times.
-* 
+
+
 ### Final Words and Acknowledgements ###
-Without the guidance of Piers Barber and Jordan Harrison this project wouldn't of been possible, along with our team members:
+Without the guidance of Piers Barber and Jordan Harrison this project would not have been possible, along with our team members:
 
 * Eva Bullman
 * Sebastian Hook
