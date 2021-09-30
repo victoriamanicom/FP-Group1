@@ -1,8 +1,10 @@
-# FP-Group1 #
 
-# Final Group Project #
 
-Brief
+# NSAC 12 - Final Project - National Investigation Unit #
+#### Eva Bullman, Sebastian Hook, Ivan Okpomor, Victoria Manicom, Raihan Patel, Shamshur Rehman ####
+ 
+---------------
+### Brief ###
 ---------------
 <img width="100" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135298526-66497592-8bfc-498c-ab46-4dad4a207013.png">
 
@@ -18,7 +20,8 @@ The data in citizen.csv folder needs to be displayed in a readable manner for ea
 - Whereabouts (from ANPR, Cell Tower location, or a bank transaction data), a single location from a single source is sufficient for scenario 1
 - Associates (from mobile call records)
 
-Kanban Board
+---------------
+### Planning and Design ###
 ---------------
 <img width="400" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135302757-6082d80a-9d1d-4add-bc94-27b15522ea13.PNG">
 
@@ -26,8 +29,8 @@ Kanban Board
 
 The Kanban board for this project is available here. For the Kanban board Jira software was used and modelled as an Agile Scrum Board. JIRA has been beneficial for our project, by assigning tasks, having a GUI to organise our workflow and keep track of progress.
 
-
-Network Infrastructure & Database
+---------------
+### Network Infrastructure & Database ###
 ---------------
 
 #### AWS ####
@@ -76,7 +79,8 @@ Jenkins was installed on a seperate EC2 Instance from the Application Manager in
 A pipeline job was created which would automate the deployment our application. The job would build the images we had designed earlier, run unit tests of the java running our application, push our up-to-date images to DockerHub and finally deploy our stack to get the application up and running.
 The instructions for this Jenkins job are stored in a Jenkinsfile which we created and added to our GitHub repo. The Jenkins job has also been setup to trigger a redeployment whenever the main branch of our GitHub repo is updated. As mentioned earlier the use of replicas in our swarm allows Jenkins to update the replicas one by one so that the application is not taken fully offline.
 
-Backend
+---------------
+### Backend ###
 ---------------
 
 The backend is powered by Java using the Spring Boot Framework. This allows rapid and simple deployment of an integration structure between the database and the frontend. As well as the database logic, the backend has HTTP requests, and allows the frontend to access the database and work with the data there.
@@ -87,7 +91,8 @@ In order for our frontend to receive the required information on the suspect, Ou
 
 Data Transfer Objects are data contracts instructing classes how data should be represented, The benefits of DTOs have been illustrated throughout this project as with large datasets filled with sensitive information you only want to present requested data, the implementation of DTOs allows for custom representation of data decoupled from their entities.
 
-Frontend
+---------------
+### Frontend ###
 ---------------
 
 The frontend is developed using the JavaScript framework React. This allowed us to build a component-based frontend and run a single page application, which improves the rendering times in the browser.
@@ -95,18 +100,21 @@ The frontend is developed using the JavaScript framework React. This allowed us 
 Before building, we started out by creating our wireframe for the application - to give us a strong plan to follow and refer back to throughout development. This helped us keep the user interface clean and easy to use, because we already knew where the components should be placed.
 It is written in JSX, interlacing JavaScript and HTML together, which is really useful for building reusable components. We utilised routing in this project to make the user experience as seamless as possible.
 
+#### React-Bootstrap ####
 We also used the react-bootstrap CSS library to style our website, importing only the required components. Using React-Bootstrap meant we could focus on one of our main requirements for this project by making each component user-friendly, and by using the grid system with a series of containers, rows, and columns, we could layout and align our content so it is easy to read for the user.
 We chose to use axios, a promise-based HTTP client, to make our HTTP requests because it automatically converts the response to JSON and it has a simple syntax for making requests.
 
 <img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135436346-e7c32a82-3afb-4781-aaf8-9f626c9e9a00.PNG">
 <img width="560" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135436424-57499ec0-f8d6-4fa6-a5bf-91a94f032921.PNG">
 
-Testing
+---------------
+### Testing ###
 ---------------
 
 Extensive backend testing was carried out, including integration testing and Mockito testing on all functionality and methods called in Java. This enabled the functionality in Java to be tested to make sure that there were no possible breaking points in the backend. Frontend testing was carried out in the form of Selenium testing.
 
-Stretch Goals
+---------------
+### Stretch Goals ###
 ---------------
 To push the project further into scenario 3
 To Push the project into scenario 2
