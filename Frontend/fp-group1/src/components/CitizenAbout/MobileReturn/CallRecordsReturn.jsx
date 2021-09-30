@@ -1,37 +1,82 @@
 import Table from 'react-bootstrap/Table';
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import { Card } from "react-bootstrap";
 import "./CallRecordsReturn.css";
 
-const CallRecordsReturn = ({callData}) => {
+const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
 
-    const ListCalls = ({timestamp, callRecieve, phoneNum, forename, surname}) => {
+    const ListCallRecords = ({ timestamp, recieverMSISDN, recieverName }) => {
         return(
             <tr>
                 <td>{timestamp}</td>
-                <td>{callRecieve}</td>
-                <td>{phoneNum}</td>
-                <td>{forename}</td>
-                <td>{surname}</td>
+                <td>{recieverMSISDN}</td>
+                <td>{recieverName}</td>
+            </tr>
+        )
+    }
+
+    const ListRecieveRecords = ({ timestamp, callerMSISDN, callerName}) => {
+        return (
+            <tr>
+                <td>{timestamp}</td>
+                <td>{callerMSISDN}</td>
+                <td>{callerName}</td>
             </tr>
         )
     }
     
     return (
-        <Table className="callReturnTable">
-            <thead>
-                <tr>
-                    <th>Timestamp</th>
-                    <th>Call / Recieve</th>
-                    <th>PhoneNumber</th>
-                    <th>Forenames</th>
-                    <th>Surname</th>
-                </tr>
-            </thead>
-            <tbody>
-                {callData.map(callRecord =>
-                <ListCalls key={callRecord.timestamp} {...callRecord} />
-                )}
-            </tbody>
-        </Table>
+        <Row>
+            <Col>
+                <Card className="callsReturn">
+                    <Card.Header className="callsTitle">
+                        Call Records
+                    </Card.Header>
+                    <Card.Body className="callBody">
+                        <Table className="callTable">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Phone Number</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {mobileCallRecords.map(called =>
+                                <ListCallRecords key={mobileCallRecords.timestamp}
+                                {...called}/>
+                                )}
+                            </tbody>
+                        </Table>
+                    </Card.Body>
+                </Card>
+                </Col>
+                <Col>
+                <Card className="recieveReturn">
+                    <Card.Header className="recieveTitle">
+                        Recieve Records
+                    </Card.Header>
+                    <Card.Body className="recieveBody">
+                        <Table className="recieveTable">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Phone Number</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {mobileReceiveRecords.map(recieved =>
+                                <ListRecieveRecords key={mobileReceiveRecords.timestamp}
+                                {...recieved}/>
+                                )}
+                            </tbody>
+                        </Table>
+                    </Card.Body>
+                </Card>
+            </Col>
+            </Row>
     )
 }
 

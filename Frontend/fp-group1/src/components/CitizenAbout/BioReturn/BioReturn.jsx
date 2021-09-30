@@ -1,9 +1,11 @@
 import { Card, Row, Col } from "react-bootstrap";
 import "./BioReturn.css";
 
-const BioReturn = ({ citizenBio }) => {
+const BioReturn = ({
+    citizenReturnDTO, driverLicenceId, phoneNumber, associatesDTO
+}) => {
 
-    const addressString = citizenBio.homeAddress;
+    const addressString = citizenReturnDTO.homeAddress;
     const newAddress = addressString.split(",");
     const addressObject = {
         streetName: newAddress[0],
@@ -11,46 +13,35 @@ const BioReturn = ({ citizenBio }) => {
         postcode: newAddress[2],
     };
 
-    const DisplayBio = ({ citizenBio, streetName, town, postcode}) => {
+    const DisplayBio = ({
+        citizenReturnDTO, addressObject, driverLicenceId, phoneNumber, associatesDTO
+    }) => {
         return (
-            <>
-                <Row className="citizenInformation">
-                    <Col className="citizenBasicInformation" xs={4}>
-                        <p>Forename: {citizenBio.forename}</p>
-                        <p>Surname: {citizenBio.surname}</p>
-                        <p>Sex: {citizenBio.sex}</p>
-                        <p>D.O.B: {citizenBio.dob}</p>
-                        <p>Nationality: {citizenBio.nationality}</p>
-                        <p>Passport Number: {citizenBio.passportNo}</p>
-                        <p>
-                            Driving Licence Number:{" "}
-                            {citizenBio.drivingLicenceNo}
+            <Row className="citizenInformation">
+                <Col className="citizenBasicInformation" xs={4}>
+                    <p>Forename: {citizenReturnDTO.forenames}</p>
+                    <p>Surname: {citizenReturnDTO.surname}</p>
+                    <p>Sex: {citizenReturnDTO.sex}</p>
+                    <p>D.O.B: {citizenReturnDTO.dateOfBirth}</p>
+                    <p>Place of Birth: {citizenReturnDTO.placeOfBirth}</p>
+                    <p>Driving Licence Number: {driverLicenceId}</p>
+                </Col>
+                <Col>
+                    <Row className="contactInformation">
+                        <h4>Contact Information:</h4>
+                        <p>Home Address: {addressObject.streetName},
+                            {addressObject.town}
                         </p>
-                    </Col>
-                    <Col>
-                        <Row className="contactInformation">
-                            <h4>Contact Information:</h4>
-                            <p>
-                                Home Address: {addressObject.streetName},
-                                {addressObject.town}
-                            </p>
-
-                            <p>Postcode: {addressObject.postcode}</p>
-                            <p>Mobile Number: {citizenBio.phoneNo}</p>
-                        </Row>
-                        <Row className="employmentInformation">
-                            <h4>Employment Information:</h4>
-                            <p>
-                                Place of Employment: {citizenBio.businessName}
-                            </p>
-                            <p>
-                                Address of Employment:{" "}
-                                {citizenBio.businessAddress}
-                            </p>
-                        </Row>
-                    </Col>
-                </Row>
-            </>
+                        <p>Postcode: {addressObject.postcode}</p>
+                        <p>Mobile Number: {phoneNumber}</p>
+                    </Row>
+                    <Row className="employmentInformation">
+                        <h4>Employment Information:</h4>
+                        <p>Place of Employment: {associatesDTO.businessName}</p>
+                        <p>Address of Employment: {associatesDTO.businessAddress}</p>
+                    </Row>
+                </Col>
+            </Row>
         );
     };
 
@@ -63,8 +54,11 @@ const BioReturn = ({ citizenBio }) => {
                 <Card.Text className="bioReturnText">
                     <DisplayBio
                         className="bioReturnBasic"
-                        citizenBio={citizenBio}
-                        address={addressObject}
+                        citizenReturnDTO={citizenReturnDTO}
+                        addressObject={addressObject}
+                        driverLicenceId={driverLicenceId}
+                        phoneNumber={phoneNumber}
+                        associatesDTO={associatesDTO}
                     />
                 </Card.Text>
             </Card.Body>

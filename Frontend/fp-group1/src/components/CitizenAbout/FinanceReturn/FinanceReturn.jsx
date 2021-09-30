@@ -1,58 +1,48 @@
 import "./FinanceReturn.css";
 import { Card } from "react-bootstrap";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import EPOSReturn from "./EPOSReturn";
-import ATMReturn from "./ATMReturn";
+import BankCardReturn from "./BankCardReturn";
 
-const FinanceReturn = ({financialData}) => {
+const FinanceReturn = ({ peopleBankAccountDTO }) => {
 
-    const DisplayBasicFinance = (financialData) => {
+    const DisplayBasicFinance = ({ bank, accountNumber }) => {
         return (
             <>
-                Bank: {financialData.bank}
-                <br />
-                Account Number: {financialData.accountNum}
-                <br />
+                Bank: {bank}
+                <br/>
+                Account Number: {accountNumber}
+                <br/>
             </>
         );
     };
 
+    const DisplayBankAccount = ({ bank, accountNumber, bankCardsDTO}) => {
+        return(
+        <Card className="bankAccountReturn">
+            <Card.Header className="bankAccountTitle">
+                <DisplayBasicFinance className="bankAccountBasic"
+                bank={bank}
+                accountNumber={accountNumber}
+                />
+            </Card.Header>
+            <Card.Body className="bankAccountBody">
+                <BankCardReturn bankCardsDTO={bankCardsDTO}/>
+            </Card.Body>
+        </Card>
+        )
+    }
+    console.log("FinanceReturn:")
+    console.log(peopleBankAccountDTO);
+    
     return (
         <Card className="financeReturn">
             <Card.Header className="financeReturnTitle">
                 Financial Information
             </Card.Header>
-            <Card.Body className="financeReturnBody">
-                <Card.Text className="financeReturnText">
-                    <DisplayBasicFinance
-                        className="financeReturnBasic"
-                        financialData={financialData}
-                    />
-                </Card.Text>
-
-                <Row>
-                    <Col>
-                        <Card className="eposReturn">
-                            <Card.Header className="eposTitle">
-                                EPOS Records
-                            </Card.Header>
-                            <Card.Body className="eposBody">
-                                <EPOSReturn eposData={financialData.eposData} />
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card className="atmReturn">
-                            <Card.Header className="atmTitle">
-                                ATM Records
-                            </Card.Header>
-                            <Card.Body className="atmBody">
-                                <ATMReturn atmData={financialData.atmData} />
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
+            <Card.Body className="finaceReturnBody">
+                {peopleBankAccountDTO.map(bankAccount =>
+                <DisplayBankAccount key={peopleBankAccountDTO.accountNumber}
+                {...bankAccount}/>
+                )}
             </Card.Body>
         </Card>
     );

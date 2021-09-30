@@ -2,30 +2,48 @@ import { Card } from "react-bootstrap"
 import CallRecordsReturn from "./CallRecordsReturn"
 import "./MobileReturn.css";
 
-//{mobileData: {phoneNumber, network},
-//    callRecords: {timestamp, callRecieve, assForenames, assSurname}}
-const MobileReturn = ({mobileData}) => {
+const MobileReturn = ({ peopleMobileDTO }) => {
 
-    const DisplayBasicPhone = ({mobileData}) => {
+    const DisplayBasicPhone = ({ phoneNumber, network }) => {
         return(
         <>
-            Phone Number: {mobileData.phoneNum}
+            Phone Number: {phoneNumber}
             <br/>
-            Network: {mobileData.network}
-            <br/>
+            Network: {network}
         </>
         )
     }
 
+    const DisplayMobile = ({
+        phoneNumber, network, mobileCallRecords, mobileReceiveRecords
+    }) => {
+        return (
+            <Card className="mobileReturn">
+                <Card.Header className="mobileTitle">
+                    <DisplayBasicPhone
+                    phoneNumber={phoneNumber}
+                    network={network}
+                    />
+                </Card.Header>
+                <Card.Body className="mobileBody">
+                    <CallRecordsReturn
+                    mobileCallRecords={mobileCallRecords}
+                    mobileReceiveRecords={mobileReceiveRecords}
+                    />
+                </Card.Body>
+            </Card>
+        )
+    }
+
     return (
-        <Card className="mobileReturn">
-            <Card.Header className="mobileReturnTitle">Mobile Information</Card.Header>
-            <Card.Body className="mobileReturnBody">
-                <Card.Text className="mobileReturnText">
-                    <DisplayBasicPhone className="mobileReturnBasic"
-                    mobileData={mobileData}/>
-                </Card.Text>
-                <CallRecordsReturn callData={mobileData.callData} />
+        <Card className="mobileRecordsReturn">
+            <Card.Header className="mobileRecordsReturnTitle">
+                Mobile Information
+            </Card.Header>
+            <Card.Body className="mobileRecordsReturnBody">
+                {peopleMobileDTO.map(mobile =>
+                <DisplayMobile key={peopleMobileDTO.phoneNumber} {...mobile}/>
+                )}
             </Card.Body>
         </Card>
     )
