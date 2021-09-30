@@ -70,7 +70,7 @@ const CitizenAbout = ({ searchID }) => {
         ],
         citizenReturnDTO: {
             citizenID: "",
-            forenames: "y",
+            forenames: "Loading...",
             surname: "",
             homeAddress: "",
             dateOfBirth: "",
@@ -127,9 +127,9 @@ const CitizenAbout = ({ searchID }) => {
     };
 
     //initial render check
-    // if (citizenData.citizenID == "0") {
-    handleGetCitizen(searchID);
-    // }
+    if (citizenData.citizenID == "0") {
+        handleGetCitizen(searchID);
+    }
 
     if (citizenData.citizenID !== "0") {
         setIsLoaded(true);
