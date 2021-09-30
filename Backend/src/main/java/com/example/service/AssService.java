@@ -45,6 +45,7 @@ public class AssService {
 
 		Citizen familyMember = new Citizen();
 		familyMember.setHomeAddress(citizen.getHomeAddress());
+
 		List<Citizen> family = this.citizenRepo.findAll(Example.of(familyMember));
 
 		for (Citizen memberOfFamily : family) {
