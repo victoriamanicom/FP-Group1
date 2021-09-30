@@ -130,7 +130,6 @@ const CitizenAbout = ({ searchID }) => {
     //initial render check
     if (citizenData.citizenID == "0") {
         console.log("setting data");
-        handleGetCitizen(searchID);
     }
 
     //development data structure check

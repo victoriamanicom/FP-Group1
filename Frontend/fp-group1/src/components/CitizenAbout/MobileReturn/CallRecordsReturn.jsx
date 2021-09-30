@@ -6,9 +6,16 @@ import "./CallRecordsReturn.css";
 
 const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
     const ListCallRecords = ({ timestamp, receiverMSISDN, receiverName }) => {
+        const splitTimestampFromDate = timestamp.split(" ");
+        console.log(splitTimestampFromDate);
+        const splitTimestamp = splitTimestampFromDate[1].split(":");
+        console.log(splitTimestamp);
         return (
             <tr>
-                <td>{timestamp}</td>
+                <td>{splitTimestampFromDate[0]}</td>
+                <td>
+                    {splitTimestamp[0]}:{splitTimestamp[1]}
+                </td>
                 <td>{receiverMSISDN}</td>
                 <td>{receiverName}</td>
             </tr>
@@ -36,7 +43,8 @@ const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
                         <Table className="callTable">
                             <thead>
                                 <tr>
-                                    <th>Timestamp</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
                                     <th>Phone Number</th>
                                     <th>Name</th>
                                 </tr>
