@@ -37,7 +37,7 @@ function App() {
         };
 
         axios
-            .post("http://54.72.172.119:5001/findCitizens", searchCitizen)
+            .post("/api/findCitizens", searchCitizen)
             .then(({ data }) => setCitizens(data))
             .catch((err) => console.log(err));
     };
