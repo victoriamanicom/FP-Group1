@@ -44,7 +44,8 @@ We prioritised our epics to make sure we were focusing our efforts in the right 
 
 We used a feature branch model matched to our Jira sprints to allow us to work on the different areas of our project without disturbing the main source code base. This meant that the main branch never contained broken code, which was advantageous to our continuous integration environment. We implemented branch protection rules to force peer reviews on any pull requests made, ensuring that the updates were correct before approval.
 
-PIC OF NETWORK GRAPH HERE!
+<img width="400" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135482202-b7f85513-33e0-4e76-a3e8-2b3927818b32.png">
+
 
 ---------------
 ### Network Infrastructure & Database ###
@@ -179,9 +180,9 @@ Frontend testing was carried out in the form of Selenium testing. ADD MORE DETAI
 ### Final Words and Acknowledgements ###
 Without the guidance of Piers Barber and Jordan Harrison this project wouldn't of been possible, along with our team members:
 
--Eva Bullman
--Sebastian Hook
--Victoria Manicom
--Ivan Okpomor
--Raihan Patel
--Shamshur Rehman
+* Eva Bullman
+* Sebastian Hook
+* Victoria Manicom
+* Ivan Okpomor
+* Raihan Patel
+* Shamshur Rehman
