@@ -27,7 +27,6 @@ const Citizen = ({
                     <Card.Text>
                         <Row>
                             <Col xs={4}>
-                                <p>CitizenID: {citizenID} </p>
                                 <p>D.O.B: {dateOfBirth}</p>
                                 <p>Gender: {sex}</p>
                             </Col>
