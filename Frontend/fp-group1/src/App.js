@@ -50,12 +50,11 @@ function App() {
             .post("http://54.72.172.119:5001/findCitizens", searchCitizen)
             .then(({ data }) => setCitizens(data))
             .catch((err) => console.log(err));
-
-        console.log(citizens);
     };
 
     useEffect(() => {
         setIsLoaded(true);
+        console.log(citizens);
     }, [citizens]);
 
     return (
@@ -86,17 +85,18 @@ function App() {
 
             <Switch>
                 <Route exact path="/">
-                    <CitizenReturn
-                        citizens={citizens}
-                        setSearchID={setSearchID}
-                    />
-                </Route>
-                <Route path="/:lastName">
                     {isLoaded ? (
-                        <CitizenAbout citizens={citizens} searchID={searchID} />
+                        <CitizenReturn
+                            citizens={citizens}
+                            setSearchID={setSearchID}
+                        />
                     ) : (
                         <></>
                     )}
+                </Route>
+
+                <Route path="/:lastName">
+                    <CitizenAbout citizens={citizens} searchID={searchID} />
                 </Route>
             </Switch>
         </Router>
