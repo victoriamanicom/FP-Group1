@@ -135,10 +135,6 @@ const CitizenAbout = ({ searchID }) => {
         if (citizenData.citizenID !== "0") setIsLoaded(true);
     }, [citizenData]);
 
-    // useEffect(() => {
-
-    // }, [citizenData]);
-
     return (
         <>
             <Row className="citizenInfoReturn">
