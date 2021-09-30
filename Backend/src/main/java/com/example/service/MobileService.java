@@ -34,6 +34,9 @@ public class MobileService {
 		String Forenames = citizen.getForenames();
 		String Surname = citizen.getSurname();
 
+		citizenToMobile.setForenames(Forenames);
+		citizenToMobile.setSurname(Surname);
+
 		String[] BrokenAddress = citizen.getHomeAddress().split(", ");
 		String Address = BrokenAddress[0];
 		String Town = BrokenAddress[1];
@@ -47,11 +50,11 @@ public class MobileService {
 		System.out.println("TOWN: " + Town);
 		System.out.println("POSTCODE: " + Postcode);
 
-		List<PeopleMobile> peopleM = this.pmRepo.findByForenamesAndSurnameAndPostcode(Forenames, Surname, Postcode);
+		List<PeopleMobile> peopleM = this.pmRepo.findAll(Example.of(citizenToMobile));
 
 		ArrayList<PeopleMobileDTO> suspectMobile = new ArrayList<>();
 
-		System.out.println("PEOPLEM" + peopleM);
+		System.out.println("PEOPLEM: " + peopleM);
 
 		for (PeopleMobile pm : peopleM) {
 
