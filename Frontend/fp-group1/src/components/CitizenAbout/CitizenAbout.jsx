@@ -131,11 +131,12 @@ const CitizenAbout = ({ searchID }) => {
         handleGetCitizen(searchID);
     }
 
-    if (citizenData.citizenID !== "0") {
-        setIsLoaded(true);
-    }
+    useEffect(() => {
+        if (citizenData.citizenID !== "0") setIsLoaded(true);
+    }, [citizenData]);
+
     // useEffect(() => {
-    //     setIsLoaded(true);
+
     // }, [citizenData]);
 
     return (
