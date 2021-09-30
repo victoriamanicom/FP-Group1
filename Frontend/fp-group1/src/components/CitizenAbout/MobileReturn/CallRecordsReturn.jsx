@@ -1,4 +1,4 @@
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Card } from "react-bootstrap";
@@ -8,24 +8,25 @@ const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
 
     const ListCallRecords = ({ timestamp, receiverMSISDN, receiverName }) => {
         return(
+
             <tr>
                 <td>{timestamp}</td>
                 <td>{receiverMSISDN}</td>
                 <td>{receiverName}</td>
             </tr>
-        )
-    }
+        );
+    };
 
-    const ListRecieveRecords = ({ timestamp, callerMSISDN, callerName}) => {
+    const ListRecieveRecords = ({ timestamp, callerMSISDN, callerName }) => {
         return (
             <tr>
                 <td>{timestamp}</td>
                 <td>{callerMSISDN}</td>
                 <td>{callerName}</td>
             </tr>
-        )
-    }
-    
+        );
+    };
+
     return (
         <Row>
             <Col>
@@ -43,16 +44,18 @@ const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {mobileCallRecords.map(called =>
-                                <ListCallRecords key={mobileCallRecords.timestamp}
-                                {...called}/>
-                                )}
+                                {mobileCallRecords.map((called) => (
+                                    <ListCallRecords
+                                        key={mobileCallRecords.timestamp}
+                                        {...called}
+                                    />
+                                ))}
                             </tbody>
                         </Table>
                     </Card.Body>
                 </Card>
-                </Col>
-                <Col>
+            </Col>
+            <Col>
                 <Card className="recieveReturn">
                     <Card.Header className="recieveTitle">
                         Recieve Records
@@ -67,17 +70,19 @@ const CallRecordsReturn = ({ mobileCallRecords, mobileReceiveRecords }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {mobileReceiveRecords.map(recieved =>
-                                <ListRecieveRecords key={mobileReceiveRecords.timestamp}
-                                {...recieved}/>
-                                )}
+                                {mobileReceiveRecords.map((recieved) => (
+                                    <ListRecieveRecords
+                                        key={mobileReceiveRecords.timestamp}
+                                        {...recieved}
+                                    />
+                                ))}
                             </tbody>
                         </Table>
                     </Card.Body>
                 </Card>
             </Col>
-            </Row>
-    )
-}
+        </Row>
+    );
+};
 
 export default CallRecordsReturn;

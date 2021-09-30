@@ -7,7 +7,7 @@ import FinanceReturn from "./FinanceReturn/FinanceReturn";
 import MobileReturn from "./MobileReturn/MobileReturn";
 import VehicleReturn from "./VehicleReturn/VehicleReturn";
 import AssociatesReturn from "./AssociatesReturn/AssociatesReturn";
-import WhereaboutsReturn from "./WhereaboutsReturn/WhereaboutsReturn";
+
 import BioReturn from "./BioReturn/BioReturn";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -119,11 +119,20 @@ const CitizenAbout = ({ searchID }) => {
 
     const handleGetCitizen = (searchID) => {
         axios
+<<<<<<< HEAD
             .get(`http://54.72.172.119:5001/getSuspectInfo/${searchID}`)
             .then(({ data }) => setCitizenData(data))
             .catch((err) => console.log(err));
 
         
+=======
+            .get(`http://54.72.172.119:5001/getSuspectInfo/4914442527`)
+            .then(({ data }) => {
+                console.log(data);
+                setCitizenData(data);
+            })
+            .catch((err) => console.log(err));
+>>>>>>> 6f90e51af6f61d988f3afc92be6c45117f9842a0
     };
 
     //initial render check
@@ -187,19 +196,6 @@ const CitizenAbout = ({ searchID }) => {
                                 collegues={citizenData.associatesDTO.collegues}
                                 livingWith={
                                     citizenData.associatesDTO.livingWith
-                                }
-                            />
-                        </Route>
-                        <Route path="/:lastName/whereabouts">
-                            <WhereaboutsReturn
-                                businessAddress={
-                                    citizenData.associatesDTO.businessAddress
-                                }
-                                homeAddress={
-                                    citizenData.citizenReturnDTO.homeAddress
-                                }
-                                peopleBankAccountDTO={
-                                    citizenData.peopleBankAccountDTO
                                 }
                             />
                         </Route>

@@ -17,16 +17,6 @@ function App() {
     const [citizenGender, setCitizenGender] = useState("");
     const [searchID, setSearchID] = useState("");
     const [citizens, setCitizens] = useState([]);
-    //     {
-    //         citizenID: "",
-    //         dateOfBirth: "",
-    //         forenames: "",
-    //         homeAddress: "",
-    //         placeOfBirth: "",
-    //         sex: "",
-    //         surname: "",
-    //     },
-    // ]);
     const [isLoaded, setIsLoaded] = useState(false);
 
     const handleReset = (e) => {
@@ -54,7 +44,6 @@ function App() {
 
     useEffect(() => {
         setIsLoaded(true);
-        console.log(citizens);
     }, [citizens]);
 
     return (

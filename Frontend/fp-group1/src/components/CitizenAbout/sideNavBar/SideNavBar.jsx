@@ -15,7 +15,6 @@ const SideNavBar = ({ citizenReturnDTO, handleSelect }) => {
             <Nav.Link eventKey="/mobile">Mobile</Nav.Link>
             <Nav.Link eventKey="/vehicle">Vehicle</Nav.Link>
             <Nav.Link eventKey="/associates">Associates</Nav.Link>
-            <Nav.Link eventKey="/whereabouts">Whereabouts</Nav.Link>
         </Nav>
     );
 };
