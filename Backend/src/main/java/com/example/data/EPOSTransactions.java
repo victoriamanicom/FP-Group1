@@ -1,5 +1,7 @@
 package com.example.data;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "epos_transactions")
-public class EPOSTransactions {
+public class EPOSTransactions implements Serializable {
 
 	public EPOSTransactions(Long Id, Long eposId, String timestamp, Long payeeAccount, java.math.BigDecimal amount) {
 		super();

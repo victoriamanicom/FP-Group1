@@ -1,5 +1,7 @@
 package com.example.data;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "atm_transaction")
-public class ATMTransaction {
+public class ATMTransaction implements Serializable {
 
 	public ATMTransaction(Long Id, String timestamp, String type, java.math.BigDecimal amount) {
 
