@@ -1,7 +1,5 @@
 package com.example.data;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "mobile_call_records")
 public class MobileCallRecords {
 
-	public MobileCallRecords(Long Id, LocalDateTime timestamp, String callerMSISDN, Long callCellTowerId,
+	public MobileCallRecords(Long Id, String timestamp, String callerMSISDN, Long callCellTowerId,
 			String receiverMSISDN, Long receiverTowerId) {
 		super();
 		this.callCellTowerId = Id;
@@ -23,7 +21,7 @@ public class MobileCallRecords {
 		this.receiverTowerId = receiverTowerId;
 	}
 
-	public MobileCallRecords(LocalDateTime timestamp, String callerMSISN, Long callCellTowerId, String receiverMSISDN,
+	public MobileCallRecords(String timestamp, String callerMSISN, Long callCellTowerId, String receiverMSISDN,
 			Long receiverTowerId) {
 		super();
 		this.timestamp = timestamp;
@@ -37,7 +35,7 @@ public class MobileCallRecords {
 	}
 
 	@Column(name = "timestamp")
-	private LocalDateTime timestamp;
+	private String timestamp;
 
 	@Id
 	@Column(name = "id")
@@ -56,11 +54,11 @@ public class MobileCallRecords {
 	@Column(name = "receiver_tower_id")
 	private Long receiverTowerId;
 
-	public LocalDateTime getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(LocalDateTime timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
 

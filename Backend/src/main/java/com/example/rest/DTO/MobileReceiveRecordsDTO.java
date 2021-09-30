@@ -1,11 +1,9 @@
 package com.example.rest.DTO;
 
-import java.time.LocalDateTime;
-
 public class MobileReceiveRecordsDTO {
 
-	public MobileReceiveRecordsDTO(LocalDateTime timestamp, String callerMSISDN, Long callCellTowerId,
-			String receiverMSISDN, String callerName) {
+	public MobileReceiveRecordsDTO(String timestamp, String callerMSISDN, Long callCellTowerId, String receiverMSISDN,
+			String callerName) {
 		super();
 		this.timestamp = timestamp;
 		this.callerMSISDN = callerMSISDN;
@@ -14,8 +12,7 @@ public class MobileReceiveRecordsDTO {
 		this.callerName = callerName;
 	}
 
-	public MobileReceiveRecordsDTO(LocalDateTime timestamp, String callerMSISDN, Long callCellTowerId,
-			String receiverMSISDN) {
+	public MobileReceiveRecordsDTO(String timestamp, String callerMSISDN, Long callCellTowerId, String receiverMSISDN) {
 		super();
 		this.timestamp = timestamp;
 		this.callerMSISDN = callerMSISDN;
@@ -27,7 +24,7 @@ public class MobileReceiveRecordsDTO {
 		super();
 	}
 
-	private LocalDateTime timestamp;
+	private String timestamp;
 
 	private String callerMSISDN;
 
@@ -37,11 +34,11 @@ public class MobileReceiveRecordsDTO {
 
 	private String callerName;
 
-	public LocalDateTime getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(LocalDateTime timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
 
