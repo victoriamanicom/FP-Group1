@@ -37,7 +37,7 @@ public class MobileService {
 		citizenToMobile.setForenames(Forenames);
 		citizenToMobile.setSurname(Surname);
 
-		String[] BrokenAddress = citizen.getHomeAddress().split(", ");
+		String[] BrokenAddress = citizen.getHomeAddress().split(",");
 		String Address = BrokenAddress[0];
 		String Town = BrokenAddress[1];
 		String Postcode = BrokenAddress[2];
