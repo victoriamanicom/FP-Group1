@@ -43,7 +43,7 @@ public class EPOSTransactions implements Serializable {
 	private EPOS id;
 
 	@ManyToOne
-	@JoinColumn(name = "card_number", referencedColumnName = "card_number", nullable = false)
+	@JoinColumn(name = "card_number", referencedColumnName = "cardNumber", nullable = false)
 	private BankCard cardNumber;
 
 	@Column(name = "payee_account")
