@@ -34,11 +34,13 @@ public class CitizenServiceUnitTest {
 		Citizen colin = new Citizen("3554464415L", "Colin", "Parsons", "37 SPUR HILL AVENUE, POOLE, BH14 9PJ",
 				"1967-03-17", "MANCHESTER", "Male");
 
-		returnedCitizenList.add(colin);
+		Citizen colin1 = new Citizen("", "Colin", "Parsons", "", "", "", "Male");
+
+		returnedCitizenList.add(colin1);
 
 		Mockito.when(this.citizenRepo.findAll()).thenReturn(returnedCitizenList);
 
-		assertThat(this.citizenService.findCitizens(colin)).isEqualTo(returnedCitizenList);
+		assertThat(this.citizenService.findCitizens(colin1)).isEqualTo(returnedCitizenList);
 
 	}
 

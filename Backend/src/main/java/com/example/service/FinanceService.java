@@ -35,7 +35,11 @@ public class FinanceService {
 		citizenToBankAccount.setSurname(citizen.getSurname());
 		citizenToBankAccount.setHomeAddress(citizen.getHomeAddress());
 
+		System.out.println(citizenToBankAccount);
+
 		List<PeopleBankAccount> peopleBA = this.pbaRepo.findAll(Example.of(citizenToBankAccount));
+
+		System.out.println(peopleBA);
 
 		ArrayList<PeopleBankAccountDTO> suspectFinances = new ArrayList<>();
 
