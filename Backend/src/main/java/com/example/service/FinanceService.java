@@ -98,8 +98,8 @@ public class FinanceService {
 				bankCards.add(bankCardDTO);
 			}
 
-			suspectBankDTO.setForenames(citizenToBankAccount.getForenames());
-			suspectBankDTO.setSurname(citizenToBankAccount.getSurname());
+			suspectBankDTO.setForenames(pBA.getForenames());
+			suspectBankDTO.setSurname(pBA.getSurname());
 			suspectBankDTO.setAccountNumber(pBA.getAccountNumber());
 			suspectBankDTO.setBank(pBA.getBank());
 			suspectBankDTO.setBankcardDTOs(bankCards);

@@ -60,7 +60,7 @@ public class BankCard {
 	private Set<EPOSTransactions> eposTransactions;
 
 	@ManyToOne
-	@JoinColumn(name = "account_number", nullable = false)
+	@JoinColumn(name = "account_number", referencedColumnName = "account_number", nullable = false)
 	private PeopleBankAccount accountNumber;
 
 	@Column(name = "bank")
