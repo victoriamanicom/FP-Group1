@@ -1,10 +1,10 @@
 
 
-# NSAC 12 - Final Project - National Investigation Unit #
+# NSAC 12 - Final Project - National Investigation Unit  #
 #### Eva Bullman, Sebastian Hook, Ivan Okpomor, Victoria Manicom, Raihan Patel, Shamshur Rehman ####
  
 ---------------
-### Brief ###
+### Brief (Scenario 1) ###
 ---------------
 <img width="100" alt="Day 2 frontend" src="https://user-images.githubusercontent.com/86114742/135298526-66497592-8bfc-498c-ab46-4dad4a207013.png">
 
@@ -123,20 +123,34 @@ It is written in JSX, interlacing JavaScript and HTML together, which is really 
 
 #### React-Bootstrap ####
 We also used the react-bootstrap CSS library to style our website, importing only the required components. Using React-Bootstrap meant we could focus on one of our main requirements for this project by making each component user-friendly, and by using the grid system with a series of containers, rows, and columns, we could layout and align our content so it is easy to read for the user.
+
+SCREENSHOT OF BOOTSTRAP COMPONENT HERE
+
+#### Axios ####
 We chose to use axios, a promise-based HTTP client, to make our HTTP requests because it automatically converts the response to JSON and it has a simple syntax for making requests.
+CODE SNIPPET HERE
 
 
 
 ---------------
 ### Testing ###
 ---------------
+Our aim for testing was a full test suite covering:
 
-Extensive backend testing was carried out, including integration testing and Mockito testing on all functionality and methods called in Java. This enabled the functionality in Java to be tested to make sure that there were no possible breaking points in the backend. Frontend testing was carried out in the form of Selenium testing.
+Unit and integration testing for backend
+
+Automation and user acceptance tests for front end
+
+**80% test coverage goal** (*industry standard*)
+
+#### Backend Testing ####
+Extensive backend testing was carried out, including integration testing and Mockito testing on all functionality and methods called in Java. This enabled the functionality in Java to be tested to make sure that there were no possible breaking points in the backend. 
+
+#### Frontend Testing ####
+Frontend testing was carried out in the form of Selenium testing. ADD MORE DETAIL ABOUT WHAT WE END UP DOING
 
 ---------------
 ### Stretch Goals ###
 ---------------
-To push the project further into scenario 3
-To Push the project into scenario 2
-To include information on the cell tower location and the ANPR observations to extend the whereabouts of the suspects in scenario 1. 
-To include information on history of locations.
+* To push the project further into Scenario 3 by including the ANPR observations linked to the suspect's vehicle details to find out their recent vehicle locations.
+* To Push the project into Scenario 2 by using cell tower location data, ANPR observations and financial transactions to find out who was in a certain location at given times.
