@@ -5,7 +5,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +42,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @AutoConfigureMockMvc
 
 @ActiveProfiles("test")
-@Sql
+@Sql(scripts = { "classpath:project-schema,sql", "classpath:project-data.sql" })
+
 public class Scenario1IntegrationTests {
 
 	@Autowired
@@ -184,94 +184,126 @@ public class Scenario1IntegrationTests {
 
 		MainDTO mainDTO = new MainDTO();
 
-		String businessName = "Argos";
-		String businessAddress = "";
+		CitizenReturnDTO About = new CitizenReturnDTO("9171862863", "Michael Shane", "Cochrane",
+				"37 SPUR HILL AVENUE, POOLE, BH14 9PJ", "1955-09-25", "LONDON", "MALE");
+
 		List<ColleguesDTO> collegues = new ArrayList<ColleguesDTO>();
 		ColleguesDTO testCollegue = new ColleguesDTO();
-		testCollegue.setDateOfBirth("1997-09-02");
-		testCollegue.setPersonName("John Doe");
+		testCollegue.setDateOfBirth("1959-05-06");
+		testCollegue.setPersonName("Linda Lynda Anderson");
 
 		collegues.add(testCollegue);
 
 		List<LivingWithDTO> livingWith = new ArrayList<LivingWithDTO>();
 		LivingWithDTO housemate = new LivingWithDTO();
-		housemate.setDateOfBirth("1992-02-01");
-		housemate.setForenames("Luke");
-		housemate.setSurname("Davis");
+		housemate.setDateOfBirth("1994-01-19");
+		housemate.setForenames("Colin");
+		housemate.setSurname("Parsons");
 		livingWith.add(housemate);
 
-		String phoneNumber = "07721 555484";
-		String network = "O2";
-		List<MobileCallRecordsDTO> mobileCallRecords = new ArrayList<MobileCallRecordsDTO>();
-		MobileCallRecordsDTO callerRecords = new MobileCallRecordsDTO();
-		callerRecords.setCallCellTowerId(2342L);
-		callerRecords.setCallerMSISDN("07700 098484");
-		callerRecords.setReceiverMSISDN("07701 198555");
-		callerRecords.setReceiverName("Alex Sutton");
-		callerRecords.setTimestamp("2016-04-02T15:31:13.335");
-		mobileCallRecords.add(callerRecords);
+		AssociatesDTO associates = new AssociatesDTO(callRecords, "Wash and Dry", "Seamoor Road, BH4 9AE", collegues,
+				livingWith);
 
-		List<MobileReceiveRecordsDTO> mobileReceiveRecords = new ArrayList<MobileReceiveRecordsDTO>();
-		MobileReceiveRecordsDTO incomingRecords = new MobileReceiveRecordsDTO();
-		incomingRecords.setCallCellTowerId(2343L);
-		incomingRecords.setCallerMSISDN("07721 555484");
-		incomingRecords.setReceiverMSISDN("07700 098484");
-		incomingRecords.setCallerName("Davis Marbury");
-		incomingRecords.setTimestamp("2015-05-02T15:31:13.335");
-		mobileReceiveRecords.add(incomingRecords);
+//		List<BankCardDTO> bankCard = new ArrayList<BankCardDTO>();
+//		BankCardDTO bankCards = new BankCardDTO();
+//		bankCards.setATMTransaction(atmTransactions);
+//		bankCards.setCardNumber(2139399399319671L);
+//		bankCards.setEPOSTransactions(eposTransactions);
+//		bankCards.setSortCode("31-01-93");
+//
+//		PeopleBankAccountDTO bankInfo = new PeopleBankAccountDTO(bankCard, "The Royal Bank of Scotland", 67875272L,
+//				"Michael Shane", "Cochrane");
 
-		String registrationDate = "";
-		String make = "BMW";
-		String model = "1-Series";
-		String colour = "Black";
-		String vehicleRegistrationNo = "UN28 EIN";
-		String driverLicenceId = "COCHR509255MS9RM 41";
+		List<VehicleDTO> listOfCars = new ArrayList<VehicleDTO>();
+		VehicleDTO cars = new VehicleDTO("1999-01-16", "Toyota", "Yaris", "red", "UN28 EIN", "COCHR509255MS9RM 41");
+		listOfCars.add(cars);
 
-		BigDecimal amountEPOS = new BigDecimal(96.34);
-		BigDecimal amountAMT = new BigDecimal(60);
+		List<MobileCallRecordsDTO> callers = new ArrayList<MobileCallRecordsDTO>();
+		MobileCallRecordsDTO calledTo = new MobileCallRecordsDTO();
+		calledTo.setCallCellTowerId(0L);
+		calledTo.setCallerMSISDN("07700 098484");
+		calledTo.setReceiverMSISDN("07700 192766");
+		calledTo.setReceiverName("Mathew Terry James");
+		calledTo.setTimestamp("2015-05-02 15:31:13.335");
+		callers.add(calledTo);
 
-		List<EPOSTransactionsDTO> eposTransactions = new ArrayList<EPOSTransactionsDTO>();
-		EPOSTransactionsDTO EPOST = new EPOSTransactionsDTO();
-		EPOST.setAmount(amountEPOS);
-		EPOST.setPostcode("PO2 9AI");
-		EPOST.setStreetName("Rundon Road");
-		EPOST.setTimestamp("2015-05-01T18:00:53.615Z");
-		EPOST.setVendor("B&M");
-		eposTransactions.add(EPOST);
+		List<MobileReceiveRecordsDTO> receivers = new ArrayList<MobileReceiveRecordsDTO>();
+		MobileReceiveRecordsDTO calledFrom = new MobileReceiveRecordsDTO();
+		calledFrom.setCallCellTowerId(0L);
+		calledFrom.setCallerMSISDN("07700 098484");
+		calledFrom.setCallerName("Mathew Terry James");
+		calledFrom.setReceiverMSISDN("07700 192766");
+		calledFrom.setTimestamp("2015-05-02 15:31:13.335");
+		receivers.add(calledFrom);
 
-		List<ATMTransactionDTO> atmTransactions = new ArrayList<ATMTransactionDTO>();
-		ATMTransactionDTO ATMT = new ATMTransactionDTO();
-		ATMT.setAmount(amountAMT);
-		ATMT.setPostcode("BH4 9AE");
-		ATMT.setStreetName("Seamoor Road");
-		ATMT.setTimestamp("2015-05-01T18:00:53.615Z");
-		ATMT.setOperator("Tesco Express");
-		atmTransactions.add(ATMT);
+		List<PeopleMobileDTO> listOfMobiles = new ArrayList<PeopleMobileDTO>();
+		PeopleMobileDTO mobies = new PeopleMobileDTO("07700 192766", "T-Mobile", callers, receivers);
 
-		String bank = "HSBC";
-		Long accountNumber = 200000000L;
-		String forenames = "Michael";
-		String surname = "Cochrane";
-		Long cardNumber = 4324123478769821L;
-		String sortCode = "12-21-22";
-
-		BankCardDTO bankCard = new BankCardDTO();
-		bankCard.setATMTransaction(atmTransactions);
-		bankCard.setCardNumber(cardNumber);
-		bankCard.setEPOSTransactions(eposTransactions);
-		bankCard.setSortCode(sortCode);
+//		String phoneNumber = "07721 555484";
+//		String network = "O2";
+//		List<MobileCallRecordsDTO> mobileCallRecords = new ArrayList<MobileCallRecordsDTO>();
+//		MobileCallRecordsDTO callerRecords = new MobileCallRecordsDTO();
+//		callerRecords.setCallCellTowerId(2342L);
+//		callerRecords.setCallerMSISDN("07700 098484");
+//		callerRecords.setReceiverMSISDN("07701 198555");
+//		callerRecords.setReceiverName("Alex Sutton");
+//		callerRecords.setTimestamp("2016-04-02T15:31:13.335");
+//		mobileCallRecords.add(callerRecords);
+//
+//		List<MobileReceiveRecordsDTO> mobileReceiveRecords = new ArrayList<MobileReceiveRecordsDTO>();
+//		MobileReceiveRecordsDTO incomingRecords = new MobileReceiveRecordsDTO();
+//		incomingRecords.setCallCellTowerId(2343L);
+//		incomingRecords.setCallerMSISDN("07721 555484");
+//		incomingRecords.setReceiverMSISDN("07700 098484");
+//		incomingRecords.setCallerName("Davis Marbury");
+//		incomingRecords.setTimestamp("2015-05-02T15:31:13.335");
+//		mobileReceiveRecords.add(incomingRecords);
+//
+//		BigDecimal amountEPOS = new BigDecimal(96.34);
+//		BigDecimal amountAMT = new BigDecimal(60);
+//
+//		List<EPOSTransactionsDTO> eposTransactions = new ArrayList<EPOSTransactionsDTO>();
+//		EPOSTransactionsDTO EPOST = new EPOSTransactionsDTO();
+//		EPOST.setAmount(amountEPOS);
+//		EPOST.setPostcode("PO2 9AI");
+//		EPOST.setStreetName("Rundon Road");
+//		EPOST.setTimestamp("2015-05-01T18:00:53.615Z");
+//		EPOST.setVendor("B&M");
+//		eposTransactions.add(EPOST);
+//
+//		List<ATMTransactionDTO> atmTransactions = new ArrayList<ATMTransactionDTO>();
+//		ATMTransactionDTO ATMT = new ATMTransactionDTO();
+//		ATMT.setAmount(amountAMT);
+//		ATMT.setPostcode("BH4 9AE");
+//		ATMT.setStreetName("Seamoor Road");
+//		ATMT.setTimestamp("2015-05-01T18:00:53.615Z");
+//		ATMT.setOperator("Tesco Express");
+//		atmTransactions.add(ATMT);
+//
+//		String bank = "HSBC";
+//		Long accountNumber = 200000000L;
+//		String forenames = "Michael Shane";
+//		String surname = "Cochrane";
+//		Long cardNumber = 4324123478769821L;
+//		String sortCode = "12-21-22";
+//
+//		BankCardDTO bankCard = new BankCardDTO();
+//		bankCard.setATMTransaction(atmTransactions);
+//		bankCard.setCardNumber(cardNumber);
+//		bankCard.setEPOSTransactions(eposTransactions);
+//		bankCard.setSortCode(sortCode);
 
 		mainDTO.setCitizenID("9171862863");
 
-		mainDTO.setAssociatesDTO(this.associatesDTO(callRecords, businessName, businessAddress, collegues, livingWith));
+		mainDTO.setCitizenReturnDTO(About);
 
-		mainDTO.setPeopleBankAccountDTO(this.peopleBADTO(bankCard, bank, accountNumber, forenames, surname,
-				eposTransactions, atmTransactions, driverLicenceId, accountNumber));
+		mainDTO.setAssociatesDTO(associates);
 
-		mainDTO.setPeopleMobileDTO(this.peopleMobileDTO(phoneNumber, network, mobileCallRecords, mobileReceiveRecords));
+// 		mainDTO.setPeopleBankAccountDTO(bankInfo);
 
-		mainDTO.setVehiclesDTO(
-				this.vehicleDTO(registrationDate, make, model, colour, vehicleRegistrationNo, driverLicenceId));
+		mainDTO.setVehiclesDTO(listOfCars);
+
+		mainDTO.setPeopleMobileDTO(listOfMobiles);
 
 		String checkMainAsJSON = this.mapper.writeValueAsString(mainDTO);
 
