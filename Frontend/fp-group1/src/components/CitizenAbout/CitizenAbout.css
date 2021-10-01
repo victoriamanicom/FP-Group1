@@ -1,0 +1,25 @@
+#root > div > div.citizenInfoComponents.col {
+    padding-right: 0px;
+}
+
+#root > div.citizenInfoReturn {
+    width: max-content;
+}
+
+#root > div > div.citizenInfoComponents.col > div {
+    width: 950px;
+    margin-left: 5px;
+}
+
+#root > div > div.citizenInfoComponents.col > div > div.card-header {
+    font-size: 20px;
+}
+
+#root > div > div.citizenInfoComponents.col > div > div.card-body {
+    margin: 10px 15px;
+}
+
+#root > div > div.citizenInfoComponents.col > div > svg {
+    position: relative;
+    transform: translate(500px, 50px);
+}

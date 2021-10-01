@@ -1,0 +1,43 @@
+.citizenList {
+    margin: 2px;
+    padding: 10px;
+    background-color: #364b69;
+    border-radius: 4px;
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+#root > div > div > div > div.citizenCard {
+    margin: 5px;
+    text-align: left;
+    padding: 2px;
+}
+
+#root > div > div > div > div > div > div > p > div {
+    align-items: flex-start;
+}
+
+.citizenCard:hover {
+    transform: scale(1.025, 1.025);
+    cursor: pointer;
+    transition: ease-in-out 300ms;
+}
+
+.citizenCard {
+    transition: ease-in-out 300ms;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #becfe9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #43608a;
+    border-radius: 4px;
+}

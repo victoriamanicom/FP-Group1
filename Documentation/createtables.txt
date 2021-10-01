@@ -1,0 +1,119 @@
+CREATE TABLE atm_point (
+    atm_id int,
+    operator varchar(255),
+    street_name varchar(255),
+    postcode varchar(255),
+    latitude decimal(15,13),
+    longitude decimal(17,15) 	  
+);
+CREATE TABLE atm_transaction (
+    timestamp datetime(3),
+    atm_id int PRIMARY KEY,
+    bank_card_number bigint,
+    type varchar(255),
+    amount decimal(5,2)	  
+);
+CREATE TABLE bank_card(
+    bank_card_id int ,
+    card_number bigint,
+    sortcode varchar(255),
+    bank_account_id int,
+    account_number int,
+    bank varchar(255)	  
+);
+
+CREATE TABLE citizen (
+    citizen_id bigint ,
+    forenames varchar(255),
+    surname varchar(255),
+    home_address varchar(255),
+    date_of_birth date,
+    place_of_birth varchar(255),
+    sex varchar(255)		  
+);
+
+CREATE TABLE epos (
+    id int,
+    vendor varchar(255),
+    street_name varchar(255),
+    postcode varchar(255),
+    latitude decimal(15,13),
+    longitude decimal(17,15)	  
+);
+
+CREATE TABLE epos_transactions (
+    timestamp datetime(3),
+    epos_id int,
+    bank_card_number bigint,
+    payee_account bigint,
+    amount decimal(6,2),	
+    id bigint PRIMARY KEY AUTO_INCREMENT
+);
+
+CREATE TABLE mobile_call_records (
+    timestamp datetime(3),
+    caller_msisdn varchar(255) ,
+    call_cell_tower_id int,
+    receiver_msisdn varchar(255),
+    receiver_tower_id int,
+    id bigint PRIMARY KEY AUTO_INCREMENT	  
+);
+
+CREATE TABLE passport (
+    passport_number int primary key,
+    surname varchar(255),
+    given_name varchar(255),
+    nationality varchar(255),
+    dob date,
+    sex varchar(255),
+    place_of_birth varchar(255),
+    issuing_country varchar(255),
+    date_of_issue date,
+    date_of_expiry date
+);
+
+CREATE TABLE people_bank_account (
+    bank_account_id int PRIMARY KEY,
+    account_number int,
+    bank varchar(255),
+    forenames varchar(255),
+    surname varchar(255),
+    date_of_birth date,
+    home_address varchar(255)  
+);
+
+CREATE TABLE people_mobile (
+    forenames varchar(255),
+    surname varchar(255),
+    date_of_birth date,
+    address varchar(255),
+    town varchar(255),
+    postcode varchar(255),
+    phone_number varchar(255) PRIMARY KEY,
+    network varchar(255)  
+);
+
+CREATE TABLE people_business_address (
+    person_name varchar(255),
+    home_address varchar(255),
+    date_of_birth date,
+    business_name varchar(255),
+    business_address varchar(255),
+    id bigint PRIMARY KEY AUTO_INCREMENT
+);
+
+
+
+CREATE TABLE vehicle_registration (
+    registration_id int PRIMARY KEY,
+    registration_date date,
+    vehicle_registration_no varchar(255),
+    make varchar(255),
+    model varchar(255),  
+    colour varchar(255),
+    forenames varchar(255),	  
+    surname varchar(255),
+    address varchar(255),	  
+    date_of_birth date,
+    driver_licence_id varchar(255)	  
+);
